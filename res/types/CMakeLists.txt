@@ -144,10 +144,7 @@ foreach(language ${LANGUAGES})
     endif()
 
   elseif("${RTI_CONNEXT_SDK}" MATCHES "micro")
-
     target_link_libraries(${language}_${RTI_CONNEXT_SDK}_types_lib RTIConnextDDSMicro::rti_me)
-    set(libraries RTIConnextDDSMicro::rti_me)
-
   endif()
 
 endforeach()
