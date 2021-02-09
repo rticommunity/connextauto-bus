@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+
+    <!-- Data Types -->
+    <types>
+        <include file="res/types/data/sensing/Camera_t.xml" />
+        <include file="res/types/data/sensing/Lidar_t.xml" />
+        <include file="res/types/data/perception/Track_t.xml" />
+        <include file="res/types/data/perception/Lane_t.xml" />
+        <include file="res/types/data/planning/Alert_t.xml" />
+        <include file="res/types/data/actuation/Actuation_t.xml" />
+        <include file="res/types/data/gateway/CAN_t.xml" />
+    </types>
+
+    <!-- Databus Library -->
+    <domain_library name="Drive_bus">
+
+        <!-- main vehicle databus -->
+        <domain name="main">
+            
+            <!-- Camera -->
+            <register_type name="dds::sensing::Camera"
+                type_ref="dds::sensing::Camera" />
+            <topic name="Stream/Camera"
+                register_type_ref="dds::sensing::Camera"/>
+   
+            <!-- Lidar -->
+            <register_type name="dds::sensing::Lidar"
+                type_ref="dds::sensing::Lidar" />
+            <topic name="Stream/Lidar"
+                register_type_ref="dds::sensing::Lidar"/>
+            
+
+            <!-- Track -->
+            <register_type name="dds::perception::Track" 
+                type_ref="dds::perception::Track" />
+            <topic name="Status/Track"    
+                register_type_ref="dds::perception::Track"/>
+
+            <!-- TrackInfo -->
+            <register_type name="dds::perception::TrackInfo" 
+                type_ref="dds::perception::TrackInfo" />
+            <topic name="Config/TrackInfo"    
+                register_type_ref="dds::perception::TrackInfo"/>
+
+
+            <!-- Lane -->
+            <register_type name="dds::perception::Lane" 
+                type_ref="dds::perception::Lane" />
+            <topic name="Status/Lane"    
+                register_type_ref="dds::perception::Lane"/>
+
+            <!-- LaneInfo -->
+            <register_type name="dds::perception::LaneInfo" 
+                type_ref="dds::perception::LaneInfo" />
+            <topic name="Config/LaneInfo"    
+                register_type_ref="dds::perception::LaneInfo"/>
+
+
+            <!-- Alert -->
+            <register_type name="dds::planning::Alert" 
+                type_ref="dds::planning::Alert" />
+            <topic name="Status/Alert"    
+                register_type_ref="dds::planning::Alert"/>
+
+
+            <!-- SteeringDesired -->
+            <register_type name="dds::actuation::SteeringDesired" 
+                type_ref="dds::actuation::SteeringDesired"/>
+            <topic name="Status/SteeringDesired"    
+                register_type_ref="dds::actuation::SteeringDesired"/>
+
+            <!-- SteeringActual -->
+            <register_type name="dds::actuation::SteeringActual" 
+                type_ref="dds::actuation::SteeringActual"/>
+            <topic name="Status/SteeringActual"    
+                register_type_ref="dds::actuation::SteeringActual"/>
+
+        </domain>
+
+
+        
+        <!-- DDS-CAN databus (may be layered) --> 
+        <domain name="CAN">
+
+            <!-- CANSignalInfo -->
+            <register_type name="dds::can::CANSignalInfo" 
+                type_ref="dds::can::CANSignalInfo"/>
+            <topic name="Config/SignalInfo"    
+                register_type_ref="dds::can::CANSignalInfo"/>
+
+            <!-- CANSignalIn and CANSignalOut -->
+            <register_type name="dds::can::CANSignal" 
+                type_ref="dds::can::CANSignal"/>
+            <topic name="Status/SignalIn"
+                register_type_ref="dds::can::CANSignal"/>
+            <topic name="Status/SignalOut"
+                register_type_ref="dds::can::CANSignal"/>
+
+            <!-- CANFrameIn and CANFrameOut -->
+            <register_type name="dds::can::CANFrame"
+                type_ref="dds::can::CANFrame"/>
+            <topic name="Stream/FrameIn"
+                register_type_ref="dds::can::CANFrame"/>
+            <topic name="Stream/FrameOut"
+                register_type_ref="dds::can::CANFrame"/>
+
+       </domain>
+    </domain_library>
+</dds>

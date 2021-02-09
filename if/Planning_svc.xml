@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+    
+    <!-- Planning Service -->
+    <domain_participant_library name="Planning_svc">
+
+        <!-- Planner interface -->
+        <domain_participant name="Planner" domain_ref="Drive_bus::main">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="Track_reader" topic_ref="Status/Track">
+                    <datareader_qos base_name="DriveQosLib::Planner" />
+                </data_reader>
+                <data_reader name="Lane_reader" topic_ref="Status/Lane">
+                    <datareader_qos base_name="DriveQosLib::Planner" />
+                </data_reader>
+                <data_reader name="Steering_reader" topic_ref="Status/SteeringActual">
+                    <datareader_qos base_name="DriveQosLib::Planner" />
+                </data_reader>
+                 <subscriber_qos base_name="DriveQosLib::Planner" />
+            </subscriber>
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Steering_writer" topic_ref="Status/SteeringDesired">
+                    <datawriter_qos base_name="DriveQosLib::Planner" />
+                </data_writer>
+                <data_writer name="Alert_writer" topic_ref="Status/Alert">
+                    <datawriter_qos base_name="DriveQosLib::Planner" />
+                </data_writer>
+                 <publisher_qos base_name="DriveQosLib::Planner" />
+            </publisher>
+            <participant_qos base_name="DriveDeploymentQosLib::Planner" />
+        </domain_participant>
+
+   </domain_participant_library>
+</dds>

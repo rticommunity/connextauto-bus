@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+
+    <qos_library name="SnippetQosLib">
+
+        <qos_profile name="ContentFilterMaxLength.6535">
+            <participant_qos>
+                <resource_limits>
+                    <contentfilter_property_max_length>65535</contentfilter_property_max_length>
+                </resource_limits>
+            </participant_qos>
+        </qos_profile>
+
+
+        <qos_profile name="Monitoring.1" base_name="BuiltinQosLib::Generic.Monitoring.Common">
+            <participant_qos>
+                <property>
+                    <value>
+                        <element>
+                            <name>rti.monitor.config.new_participant_domain_id</name>
+                            <value>1</value>
+                        </element>
+                        <element>
+                            <name>rti.monitor.config.skip_participant_properties</name>
+                            <value>true</value>
+                        </element>
+                    </value>
+                </property>
+            </participant_qos>
+        </qos_profile>
+
+
+        <qos_profile name="Transport.SHMEM">
+            <participant_qos>
+                <transport_builtin>
+                    <mask>SHMEM</mask>
+                    <shmem>
+                        <message_size_max>
+                            65536
+                            <!-- Alternate: 4MB+1KB, default: 65536 -->
+                        </message_size_max>
+                        <received_message_count_max>
+                            1024
+                            <!-- default: 64 -->
+                        </received_message_count_max>
+                        <receive_buffer_size>
+                            60000000
+                            <!-- 60MB, default: 1048576 ~ 1MB -->
+                        </receive_buffer_size>
+                    </shmem>
+                </transport_builtin>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Transport.UDPv4">
+            <participant_qos>
+                <transport_builtin>
+                    <mask>UDPv4</mask>
+                    <udpv4>
+                        <send_socket_buffer_size>
+                            1000000
+                            <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
+                        </send_socket_buffer_size>
+                        <recv_socket_buffer_size>
+                            2000000
+                            <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
+                        </recv_socket_buffer_size>
+                    </udpv4>
+                </transport_builtin>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Transport.UDPv4.Loopback">
+            <participant_qos>
+                <property>
+                    <value>
+                        <!-- restrict udp to localhost (loopback only) -->
+                        <element>
+                            <name>dds.transport.UDPv4.builtin.parent.allow_interfaces</name>
+                            <value>lo*</value>
+                        </element>
+                    </value>
+                </property>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Transport.UDPv6">
+            <participant_qos>
+                <transport_builtin>
+                    <mask>UDPv6</mask>
+                    <udpv6>
+                        <send_socket_buffer_size>
+                            1000000
+                            <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
+                        </send_socket_buffer_size>
+                        <recv_socket_buffer_size>
+                            2000000
+                            <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
+                        </recv_socket_buffer_size>
+                    </udpv6>
+                </transport_builtin>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Transport.Default">
+            <base_name>
+                <element>Transport.SHMEM</element>
+                <element>Transport.UDPv4</element>
+            </base_name>
+            <participant_qos>
+                <transport_builtin>
+                    <mask>SHMEM|UDPv4</mask>
+                </transport_builtin>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Discovery.UnknownPeers.DontAccept">
+            <participant_qos>
+                <discovery>
+                    <accept_unknown_peers>false</accept_unknown_peers>
+                </discovery>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Discovery.InitialPeers.None">
+            <participant_qos>
+                <discovery>
+                    <initial_peers>
+                        <element></element>
+                    </initial_peers>
+                    <accept_unknown_peers>true</accept_unknown_peers>
+                </discovery>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Discovery.InitialPeers.UDPv4.Multicast">
+            <participant_qos>
+                <discovery>
+                    <initial_peers>
+                        <element>239.255.0.1</element>
+                    </initial_peers>
+                </discovery>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Discovery.InitialPeers.SHMEM.32">
+            <participant_qos>
+                <discovery>
+                    <initial_peers>
+                        <!-- max_participant_id @ shmem:// -->
+                        <element>32@shmem://</element>
+                    </initial_peers>
+                </discovery>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Discovery.UDPv4">
+            <participant_qos>
+                <discovery>
+                    <enabled_transports>
+                        <element>udpv4</element>
+                    </enabled_transports>
+                </discovery>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="DefaultUnicast.SHMEM">
+            <participant_qos>
+                <!-- use shmem for unicast user data -->
+                <default_unicast>
+                    <value>
+                        <element>
+                            <transports>
+                                <element>shmem</element>
+                            </transports>
+                        </element>
+                    </value>
+                </default_unicast>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="HostId.1">
+            <participant_qos>
+                <transport_builtin>
+                    <shmem>
+                        <host_id>101</host_id>
+                    </shmem>
+                </transport_builtin>
+                <wire_protocol>
+                    <rtps_host_id>101</rtps_host_id>
+                </wire_protocol>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="AppId.1">
+            <!-- N -->
+            <participant_qos>
+                <wire_protocol>
+                    <rtps_app_id>
+                        1
+                        <!-- N -->
+                    </rtps_app_id>
+                    <participant_id>
+                        1
+                        <!-- N -->
+                    </participant_id>
+                </wire_protocol>
+            </participant_qos>
+        </qos_profile>
+
+    </qos_library>
+</dds>

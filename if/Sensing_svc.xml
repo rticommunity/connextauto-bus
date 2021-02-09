@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+    
+    <!-- Camera Service -->
+    <domain_participant_library name="Sensing_svc">
+
+        <!-- Camera interface -->
+        <domain_participant name="Camera" domain_ref="Drive_bus::main">
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Camera_writer" topic_ref="Stream/Camera">
+                    <datawriter_qos base_name="DriveQosLib::Camera" />
+                </data_writer>
+                <publisher_qos base_name="DriveQosLib::Camera" />
+            </publisher>
+            <participant_qos base_name="DriveDeploymentQosLib::Camera" />
+        </domain_participant>
+
+        <!-- Lidar interface -->
+        <domain_participant name="Lidar" domain_ref="Drive_bus::main">
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Lidar_writer" topic_ref="Stream/Lidar">
+                    <datawriter_qos base_name="DriveQosLib::Lidar" />
+                </data_writer>
+                <publisher_qos base_name="DriveQosLib::Lidar" />
+            </publisher>
+            <participant_qos base_name="DriveDeploymentQosLib::Lidar" />
+        </domain_participant>
+
+   </domain_participant_library>
+</dds>

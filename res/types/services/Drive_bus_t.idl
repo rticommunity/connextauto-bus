@@ -1,0 +1,63 @@
+/*****************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef DRIVE_BUS_IDL
+#define DRIVE_BUS_IDL
+
+module dds {
+    /*************************************************************************
+     * Databus - DDS-XML Interface String Constants, for use in code
+     */
+    module Drive_bus {
+
+        module registered_type {
+            const string Camera         = "dds::sensing::Camera";
+            const string Lidar          = "dds::sensing::Lidar";
+
+            const string Track          = "dds::perception::Track";
+            const string TrackInfo      = "dds::perception::TrackInfo";
+
+            const string Lane           = "dds::perception::Lane";
+            const string LaneInfo       = "dds::perception::LaneInfo";
+
+            const string Alert          = "dds::planning::Alert";
+
+            const string SteeringDesired= "dds::actuation::SteeringDesired";
+            const string SteeringActual = "dds::actuation::SteeringActual";
+
+            const string CANSignalInfo  = "dds::can::CANSignalInfo";
+            const string CANSignal      = "dds::can::CANSignal";
+            const string CANFrame       = "dds::can::CANFrame";
+        };
+
+        module topic {
+            const string Camera         = "Stream/Camera";
+            const string Lidar          = "Stream/Lidar";
+
+            const string Track          = "Status/Track";
+            const string TrackInfo      = "Config/TrackInfo";
+
+            const string Lane           = "Status/Lane";
+            const string LaneInfo       = "Config/LaneInfo";
+
+            const string Alert          = "Status/Alert";
+
+            const string SteeringDesired= "Status/SteeringDesired";
+            const string SteeringActual = "Status/SteeringActual";
+
+            const string SignalInfo     = "Config/SignalInfo";
+            const string SignalIn       = "Status/SignalIn";
+            const string SignalOut      = "Status/SignalOut";
+            const string FrameIn        = "Stream/FrameIn";
+            const string FrameOut       = "Stream/FrameOut";
+        };
+    };
+};
+
+#endif /* DRIVE_BUS_IDL */

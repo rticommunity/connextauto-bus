@@ -1,0 +1,61 @@
+/*****************************************************************************
+  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+
+   Licensed according to the terms in the LICENSE.md file located at the root 
+   of this software repository:
+
+                                LICENSE.md
+
+*****************************************************************************/
+#ifndef CAN_SVC_IDL
+#define CAN_SVC_IDL
+
+#include "res/types/services/Drive_bus_t.idl"
+#include "res/types/data/gateway/CAN_t.idl"
+
+module dds {
+    /*************************************************************************
+     * Service Interfaces - DDS-XML Interface String Constants, for use in code
+     */
+    module CAN_svc {
+        module Gateway {
+            const string participant    = "CAN_svc::CANGateway";
+
+            /* for implementations that use a separate participant outgoing 
+               path, and separate participant for the incoming path */
+            const string participant_in = "CAN_svc::CANGateway_can_to_dds";
+            const string participant_out= "CAN_svc::CANGateway_dds_to_can";
+
+            module reader {
+                const string SignalInfo = "inputs::SignalInfo_reader";
+                const string Signal     = "inputs::Signal_reader";
+            };
+            module writer {
+                const string Signal     = "outputs::Signal_writer";
+            };
+        };
+        module Component {
+            const string participant    = "CAN_svc::CANComponent";
+            const string tester         = "CAN_svc::CANComponent_tester";
+
+            module reader {
+                const string SignalInfo = "inputs::SignalInfo_reader";
+                const string Signal     = "inputs::Signal_reader";
+            };
+            module writer {
+                const string Signal     = "outputs::Signal_writer";
+            };
+        };
+        module Tunnel {
+            const string participant    = "CAN_svc::CANTunnel";
+            module reader {
+                const string Frame      = "inputs::Frame_reader";
+            };
+            module writer {
+                const string Frame      = "outputs::Frame_writer";
+            };
+        };
+    };
+};
+
+#endif /* CAN_SVC_IDL */

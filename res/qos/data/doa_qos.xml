@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+
+    <qos_library name="FlowQosLib">
+
+        <!-- Streams : Stream/* -->
+        <qos_profile name="Streaming.BestEffort" base_name="BuiltinQosLibExp::Generic.BestEffort">
+            <datareader_qos>
+                <history>
+                    <depth>3</depth>
+                </history>
+            </datareader_qos>
+            <datawriter_qos>
+                <history>
+                    <depth>3</depth>
+                </history>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="Streaming.Reliable" base_name="BuiltinQosLibExp::Pattern.ReliableStreaming">
+            <datareader_qos>
+                <history>
+                    <depth>3</depth>
+                </history>
+            </datareader_qos>
+            <datawriter_qos>
+                <history>
+                    <depth>3</depth>
+                </history>
+            </datawriter_qos>
+        </qos_profile>
+
+        <!-- Events : Event/* -->
+        <qos_profile name="Event" base_name="BuiltinQosLibExp::Pattern.Event">
+            <!-- may BLOCK writer for ReliabilityQosPolicy::max_blocking_time -->
+        </qos_profile>
+
+
+        <!-- Status: Status/*
+                - Monitored, e.g. Health
+                - TRANSIENT_LOCAL
+        -->
+        <qos_profile name="Status" base_name="BuiltinQosLibExp::Pattern.Status">
+        </qos_profile>
+
+
+        <!-- State : State/*
+                - State needed for failover and recovery
+                - TRANSIENT (requires Persistence Service)
+        -->
+        <qos_profile name="State" base_name="BuiltinQosLibExp::Pattern.Status">
+            <datareader_qos>
+                <durability>
+                    <kind>TRANSIENT_DURABILITY_QOS</kind>
+                </durability>
+            </datareader_qos>
+            <datawriter_qos>
+                <durability>
+                    <kind>TRANSIENT_DURABILITY_QOS</kind>
+                </durability>
+             </datawriter_qos>
+        </qos_profile>
+
+
+        <!-- Configuration : Config/* 
+                - Initial Configuration needed for startup
+                - Persistent Parameters
+                - PERSISTENT (requires Persistence Service)
+        -->
+        <qos_profile name="Configuration" base_name="BuiltinQosLibExp::Pattern.LastValueCache">
+            <datareader_qos>
+                <history>
+                    <depth>1</depth>
+                </history>
+                <durability>
+                    <kind>TRANSIENT_DURABILITY_QOS</kind>
+                </durability>
+             </datareader_qos>
+            <datawriter_qos>
+                <history>
+                    <!-- data + dispose + unregister -->
+                    <depth>3</depth>
+                </history>
+                <durability>
+                    <kind>TRANSIENT_DURABILITY_QOS</kind>
+                </durability>
+             </datawriter_qos>
+        </qos_profile>
+
+
+        <!-- Service Request: Service/Request/*
+                - Command-Response 
+                - Objective State 
+        -->
+        <qos_profile name="Request" base_name="BuiltinQosLibExp::Generic.StrictReliable">
+            <datareader_qos>
+                <!-- KEEP_ALL history: don't drop any requests -->
+            </datareader_qos>
+            <datawriter_qos>
+                <!-- Requested Objective -->
+                <history>
+                    <!-- don't block the writer -->
+                    <kind>KEEP_LAST_HISTORY_QOS</kind>
+                    <!-- one command (Requested Objective) outstanding -->
+                    <depth>3</depth>
+                </history>
+            </datawriter_qos>
+       </qos_profile>
+
+        <!-- Service Response: Service/Response/*
+                - Command-Response
+                - Objective State 
+        -->
+         <qos_profile name="Response" base_name="Request">
+            <datareader_qos>
+                <!-- KEEP_ALL history: don't drop any responses -->
+            </datareader_qos>
+            <datawriter_qos>
+                <!-- Objective -->
+                <history>
+                    <!-- don't block the writer -->
+                    <kind>KEEP_LAST_HISTORY_QOS</kind>
+                    <!-- N responses (Objectives) outstanding -->
+                    <depth>
+                        <!-- N = -->
+                        3
+                    </depth>
+                </history>
+            </datawriter_qos>
+       </qos_profile>
+
+
+        <!-- Logging : Log/* -->
+        <qos_profile name="Logging" base_name="BuiltinQosLibExp::Generic.StrictReliable">
+            <datawriter_qos>
+                <history>
+                    <!-- don't block the writer -->
+                    <kind>KEEP_LAST_HISTORY_QOS</kind>
+                    <depth>128</depth>
+                </history>
+            </datawriter_qos>
+        </qos_profile>
+
+
+        <!-- Participant -->
+        <qos_profile name="Participant" base_name="BuiltinQosLibExp::Generic.Participant.LargeData" />
+
+    </qos_library>
+</dds>

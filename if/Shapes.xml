@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        Shapes Service - Interfaces
+
+- Define "Shapes" service as a collection of data-oriented interfaces
+- RTI Shapes Demo can be considered as an implementation of this Service
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+
+    <!-- Data Types -->
+    <types>
+            <include file="res/types/Shapes_t.xml" />
+    </types>
+
+    <!-- Participants : each participant defines a data-oriented interface -->
+    <domain_participant_library name="Shapes_svc">
+
+        <!-- Root: empty interface to register types and topics -->
+        <domain_participant name="_root_">
+
+            <!-- register types used by the service -->
+            <register_type name="ShapeType" type_ref="Shapes::data::ShapeType" />
+
+            <!-- register topics used by the service -->
+            <topic name="Square"    register_type_ref="ShapeType"/>
+            <topic name="Circle"    register_type_ref="ShapeType"/>      
+            <topic name="Triangle"  register_type_ref="ShapeType"/> 
+
+        </domain_participant>
+
+        <!-- Define a data-oriented interface: "Pub" -->
+        <domain_participant name="Pub" base_name="_root_">
+
+            <!-- Outputs -->
+            <publisher name="outputs">
+
+                <data_writer name="Shape_writer" topic_ref="Triangle">
+                    <datawriter_qos base_name="ShapesQosLib::Pub" />
+                </data_writer>
+
+                <publisher_qos base_name="ShapesQosLib::Pub" />
+            </publisher>
+
+            <participant_qos base_name="ShapesQosLib::Pub" />
+        </domain_participant>
+
+
+        <!-- Define a data-oriented interface: "Sub" -->
+        <domain_participant name="Sub" base_name="_root_">
+
+            <!-- Inputs -->
+            <subscriber name="inputs">
+
+                <data_reader name="Shape_reader" topic_ref="Triangle">
+                    <datareader_qos base_name="ShapesQosLib::Sub" />
+                </data_reader>
+
+                <subscriber_qos base_name="ShapesQosLib::Sub" />
+            </subscriber>
+
+            <participant_qos base_name="ShapesQosLib::Sub" />
+        </domain_participant>
+
+        <!-- Define a data-oriented interface: "PubSub" -->
+        <domain_participant name="PubSub" base_name="_root_">
+
+            <!-- Inputs -->
+            <subscriber name="inputs">
+
+                <data_reader name="Shape_reader" topic_ref="Circle">
+                    <datareader_qos base_name="ShapesQosLib::PubSub" />
+                </data_reader>
+
+                <subscriber_qos base_name="ShapesQosLib::PubSub" />
+            </subscriber>
+
+
+            <!-- Outputs -->
+            <publisher name="outputs">
+
+                <data_writer name="Shape_writer" topic_ref="Circle">
+                    <datawriter_qos base_name="ShapesQosLib::PubSub" />
+                </data_writer>
+
+                <publisher_qos base_name="ShapesQosLib::PubSub" />
+            </publisher>
+
+            <participant_qos base_name="ShapesQosLib::PubSub" />
+        </domain_participant>
+
+    </domain_participant_library>
+</dds>

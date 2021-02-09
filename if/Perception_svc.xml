@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+    
+    <!-- Perception Service -->
+    <domain_participant_library name="Perception_svc">
+
+        <!-- Perceptor interface -->
+        <domain_participant name="Perceptor" domain_ref="Drive_bus::main">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="Camera_reader" topic_ref="Stream/Camera">
+                    <datareader_qos base_name="DriveQosLib::Perceptor" />
+                </data_reader>
+                <data_reader name="Lidar_reader" topic_ref="Stream/Lidar">
+                    <datareader_qos base_name="DriveQosLib::Perceptor" />
+                </data_reader>
+                <subscriber_qos base_name="DriveQosLib::Perceptor" />
+            </subscriber>
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Track_writer" topic_ref="Status/Track">
+                    <datawriter_qos base_name="DriveQosLib::Perceptor" />
+                </data_writer>
+                <data_writer name="Lane_writer" topic_ref="Status/Lane">
+                    <datawriter_qos base_name="DriveQosLib::Perceptor" />
+                </data_writer>
+                 <publisher_qos base_name="DriveQosLib::Perceptor" />
+            </publisher>
+            <participant_qos base_name="DriveDeploymentQosLib::Perceptor" />
+        </domain_participant>
+
+   </domain_participant_library>
+</dds>

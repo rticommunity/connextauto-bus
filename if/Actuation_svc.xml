@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+    
+    <!-- Actuation Service -->
+    <domain_participant_library name="Actuation_svc">
+
+        <!-- Actuator interface -->
+        <domain_participant name="Actuator" domain_ref="Drive_bus::main">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+               <data_reader name="Steering_reader" topic_ref="Status/SteeringDesired">
+                    <datareader_qos base_name="DriveQosLib::Actuator" />
+                </data_reader>
+                 <subscriber_qos base_name="DriveQosLib::Actuator" />
+            </subscriber>
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Steering_writer" topic_ref="Status/SteeringActual">
+                    <datawriter_qos base_name="DriveQosLib::Actuator" />
+                </data_writer>
+           </publisher>
+            <participant_qos base_name="DriveDeploymentQosLib::Actuator" />
+        </domain_participant>
+
+   </domain_participant_library>
+</dds>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+    
+    <!-- CAN Service -->
+    <domain_participant_library name="CAN_svc">
+
+        <!-- CAN Gateway interface -->
+        <domain_participant name="CANGateway" domain_ref="Drive_bus::CAN">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="SignalInfo_reader" topic_ref="Config/SignalInfo">
+                    <datareader_qos base_name="DriveQosLib::CANGateway" />
+                </data_reader>
+                <data_reader name="Signal_reader" topic_ref="Status/SignalOut">
+                    <datareader_qos base_name="DriveQosLib::CANGateway" />
+                </data_reader>
+                <subscriber_qos base_name="DriveQosLib::CANGateway" />
+            </subscriber>
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Signal_writer" topic_ref="Status/SignalIn">
+                    <datawriter_qos base_name="DriveQosLib::CANGateway" />
+                </data_writer>
+                <publisher_qos base_name="DriveQosLib::CANGateway" />
+            </publisher>
+            <participant_qos base_name="DriveDeploymentQosLib::CANGateway" />
+        </domain_participant>
+
+        <!-- CAN Component interface -->
+        <domain_participant name="CANComponent" domain_ref="Drive_bus::CAN">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="SignalInfo_reader" topic_ref="Config/SignalInfo">
+                    <datareader_qos base_name="DriveQosLib::CANComponent" />
+                </data_reader>
+                <data_reader name="Signal_reader" topic_ref="Status/SignalIn">
+                    <datareader_qos base_name="DriveQosLib::CANComponent" />
+                </data_reader>
+                <subscriber_qos base_name="DriveQosLib::CANComponent" />
+            </subscriber>
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Signal_writer" topic_ref="Status/SignalOut">
+                    <datawriter_qos base_name="DriveQosLib::CANComponent" />
+                </data_writer>
+                <publisher_qos base_name="DriveQosLib::CANComponent" />
+            </publisher>
+            <participant_qos base_name="DriveDeploymentQosLib::CANComponent" />
+        </domain_participant>
+
+        <!-- CAN Tunnel interface -->
+        <domain_participant name="CANTunnel" domain_ref="Drive_bus::CAN">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="Frame_reader" topic_ref="Stream/FrameIn">
+                    <datareader_qos base_name="DriveQosLib::CANTunnel" />
+                </data_reader>
+                <subscriber_qos base_name="DriveQosLib::CANTunnel" />
+            </subscriber>
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Frame_writer" topic_ref="Stream/FrameOut">
+                    <datawriter_qos base_name="DriveQosLib::CANTunnel" />
+                </data_writer>
+                <publisher_qos base_name="DriveQosLib::CANTunnel" />
+            </publisher>
+            <participant_qos base_name="DriveDeploymentQosLib::CANTunnel" />
+        </domain_participant>
+
+   </domain_participant_library>
+</dds>

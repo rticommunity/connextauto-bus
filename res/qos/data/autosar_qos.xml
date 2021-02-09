@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+
+    <qos_library name="FlowQosLib">
+
+        <!-- Methods -->
+        <qos_profile name="MethodRequest" base_name="BuiltinQosLibExp::Pattern.Event"/>
+        <qos_profile name="MethodReply"   base_name="MethodRequest"/>
+        
+       
+        <!-- Fields -->
+        <qos_profile name="FieldRequest" base_name="MethodRequest"/>
+        <qos_profile name="FieldReply"   base_name="MethodReply"/>
+        <qos_profile name="Field"        base_name="BuiltinQosLibExp::Pattern.Status"/>
+        
+
+
+        <!-- Events -->
+        
+        <!-- Event.Reliable.Strict -->
+        <qos_profile name="Event.Reliable.Strict" 
+                base_name="BuiltinQosLibExp::Generic.StrictReliable.LowLatency">
+            <base_name>
+                <element>SnippetQosLib::Reliable.Strict</element>
+                <element>SnippetQosLib::Reliable.Strict.Name</element>
+            </base_name>
+        </qos_profile>
+        <qos_profile name="Event.Reliable.Strict.Large" 
+                base_name="BuiltinQosLibExp::Generic.StrictReliable.LargeData">
+            <base_name>
+                <element>SnippetQosLib::Reliable.Strict</element>
+                <element>SnippetQosLib::Reliable.Strict.Name.Large</element>              
+            </base_name>          
+        </qos_profile>
+
+
+        <!-- Event.Reliable.KeepLast -->
+        <qos_profile name="Event.Reliable.KeepLast" 
+                base_name="BuiltinQosLibExp::Generic.KeepLastReliable">
+            <base_name>
+                <element>SnippetQosLib::Reliable.KeepLast</element>
+                <element>SnippetQosLib::Reliable.KeepLast.Name</element>
+            </base_name>
+        </qos_profile>
+        <qos_profile name="Event.Reliable.KeepLast.Large"
+                base_name="BuiltinQosLibExp::Generic.KeepLastReliable.LargeData">
+            <base_name>
+                <element>SnippetQosLib::Reliable.KeepLast</element>
+                <element>SnippetQosLib::Reliable.KeepLast.Name.Large</element>
+            </base_name>
+        </qos_profile>
+                
+                
+        <!-- Event.BestEffort -->
+        <qos_profile name="Event.BestEffort"         
+                base_name="BuiltinQosLibExp::Generic.BestEffort">
+            <base_name>
+                <element>SnippetQosLib::BestEffort</element>
+                <element>SnippetQosLib::BestEffort.Name</element>      
+            </base_name>
+        </qos_profile>
+
+
+        <!-- Participant -->
+        <qos_profile name="Participant" 
+                base_name="BuiltinQosLibExp::Generic.Participant.LargeData"/>      
+    </qos_library>
+</dds>

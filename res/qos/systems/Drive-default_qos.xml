@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the _root_ 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        Drive Service - Deployment QoS Profiles
+
+- Defines participant specific system deployment qos profiles
+- A new per component specific system qos profile should be added when a 
+  new component is added in the if/*.xml file
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+
+    <!-- Service QosProfiles -->
+    <qos_library name="DriveDeploymentQosLib">
+
+        <!-- Participant specific QosProfile, common across all the components -->
+        <qos_profile name="_root_">
+            <participant_qos base_name="FlowQosLib::Participant" />
+            <participant_factory_qos base_name="SnippetQosLib::Factory.Builtin" />
+        </qos_profile>
+
+
+        <!-- Camera : component specific QosProfile -->
+        <qos_profile name="Camera" base_name="_root_">
+            <participant_qos>
+                <participant_name>
+                    <name>Camera</name>
+                    <role_name>Camera</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+        <!-- Lidar : component specific QosProfile -->
+        <qos_profile name="Lidar" base_name="_root_">
+            <participant_qos>
+                <participant_name>
+                    <name>Lidar</name>
+                    <role_name>Lidar</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+        <!-- Perceptor : component specific QosProfile -->
+        <qos_profile name="Perceptor" base_name="_root_">
+            <participant_qos>
+                <participant_name>
+                    <name>Perceptor</name>
+                    <role_name>Perceptor</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+        <!-- Planner : component specific QosProfile -->
+        <qos_profile name="Planner" base_name="_root_">
+            <participant_qos>
+                <participant_name>
+                    <name>Planner</name>
+                    <role_name>Planner</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+        <!-- Actuator : component specific QosProfile -->
+        <qos_profile name="Actuator" base_name="_root_">
+            <participant_qos>
+                <participant_name>
+                    <name>Actuator</name>
+                    <role_name>Actuator</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+        <!-- HMI : component specific QosProfile -->
+        <qos_profile name="HMI" base_name="_root_">
+            <participant_qos>
+                <participant_name>
+                    <name>HMI</name>
+                    <role_name>HMI</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+        <!-- CANGateway : component specific QosProfile -->
+        <qos_profile name="CANGateway" base_name="_root_">
+            <participant_qos>
+                <participant_name>
+                    <name>CAN Gateway</name>
+                    <role_name>CAN Gateway</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+        <!-- CANComponent : component specific QosProfile -->
+        <qos_profile name="CANComponent" base_name="_root_">
+            <participant_qos>
+                <participant_name>
+                    <name>CAN Component</name>
+                    <role_name>CAN Component</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+        <!-- CANTunnel : component specific QosProfile -->
+        <qos_profile name="CANTunnel" base_name="_root_">
+            <participant_qos>
+                <participant_name>
+                    <name>CAN Tunnel</name>
+                    <role_name>CAN Tunnel</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+    </qos_library>
+</dds>

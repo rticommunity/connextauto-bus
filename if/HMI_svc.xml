@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+    
+    <!-- HMI Service -->
+    <domain_participant_library name="HMI_svc">
+
+        <!-- HMI interface -->
+        <domain_participant name="HMI" domain_ref="Drive_bus::main">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="Alert_reader" topic_ref="Status/Alert">
+                    <datareader_qos base_name="DriveQosLib::HMI" />
+                </data_reader>
+                <subscriber_qos base_name="DriveQosLib::HMI" />
+            </subscriber>
+           <participant_qos base_name="DriveDeploymentQosLib::HMI" />
+        </domain_participant>
+
+   </domain_participant_library>
+</dds>

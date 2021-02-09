@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the _root_ 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        Drive Service - QoS Profiles
+
+- Defines a topic specific service qos profile, common across all interfaces
+- Defines per interface specific qos profiles that extends the common topic
+  specific service profile, and makes any interface specific adjustments
+- A new per interface specific qos profile should be added when a new interface
+  is added in the if/*.xml file
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+
+    <!-- Service QosProfiles -->
+    <qos_library name="DriveQosLib">
+
+        <!-- Topic specific QosProfile, common across all the interfaces -->
+        <qos_profile name="_root_">
+
+            <datareader_qos topic_filter="Stream/*" 
+                            base_name="FlowQosLib::Streaming.BestEffort" />
+            <datawriter_qos topic_filter="Stream/*" 
+                            base_name="FlowQosLib::Streaming.Reliable" />
+
+            <datareader_qos topic_filter="Event/*" 
+                            base_name="FlowQosLib::Event" />
+            <datawriter_qos topic_filter="Event/*" 
+                            base_name="FlowQosLib::Event" />
+
+            <datareader_qos topic_filter="Status/*" 
+                            base_name="FlowQosLib::Status" />
+            <datawriter_qos topic_filter="Status/*" 
+                            base_name="FlowQosLib::Status" />
+
+            <datareader_qos topic_filter="State/*" 
+                            base_name="FlowQosLib::State" />
+            <datawriter_qos topic_filter="State/*" 
+                            base_name="FlowQosLib::State" />
+
+            <datareader_qos topic_filter="Config/*" 
+                            base_name="FlowQosLib::Configuration" />
+            <datawriter_qos topic_filter="Config/*" 
+                            base_name="FlowQosLib::Configuration" />
+
+            <datareader_qos topic_filter="Service/Request/*" 
+                            base_name="FlowQosLib::Request" />
+            <datawriter_qos topic_filter="Service/Response/*" 
+                            base_name="FlowQosLib::Response" />
+
+            <datareader_qos topic_filter="Log/*" 
+                            base_name="FlowQosLib::Logging" />
+            <datawriter_qos topic_filter="Config/*" 
+                            base_name="FlowQosLib::Logging" />
+
+            <datareader_qos topic_filter="Config/*" 
+                            base_name="FlowQosLib::Configuration" />
+            <datawriter_qos topic_filter="Config/*" 
+                            base_name="FlowQosLib::Configuration" />
+
+                
+            <!-- Catch all -->
+            <datareader_qos topic_filter="*" 
+                            base_name="FlowQosLib::Streaming.BestEffort" />
+            <datawriter_qos topic_filter="*" 
+                            base_name="FlowQosLib::Streaming.Reliable" />
+
+        </qos_profile>
+
+
+
+        <!-- Camera : interface specific QosProfile -->
+        <qos_profile name="Camera" base_name="_root_" />
+
+        <!-- Lidar : interface specific QosProfile -->
+        <qos_profile name="Lidar" base_name="_root_" />
+
+        <!-- Perceptor : interface specific QosProfile -->
+        <qos_profile name="Perceptor" base_name="_root_" />
+
+        <!-- Planner : interface specific QosProfile -->
+        <qos_profile name="Planner" base_name="_root_" />
+
+        <!-- Actuator : interface specific QosProfile -->
+        <qos_profile name="Actuator" base_name="_root_" />
+
+        <!-- HMI : interface specific QosProfile -->
+        <qos_profile name="HMI" base_name="_root_" />
+
+        <!-- CANGateway : interface specific QosProfile -->
+        <qos_profile name="CANGateway" base_name="_root_" />
+
+        <!-- CANComponent : interface specific QosProfile -->
+        <qos_profile name="CANComponent" base_name="_root_" />
+
+        <!-- CANTunnel : interface specific QosProfile -->
+        <qos_profile name="CANTunnel" base_name="_root_" />
+
+    </qos_library>
+</dds>

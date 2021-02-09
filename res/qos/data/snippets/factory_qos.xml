@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+
+    <qos_library name="SnippetQosLib">
+
+        <qos_profile name="Factory.Builtin" />
+
+        <qos_profile name="Factory.Logfile">
+            <participant_factory_qos>
+                <logging>
+                    <verbosity>ERROR</verbosity>
+                    <category>ALL</category>
+                    <print_format>VERBOSE_TIMESTAMPED</print_format>
+                    <output_file>Component.log</output_file>
+                </logging>
+            </participant_factory_qos>
+        </qos_profile>
+
+    </qos_library>
+</dds>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+
+    <qos_library name="SnippetQosLib">
+
+        <qos_profile name="Representation.XCDR2">
+            <datareader_qos>
+                <representation>
+                    <value>
+                        <element>XCDR2_DATA_REPRESENTATION</element>
+                    </value>
+                </representation>
+            </datareader_qos>
+            <datawriter_qos>
+                <representation>
+                    <value>
+                        <element>XCDR2_DATA_REPRESENTATION</element>
+                    </value>
+                </representation>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="InitialSamples.1">
+            <datawriter_qos>
+                <resource_limits>
+                    <initial_samples>1</initial_samples>
+                </resource_limits>
+            </datawriter_qos>
+            <datareader_qos>
+                <resource_limits>
+                    <initial_samples>1</initial_samples>
+                </resource_limits>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="InitialSamples.3">
+            <datawriter_qos>
+                <resource_limits>
+                    <initial_samples>3</initial_samples>
+                </resource_limits>
+            </datawriter_qos>
+            <datareader_qos>
+                <resource_limits>
+                    <initial_samples>3</initial_samples>
+                </resource_limits>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="InitialInstances.1">
+            <datawriter_qos>
+                <resource_limits>
+                    <initial_instances>1</initial_instances>
+                </resource_limits>
+            </datawriter_qos>
+            <datareader_qos>
+                <resource_limits>
+                    <initial_instances>1</initial_instances>
+                </resource_limits>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="WriterHistory.1">
+            <datawriter_qos>
+                <history>
+                    <depth>1</depth>
+                </history>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="WriterHistory.3">
+            <datawriter_qos>
+                <history>
+                    <depth>3</depth>
+                </history>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="ReaderHistory.1">
+            <datareader_qos>
+                <history>
+                    <depth>1</depth>
+                </history>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="ReaderHistory.3">
+            <datareader_qos>
+                <history>
+                    <depth>3</depth>
+                </history>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="WriterHistory.KeepLast">
+            <datawriter_qos>
+                <history>
+                    <kind>KEEP_LAST_HISTORY_QOS</kind>
+                </history>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="ReaderHistory.KeepLast">
+            <datareader_qos>
+                <history>
+                    <kind>KEEP_LAST_HISTORY_QOS</kind>
+                </history>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="History.KeepLast">
+            <datawriter_qos>
+                <history>
+                    <kind>KEEP_LAST_HISTORY_QOS</kind>
+                </history>
+            </datawriter_qos>
+            <datareader_qos>
+                <history>
+                    <kind>KEEP_LAST_HISTORY_QOS</kind>
+                </history>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="WriterHistory.KeepAll">
+            <datawriter_qos>
+                <history>
+                    <kind>KEEP_ALL_HISTORY_QOS</kind>
+                </history>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="ReaderHistory.KeepAll">
+            <datareader_qos>
+                <history>
+                    <kind>KEEP_ALL_HISTORY_QOS</kind>
+                </history>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="History.KeepAll">
+            <datawriter_qos>
+                <history>
+                    <kind>KEEP_ALL_HISTORY_QOS</kind>
+                </history>
+            </datawriter_qos>
+            <datareader_qos>
+                <history>
+                    <kind>KEEP_ALL_HISTORY_QOS</kind>
+                </history>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="Reliability.BestEffort">
+            <datareader_qos>
+                <reliability>
+                    <kind>BEST_EFFORT_RELIABILITY_QOS</kind>
+                </reliability>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="Reliability.Reliable">
+            <datawriter_qos>
+                <reliability>
+                    <kind>RELIABLE_RELIABILITY_QOS</kind>
+                </reliability>
+            </datawriter_qos>
+            <datareader_qos>
+                <reliability>
+                    <kind>RELIABLE_RELIABILITY_QOS</kind>
+                </reliability>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="Ack.Auto">
+            <datareader_qos>
+                <reliability>
+                    <acknowledgment_kind>
+                        APPLICATION_AUTO_ACKNOWLEDGMENT_MODE
+                    </acknowledgment_kind>
+                </reliability>
+            </datareader_qos>
+            <datawriter_qos>
+                <reliability>
+                    <acknowledgment_kind>
+                        APPLICATION_AUTO_ACKNOWLEDGMENT_MODE
+                    </acknowledgment_kind>
+                </reliability>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="Ack.Protocol">
+            <datareader_qos>
+                <reliability>
+                    <acknowledgment_kind>
+                        PROTOCOL_ACKNOWLEDGMENT_MODE
+                    </acknowledgment_kind>
+                </reliability>
+            </datareader_qos>
+            <datawriter_qos>
+                <reliability>
+                    <acknowledgment_kind>
+                        PROTOCOL_ACKNOWLEDGMENT_MODE
+                    </acknowledgment_kind>
+                </reliability>
+            </datawriter_qos>
+        </qos_profile>
+
+
+        <qos_profile name="Reliable.Strict">
+            <base_name>
+                <element>SnippetQosLib::Representation.XCDR2</element>
+                <element>SnippetQosLib::InitialSamples.1</element>
+                <element>SnippetQosLib::InitialInstances.1</element>
+                <element>SnippetQosLib::Ack.Protocol</element>
+            </base_name>
+        </qos_profile>
+        <qos_profile name="Reliable.Strict.Name">
+            <datareader_qos>
+                <subscription_name>
+                    <role_name>Reliable.Strict</role_name>
+                </subscription_name>
+            </datareader_qos>
+            <datawriter_qos>
+                <publication_name>
+                    <role_name>Reliable.Strict</role_name>
+                </publication_name>
+            </datawriter_qos>
+        </qos_profile>
+        <qos_profile name="Reliable.Strict.Name.Large">
+            <datareader_qos>
+                <subscription_name>
+                    <role_name>Reliable.Strict.Large</role_name>
+                </subscription_name>
+            </datareader_qos>
+            <datawriter_qos>
+                <publication_name>
+                    <role_name>Reliable.Strict.Large</role_name>
+                </publication_name>
+            </datawriter_qos>
+        </qos_profile>
+
+
+        <qos_profile name="Reliable.KeepLast">
+            <base_name>
+                <element>SnippetQosLib::Representation.XCDR2</element>
+                <element>SnippetQosLib::WriterHistory.3</element>
+                <element>SnippetQosLib::InitialSamples.1</element>
+                <element>SnippetQosLib::InitialInstances.1</element>
+                <element>SnippetQosLib::Ack.Protocol</element>
+            </base_name>
+        </qos_profile>
+        <qos_profile name="Reliable.KeepLast.Name">
+            <datareader_qos>
+                <subscription_name>
+                    <role_name>Reliable.KeepLast</role_name>
+                </subscription_name>
+            </datareader_qos>
+            <datawriter_qos>
+                <publication_name>
+                    <role_name>Reliable.KeepLast</role_name>
+                </publication_name>
+            </datawriter_qos>
+        </qos_profile>
+        <qos_profile name="Reliable.KeepLast.Name.Large">
+            <datareader_qos>
+                <subscription_name>
+                    <role_name>Reliable.KeepLast.Large</role_name>
+                </subscription_name>
+            </datareader_qos>
+            <datawriter_qos>
+                <publication_name>
+                    <role_name>Reliable.KeepLast.Large</role_name>
+                </publication_name>
+            </datawriter_qos>
+        </qos_profile>
+
+
+        <qos_profile name="BestEffort">
+            <base_name>
+                <element>SnippetQosLib::Representation.XCDR2</element>
+                <element>SnippetQosLib::Reliability.BestEffort</element>
+                <element>SnippetQosLib::History.KeepAll</element>
+                <element>SnippetQosLib::InitialSamples.3</element>
+                <element>SnippetQosLib::InitialInstances.1</element>
+            </base_name>
+            <!-- NOTE: Zero-Copy buffer pool is: 1 + InitialSamples = 4 -->
+        </qos_profile>
+        <qos_profile name="BestEffort.Name">
+            <datareader_qos>
+                <reliability>
+                    <acknowledgment_kind>
+                        PROTOCOL_ACKNOWLEDGMENT_MODE
+                    </acknowledgment_kind>
+                </reliability>
+                <subscription_name>
+                    <role_name>BestEffort</role_name>
+                </subscription_name>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="SyncPub">
+            <datawriter_qos>
+                <publish_mode>
+                    <kind>SYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+                </publish_mode>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="AsyncPub">
+            <datawriter_qos>
+                <publish_mode>
+                    <kind>ASYNCHRONOUS_PUBLISH_MODE_QOS</kind>
+                </publish_mode>
+            </datawriter_qos>
+        </qos_profile>
+
+    </qos_library>
+</dds>

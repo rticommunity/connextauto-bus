@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--  
+-******************************************************************************
+-  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-
+-   Licensed according to the terms in the LICENSE.md file located at the root 
+-   of this software repository:
+-
+-                                LICENSE.md
+-
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        Shape Service - QoS Profiles
+
+- Defines a topic specific service qos profile, common across all the interfaces
+- Defines per interface specific qos profiles that extends the common topic
+  specific service profile, and makes any interface specific adjustments
+- A new per interface specific qos profile should be added when a new interface
+is defined in the if/*.xml file
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+
+    <!-- Service QosProfiles -->
+    <qos_library name="ShapesQosLib">
+
+        <!-- Topic specific QosProfile, common across all the interfaces -->
+        <qos_profile name="_root_">
+
+            <datareader_qos topic_filter="Square" base_name="FlowQosLib::Streaming.BestEffort" />
+            <datawriter_qos topic_filter="Square" base_name="FlowQosLib::Streaming.Reliable" />
+
+            <datareader_qos topic_filter="Circle" base_name="FlowQosLib::Streaming.Reliable" />
+            <datawriter_qos topic_filter="Circle" base_name="FlowQosLib::Streaming.Reliable" />
+
+            <datareader_qos topic_filter="Triangle" base_name="FlowQosLib::Status" />
+            <datawriter_qos topic_filter="Triangle" base_name="FlowQosLib::Status" />
+
+
+            <!-- Catch all -->
+            <datareader_qos topic_filter="*" base_name="FlowQosLib::Streaming.BestEffort" />
+            <datawriter_qos topic_filter="*" base_name="FlowQosLib::Streaming.Reliable" />
+
+        </qos_profile>
+
+        <!-- Interface specific QosProfile: Pub -->
+        <qos_profile name="Pub" base_name="_root_" />
+
+        <!-- Interface specific QosProfile: Sub -->
+        <qos_profile name="Sub" base_name="_root_" />
+
+        <!-- Interface specific QosProfile: PubSub -->
+        <qos_profile name="PubSub" base_name="_root_" />
+    </qos_library>
+</dds>
