@@ -82,6 +82,9 @@ if("${RTI_CONNEXT_SDK}" MATCHES "pro")
   # Find the ConnextDDS libraries and set the needed variables
   find_package(RTIConnextDDS 6.0.1 COMPONENTS core)
 
+  # Connext DDS SDK Installation Directory
+  set(RTI_CONNEXT_SDK_DIR "${CONNEXTDDS_DIR}")
+
 elseif("${RTI_CONNEXT_SDK}" MATCHES "micro")
 
   # Set the target architecture
@@ -94,9 +97,14 @@ elseif("${RTI_CONNEXT_SDK}" MATCHES "micro")
     find_package(RTIConnextDDSMicro 3.0.2)
   endif()
 
+  # Connext DDS SDK Installation Directory
+  set(RTI_CONNEXT_SDK_DIR "${CONNEXTDDSMICRO_DIR}")
+
 else()
   message(FATAL_ERROR "The ${RTI_CONNEXT_SDK} SDK is not supported")
 endif()
+
+message(STATUS "RTI_CONNEXT_SDK_DIR: ${RTI_CONNEXT_SDK_DIR}")
 
 #-----------------------------------------------------------------------------
 # Output Directories 
@@ -116,7 +124,6 @@ set(INSTALL_ARCHIVE_OUTPUT_DIRECTORY
 
 set(INSTALL_RUNTIME_OUTPUT_DIRECTORY
     "${CMAKE_SOURCE_DIR}/lib/${RTI_CONNEXT_SDK}/${RTI_ARCH}/${CMAKE_BUILD_TYPE}")
-
 
 #-----------------------------------------------------------------------------
 message(STATUS "--- END   Initialize ${CMAKE_CURRENT_LIST_FILE} ---")

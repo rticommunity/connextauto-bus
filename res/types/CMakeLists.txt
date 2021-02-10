@@ -7,16 +7,7 @@
 #                                LICENSE.md
 #
 #*****************************************************************************
-
 cmake_minimum_required(VERSION 3.14)
-
-message(STATUS "CMAKE_CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR}")
-message(STATUS "CMAKE_SOURCE_DIR = ${CMAKE_SOURCE_DIR}")
-message(STATUS "CMAKE_CURRENT_BINARY_DIR = ${CMAKE_CURRENT_BINARY_DIR}")
-message(STATUS "CMAKE_BINARY_DIR = ${CMAKE_BINARY_DIR}")
-
-set(CODEGEN_OUTPUT_DIR "${CMAKE_BINARY_DIR}/../../generated")
-message(STATUS "CODEGEN_OUTPUT_DIR = ${CODEGEN_OUTPUT_DIR}")
 
 #-----------------------------------------------------------------------------
 # Codegen
@@ -24,18 +15,19 @@ message(STATUS "CODEGEN_OUTPUT_DIR = ${CODEGEN_OUTPUT_DIR}")
 # Include the CodegenRTIConnextDDS cmake module
 include(CodegenRTIConnextDDS)
 
-# SDK specific codegen settings: 
+# Connext SDK specific codegen settings: 
 if("${RTI_CONNEXT_SDK}" MATCHES "pro")
   set(CODEGEN_FLAGS UNBOUNDED NAMESPACE)
-  set(CONNEXTDDS_INSTALLATION "${CONNEXTDDS_DIR}")
 elseif("${RTI_CONNEXT_SDK}" MATCHES "micro")
   set(CODEGEN_FLAGS MICRO)
-  set(CONNEXTDDS_INSTALLATION "${CONNEXTDDSMICRO_DIR}")
 endif()
 
-###################################################################################
+set(CODEGEN_OUTPUT_DIR "${CMAKE_BINARY_DIR}/../../generated")
+message(STATUS "CODEGEN_OUTPUT_DIR: ${CODEGEN_OUTPUT_DIR}")
+
+#-----------------------------------------------------------------------------
 # Convert IDLs to XML
-###################################################################################
+#-----------------------------------------------------------------------------
 
 add_subdirectory("data")
 add_subdirectory("services")
@@ -67,9 +59,9 @@ add_custom_target(xml_generation ALL DEPENDS
 )
 
 
-###################################################################################
+#-----------------------------------------------------------------------------
 # Generate files
-###################################################################################
+#-----------------------------------------------------------------------------
 
 set(IDLs 
   # Data
@@ -130,8 +122,8 @@ foreach(language ${LANGUAGES})
 
   target_include_directories(${language}_${RTI_CONNEXT_SDK}_types_lib
     PUBLIC
-      "${CONNEXTDDS_INSTALLATION}/include"
-      "${CONNEXTDDS_INSTALLATION}/include/ndds"
+      "${RTI_CONNEXT_SDK_DIR}/include"
+      "${RTI_CONNEXT_SDK_DIR}/include/ndds"
       "${CODEGEN_OUTPUT_DIR}/${language}"
   )
 
@@ -149,6 +141,8 @@ foreach(language ${LANGUAGES})
 
 endforeach()
 
+#-----------------------------------------------------------------------------
+
 install(
     TARGETS ${types_lib_list}
     CONFIGURATIONS Debug Release
@@ -156,3 +150,5 @@ install(
     ARCHIVE DESTINATION "${INSTALL_ARCHIVE_OUTPUT_DIRECTORY}"
     LIBRARY DESTINATION "${INSTALL_LIBRARY_OUTPUT_DIRECTORY}"
     )
+
+#-----------------------------------------------------------------------------
