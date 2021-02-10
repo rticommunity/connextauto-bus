@@ -10,10 +10,10 @@
 cmake_minimum_required(VERSION 3.14)
 project(databus)
 
+include(${databus_SOURCE_DIR}/build-helpers/cmake/CMakeLists.txt)
+
 message(STATUS "databus_SOURCE_DIR = ${databus_SOURCE_DIR}")
 message(STATUS "databus_BINARY_DIR = ${databus_BINARY_DIR}")
-
-include(${databus_SOURCE_DIR}/build-helpers/cmake/CMakeLists.txt)
 
 #-----------------------------------------------------------------------------
 # Generate type handling code + build type libraries
