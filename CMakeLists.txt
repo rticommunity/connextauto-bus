@@ -13,6 +13,7 @@ project(databus)
 message(STATUS "databus_SOURCE_DIR = ${databus_SOURCE_DIR}")
 message(STATUS "databus_BINARY_DIR = ${databus_BINARY_DIR}")
 
+
 #-----------------------------------------------------------------------------
 # Generate type handling code and build type libraries
 add_subdirectory("res/types")
