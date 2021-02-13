@@ -113,32 +113,44 @@ foreach(language ${LANGUAGES})
     )
 
     if (${language} STREQUAL "C")
-      target_sources(${language}_${RTI_CONNEXT_SDK}_types_lib PRIVATE ${codegen_files_C_SOURCES})
+      target_sources(${language}_${RTI_CONNEXT_SDK}_types_lib 
+            PRIVATE ${codegen_files_C_SOURCES})
     elseif(${language} STREQUAL "C++")
-      target_sources(${language}_${RTI_CONNEXT_SDK}_types_lib PRIVATE ${codegen_files_CXX_SOURCES})
+      target_sources(${language}_${RTI_CONNEXT_SDK}_types_lib 
+            PRIVATE ${codegen_files_CXX_SOURCES})
     endif()
 
   endforeach()
 
   target_include_directories(${language}_${RTI_CONNEXT_SDK}_types_lib
     PUBLIC
-      "${RTI_CONNEXT_SDK_DIR}/include"
-      "${RTI_CONNEXT_SDK_DIR}/include/ndds"
       "${CODEGEN_OUTPUT_DIR}/${language}"
   )
 
   if("${RTI_CONNEXT_SDK}" MATCHES "pro")
+      target_include_directories(${language}_${RTI_CONNEXT_SDK}_types_lib
+          PUBLIC
+          "${RTI_CONNEXT_SDK_DIR}/include"
+          "${RTI_CONNEXT_SDK_DIR}/include/ndds"
+          )
 
     if (${language} STREQUAL "C")
-      target_link_libraries(${language}_${RTI_CONNEXT_SDK}_types_lib RTIConnextDDS::c_api)
+      target_link_libraries(${language}_${RTI_CONNEXT_SDK}_types_lib
+            RTIConnextDDS::c_api)
     elseif(${language} STREQUAL "C++")
-      target_link_libraries(${language}_${RTI_CONNEXT_SDK}_types_lib RTIConnextDDS::cpp_api)
+      target_link_libraries(${language}_${RTI_CONNEXT_SDK}_types_lib
+            RTIConnextDDS::cpp_api)
     endif()
 
   elseif("${RTI_CONNEXT_SDK}" MATCHES "micro")
-    target_link_libraries(${language}_${RTI_CONNEXT_SDK}_types_lib RTIConnextDDSMicro::rti_me)
+    target_link_libraries(${language}_${RTI_CONNEXT_SDK}_types_lib
+            RTIConnextDDSMicro::rti_me)
   endif()
 
+  # export targets, so that they can be IMPORTED by other projects (components)
+  export(TARGETS ${language}_${RTI_CONNEXT_SDK}_types_lib APPEND 
+         FILE ${CMAKE_BINARY_DIR}/${PROJECT_NAME}-exports.cmake
+    )
 endforeach()
 
 #-----------------------------------------------------------------------------
