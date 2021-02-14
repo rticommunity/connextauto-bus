@@ -18,6 +18,7 @@ echo
 
 # Build Dir
 RTI_BUILD_DIR="build/$RTI_CONNEXT_SDK/$RTI_ARCH/$RTI_BUILD_TYPE"
+DATABUS_PROJECT_DIR=$(cd $(dirname "$0")/..; pwd -P)
 
 
 # Generate the Build System
@@ -28,6 +29,7 @@ cmake -B$RTI_BUILD_DIR \
       -DCMAKE_BUILD_TYPE=$RTI_BUILD_TYPE \
       -DRTI_ARCH=$RTI_ARCH \
       -DRTI_CONNEXT_SDK=$RTI_CONNEXT_SDK \
+      -DDATABUS_PROJECT_DIR=$DATABUS_PROJECT_DIR \
       -G "Unix Makefiles"
 
 if [ $? -eq 0 ]

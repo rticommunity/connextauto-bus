@@ -31,10 +31,10 @@
 # Skip the file contents, if the variable "BUILD_HELPERS_CMAKE_DIR" is defined
 if(NOT BUILD_HELPERS_CMAKE_DIR)
 #-----------------------------------------------------------------------------
-message(STATUS "--- BEGIN Initialize ${CMAKE_CURRENT_LIST_FILE} ---")
+message(STATUS "BEGIN Initialize ${PROJECT_NAME}: ${CMAKE_CURRENT_LIST_FILE} >>>")
 #-----------------------------------------------------------------------------
 
-# Define build_helpers_cmake_DIR variable = path to *this* directory
+# Define BUILD_HELPERS_CMAKE_DIR variable = path to *this* directory
 get_filename_component(
     BUILD_HELPERS_CMAKE_DIR ${CMAKE_CURRENT_LIST_FILE} DIRECTORY)
 
@@ -114,6 +114,25 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 
 #-----------------------------------------------------------------------------
+# OPTIONALLY import "databus" targets to satisfy "component" build dependencies
+
+# Include IMPORTED targets from the "databus" project if and only if (iff)
+# they are will not be defined by the current CMake project build
+# - i.e. the "databus" project is NOT a sub-directory of the current project
+#   i.e. DATABUS_PROJECT_DIR is NOT a subdirectory of CMAKE_SOURCE_DIR
+message(STATUS "DATABUS_PROJECT_DIR: ${DATABUS_PROJECT_DIR}")
+if(NOT "${DATABUS_PROJECT_DIR}" MATCHES "^${CMAKE_SOURCE_DIR}")
+    set(databus_exports_file 
+        "${DATABUS_PROJECT_DIR}/build/${RTI_CONNEXT_SDK}/${RTI_ARCH}/${CMAKE_BUILD_TYPE}/databus-exports.cmake")
+    if (EXISTS "${databus_exports_file}") 
+        include("${databus_exports_file}")
+    else()
+        message(FATAL_ERROR 
+          "\nPlease build 'databus' project first!\n ${DATABUS_PROJECT_DIR}\n")
+    endif()
+endif()
+
+#-----------------------------------------------------------------------------
 # Install Directories
 
 set(INSTALL_LIBRARY_OUTPUT_DIRECTORY 
@@ -126,6 +145,6 @@ set(INSTALL_RUNTIME_OUTPUT_DIRECTORY
     "${CMAKE_SOURCE_DIR}/lib/${RTI_CONNEXT_SDK}/${RTI_ARCH}/${CMAKE_BUILD_TYPE}")
 
 #-----------------------------------------------------------------------------
-message(STATUS "--- END   Initialize ${CMAKE_CURRENT_LIST_FILE} ---")
+message(STATUS "END   Initialize ${PROJECT_NAME}: ${CMAKE_CURRENT_LIST_FILE} <<<")
 #-----------------------------------------------------------------------------
 endif()
