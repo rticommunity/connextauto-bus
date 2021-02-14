@@ -58,7 +58,7 @@ Generate the XML representation of the datatypes from XML as follows:
 
 - Run the system using emulated components
 
-        ./bin/drive-emulator.sh [NDDSHOME]
+        ./bin/emulator.sh [NDDSHOME]
 
   To stop the emulator, press ^C
 
@@ -122,4 +122,4 @@ To add a new service, called `My`:
 4. Add service to the `NDDS_QOS_PROFILES` in the file: `res/cfg/Drive_QOS_PROVIDER.sh`
 5. Add service interface constants in: `res/types/services/My_svc_t.idl` and update the `CMakeLists.txt` file
 6. Test the service interfaces using `rtiddsprototyper`
-7. Update [drive_emulator](../bin/drive-emulator.sh) script(s) to append the new service interface to the `COMPONENT` list
+7. Update [emulator](../bin/emulator.sh) script(s) to append the new service interface to the `COMPONENT` list
