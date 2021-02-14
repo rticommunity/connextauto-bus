@@ -28,7 +28,7 @@ foreach(IDL ${IDLs})
     OUTPUT_DIRECTORY
       "${CMAKE_CURRENT_SOURCE_DIR}"
     INCLUDE_DIRS
-      "${CMAKE_CURRENT_SOURCE_DIR}/../../.." # res/types
+      "${CMAKE_CURRENT_SOURCE_DIR}/../../../.." # res/types
   )
 
   list(APPEND resulting_files "${CMAKE_CURRENT_SOURCE_DIR}/${IDL}.xml")
