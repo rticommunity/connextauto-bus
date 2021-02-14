@@ -56,6 +56,7 @@ set(IDLs
   # Services
   services/Drive_bus_t.idl
   services/CAN_svc_t.idl
+  services/Shapes_svc_t.idl
 )
 
 list(LENGTH IDLs IDLs_length)
