@@ -32,32 +32,9 @@ message(STATUS "CODEGEN_OUTPUT_DIR: ${CODEGEN_OUTPUT_DIR}")
 add_subdirectory("data")
 add_subdirectory("services")
 
-set(IDLs Shapes_t)
-set(resulting_files)
-
-foreach(IDL ${IDLs})
-
-  connextdds_rtiddsgen_convert(
-    INPUT
-      "${CMAKE_CURRENT_SOURCE_DIR}/${IDL}.idl"
-    FROM
-      "IDL"
-    TO
-      "XML"
-    OUTPUT_DIRECTORY
-      "${CMAKE_CURRENT_SOURCE_DIR}"
-    INCLUDE_DIRS
-      "${CMAKE_CURRENT_SOURCE_DIR}/../.." # res/types
-  )
-
-  list(APPEND resulting_files "${CMAKE_CURRENT_SOURCE_DIR}/${IDL}.xml")
-
-endforeach()
-
 add_custom_target(xml_generation ALL DEPENDS
   ${resulting_files}
 )
-
 
 #-----------------------------------------------------------------------------
 # Generate files

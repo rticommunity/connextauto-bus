@@ -22,7 +22,7 @@
 
     <!-- Data Types -->
     <types>
-            <include file="res/types/Shapes_t.xml" />
+        <include file="res/types/data/demo/Shapes_t.xml" />
     </types>
 
     <!-- Participants : each participant defines a data-oriented interface -->

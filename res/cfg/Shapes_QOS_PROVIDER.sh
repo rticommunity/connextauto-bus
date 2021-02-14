@@ -24,7 +24,7 @@ NDDS_QOS_PROFILES+=";$PROJ_DIR/res/qos/services/Shapes_qos.xml"
 # --- Data-Oriented Interfaces ---
 
 # Interfaces: Services
-NDDS_QOS_PROFILES+=";$PROJ_DIR/if/Shapes.xml"
+NDDS_QOS_PROFILES+=";$PROJ_DIR/if/Shapes_svc.xml"
 
 
 # --- Show Environment --- 
