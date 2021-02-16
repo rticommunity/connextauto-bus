@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #******************************************************************************
 #  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
 #
@@ -9,11 +9,11 @@
 #
 #*****************************************************************************
 # USAGE:
-#     source QOS_PROVIDER.sh [</path/to/project_dir>]
+#     source QOS_PROVIDER.sh
 
 # --- Project Directory ---
-PROJ_DIR=${1:-${PWD}}
-echo "PROJ_DIR=$PROJ_DIR"
+DATABUS_PROJECT_DIR=$(cd $(dirname "${BASH_SOURCE}")/../..; pwd -P)
+echo "DATABUS_PROJECT_DIR=$DATABUS_PROJECT_DIR"
 
 
 # --- QoS Profiles ---
@@ -21,31 +21,31 @@ echo "PROJ_DIR=$PROJ_DIR"
 NDDS_QOS_PROFILES=""
 
 # QoS: Snippets
-NDDS_QOS_PROFILES+="$PROJ_DIR/res/qos/data/snippets/factory_qos.xml"
-NDDS_QOS_PROFILES+=";$PROJ_DIR/res/qos/data/snippets/participant_qos.xml"
-NDDS_QOS_PROFILES+=";$PROJ_DIR/res/qos/data/snippets/endpoint_qos.xml"
+NDDS_QOS_PROFILES+="$DATABUS_PROJECT_DIR/res/qos/data/snippets/factory_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/data/snippets/participant_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/data/snippets/endpoint_qos.xml"
 
 # QoS: Flows
-NDDS_QOS_PROFILES+=";$PROJ_DIR/res/qos/data/doa_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/data/doa_qos.xml"
 
 # QoS: Services
-[ -f $PROJ_DIR/res/qos/services/MyService_qos.xml ] && 
-NDDS_QOS_PROFILES+=";$PROJ_DIR/res/qos/services/MyService_qos.xml"
+[ -f $DATABUS_PROJECT_DIR/res/qos/services/MyService_qos.xml ] && 
+NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/services/MyService_qos.xml"
 
 # QoS: Systems
-[ -f $PROJ_DIR/res/qos/services/MySystem_qos.xml ] && 
-NDDS_QOS_PROFILES+=";$PROJ_DIR/res/qos/systems/MySystem_qos.xml"
+[ -f $DATABUS_PROJECT_DIR/res/qos/services/MySystem_qos.xml ] && 
+NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/systems/MySystem_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---
 
 # Interfaces: Services
-[ -f $PROJ_DIR/if/MyService.xml ] && 
-NDDS_QOS_PROFILES+=";$PROJ_DIR/if/MyService.xml"
+[ -f $DATABUS_PROJECT_DIR/if/MyService.xml ] && 
+NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/MyService.xml"
 
 # Interfaces: Systems
-[ -f $PROJ_DIR/if/MySystem.xml ] && 
-NDDS_QOS_PROFILES+=";$PROJ_DIR/if/MySystem.xml"
+[ -f $DATABUS_PROJECT_DIR/if/MySystem.xml ] && 
+NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/MySystem.xml"
 
 
 

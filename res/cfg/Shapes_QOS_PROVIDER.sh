@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #******************************************************************************
 #  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
 #
@@ -9,22 +9,22 @@
 #
 #*****************************************************************************
 # USAGE:
-#     source Shapes_QOS_PROVIDER.sh [</path/to/project_dir]>]
+#     source Shapes_QOS_PROVIDER.sh
 
 # --- Project Directory ---
-PROJ_DIR=${1:-${PWD}}
-source $PROJ_DIR/res/cfg/QOS_PROVIDER.sh
+DATABUS_PROJECT_DIR=$(cd $(dirname "${BASH_SOURCE}")/../..; pwd -P)
+source $DATABUS_PROJECT_DIR/res/cfg/QOS_PROVIDER.sh
 
 # --- QoS Profiles ---
 
 # QoS: Services
-NDDS_QOS_PROFILES+=";$PROJ_DIR/res/qos/services/Shapes_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/services/Shapes_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---
 
 # Interfaces: Services
-NDDS_QOS_PROFILES+=";$PROJ_DIR/if/Shapes_svc.xml"
+NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/Shapes_svc.xml"
 
 
 # --- Show Environment --- 

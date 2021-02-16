@@ -14,10 +14,10 @@
 # RTI Admin Console.
 #
 # USAGE:
-#     Shapes.sh
+#     shapes.sh
 
 # --- Project Directory ---
-PROJ_DIR=$(cd $(dirname "$0")/..; pwd -P)
+DATABUS_PROJECT_DIR=$(cd $(dirname "$0")/..; pwd -P)
 NDDSHOME=${1:-$NDDSHOME}
 
 # Print Help:
@@ -29,10 +29,10 @@ if [ "$NDDSHOME" = "" ] ; then
 fi
 
 # Initialize environment
-source $PROJ_DIR/res/cfg/Shapes_QOS_PROVIDER.sh $PROJ_DIR
+source $DATABUS_PROJECT_DIR/res/cfg/Shapes_QOS_PROVIDER.sh
 
 # Change working directory to the project directory 
-cd $PROJ_DIR
+cd $DATABUS_PROJECT_DIR
 
 # Service Components to launch
 COMPONENTS=""

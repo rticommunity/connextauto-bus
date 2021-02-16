@@ -10,14 +10,15 @@
 #*****************************************************************************
 # 
 # Emulate all the components of the autonomy reference architecture using 
-# rtiddsprototyper with Lua, with dummy data. Visualize the databus using
-# RTI Admin Console.
+# rtiddsprototyper with Lua, with dummy data. 
+# 
+# The system databus architecture can be visualized using RTI Admin Console.
 #
 # USAGE:
-#     drive-emulator
+#     emulator.sh
 
 # --- Project Directory ---
-PROJ_DIR=$(cd $(dirname "$0")/..; pwd -P)
+DATABUS_PROJECT_DIR=$(cd $(dirname "$0")/..; pwd -P)
 NDDSHOME=${1:-$NDDSHOME}
 
 # Print Help:
@@ -29,10 +30,10 @@ if [ "$NDDSHOME" = "" ] ; then
 fi
 
 # Initialize environment
-source $PROJ_DIR/res/cfg/Drive_QOS_PROVIDER.sh $PROJ_DIR
+source $DATABUS_PROJECT_DIR/res/cfg/Drive_QOS_PROVIDER.sh
 
 # Change working directory to the project directory 
-cd $PROJ_DIR
+cd $DATABUS_PROJECT_DIR
 
 # Service Components to launch
 COMPONENTS=""
