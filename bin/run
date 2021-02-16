@@ -1,0 +1,43 @@
+#!/bin/sh
+#******************************************************************************
+#  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+#
+#   Licensed according to the terms in the LICENSE.md file located at the root 
+#   of this software repository:
+#
+#                                LICENSE.md
+#
+#*****************************************************************************
+# 
+# Run the component specified in the command line argument using after setting
+#        NDDS_QOS_PROFILES
+#
+# USAGE:
+#    run <path/to/dds/component/executable> 
+
+# Exit on first error
+set -Eeuo pipefail
+
+# Print Help:
+if [ "$#" -ne 1 ] ; then
+    echo "Usage:"
+    echo "$(basename $0) <path/to/dds/component/executable>"
+    exit 0
+fi
+
+# Get the component directory and name
+COMPONENT_DIR=$(cd $(dirname "$1"); pwd -P)
+COMPONENT_EXE=$(basename $1)
+
+
+# Change working directory to the databus directory so that  
+# the relative paths embedded in the NDDS_QOS_PROFILES XML
+# files are correctly resolved
+DATABUS_PROJECT_DIR=$(cd $(dirname "$0")/..; pwd -P)
+cd $DATABUS_PROJECT_DIR
+
+
+# Run the component
+echo "Running : ${COMPONENT_DIR}/${COMPONENT_EXE} ..."
+source $DATABUS_PROJECT_DIR/res/cfg/Drive_QOS_PROVIDER.sh
+exec ${COMPONENT_DIR}/${COMPONENT_EXE}
