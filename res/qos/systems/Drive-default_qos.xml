@@ -31,6 +31,14 @@
         </qos_profile>
 
 
+        <!-- Default QoS Profile : Interoperable with Micro2 (no SHMEM) -->
+        <qos_profile name="default" base_name="_root_" is_default_qos="true">
+            <base_name>
+                <element>SnippetQosLib::Transport.UDPv4</element>
+            </base_name>
+        </qos_profile>
+
+
         <!-- Camera : component specific QosProfile -->
         <qos_profile name="Camera" base_name="_root_">
             <participant_qos>
