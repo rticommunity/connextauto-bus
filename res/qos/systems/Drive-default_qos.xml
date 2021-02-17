@@ -31,12 +31,10 @@
         </qos_profile>
 
 
-        <!-- Example QoS Profile : Interoperable Pro <-> Micro2 (no SHMEM) -->
-        <qos_profile name="example"  
-                     base_name="DriveQosLib::Camera" 
-                     is_default_qos="true">
+        <!-- Example: uses  the qos profile marked as "default" -->
+        <qos_profile name="example" base_name="_root_" is_default_qos="true">
             <base_name>
-                <element>SnippetQosLib::Transport.UDPv4</element>
+                <element>DriveQosLib::Camera</element>
             </base_name>
         </qos_profile>
 
