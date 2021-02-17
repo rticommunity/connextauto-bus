@@ -49,7 +49,7 @@ changes.
 
 - Run the shapes system using emulated components
 
-        ./bin/shapes.sh [NDDSHOME]
+        ./bin/shapes [NDDSHOME]
 
   To stop the emulation, press ^C
   

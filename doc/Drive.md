@@ -58,7 +58,7 @@ Generate the XML representation of the datatypes from XML as follows:
 
 - Run the system using emulated components
 
-        ./bin/emulator.sh [NDDSHOME]
+        ./bin/emulator [NDDSHOME]
 
   To stop the emulator, press ^C
 
