@@ -57,8 +57,7 @@ For example:
     # when the working directory contains the databus project as sub-directory
     DATABUS_PROJECT_DIR = databus
 
-    # when the directory two levels above contains the databus project 
-    # as a sub-directory
+    # when the working directory is two levels above the databus project
     DATABUS_PROJECT_DIR = ../../databus
 
 
