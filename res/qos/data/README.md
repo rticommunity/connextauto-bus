@@ -1,8 +1,8 @@
-# res/qos/flows/
+# res/qos/data/
 
 ## Purpose
 
-Flow Qos Profiles Library.
+Data Flow Qos Profiles Library.
 
 Top-level Qos Profiles that specify the primary patterns of data flow in a system
 architecture.

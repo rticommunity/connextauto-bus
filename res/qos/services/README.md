@@ -4,7 +4,7 @@
 
 [Service](../../../doc/doma/Service.md) Qos Profiles Library.
 
-A Service Qos Profile binds the [Flow Qos Profiles](../flows/README.md) 
+A Service Qos Profile binds the [Data Flow Qos Profiles](../data/README.md) 
 to topics, for each service endpoint interface.
 
 
@@ -19,5 +19,5 @@ A Service Qos Library is defined in a DDS-XML file as follows:
 
 ## Dependencies
 
-- [flows/](../flows/README.md)
+- [data/](../data/README.md)
 

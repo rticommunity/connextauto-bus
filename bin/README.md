@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Executable component binaries and shell scripts. 
+Executable component binaries and shell scripts.
 
 ## Organization
 

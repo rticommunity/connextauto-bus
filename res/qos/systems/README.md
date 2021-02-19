@@ -19,4 +19,4 @@ A System Qos Library is defined in a DDS-XML file as follows:
 
 ## Dependencies
 
-- [flows/snippets/](../flows/snippets/README.md)
+- [data/snippets/](../data/snippets/README.md)

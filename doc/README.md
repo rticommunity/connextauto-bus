@@ -1,17 +1,20 @@
-# Documentation
+# doc/
+
+- [Documentation Index](#documentation-index)
+- [How To](#how-to)
+
+## Documentation Index
+
+- [Data-Oriented Micro-Services Architecture (DOMA)](doma/README.md)
+- [Databus Project](../README.md)
+   - [Drive Service](doc/Drive.md)
+   - [Shapes Service](doc/Shapes.md)
 
 
-# Repository Organization
+## How To
 
-  - [Data-Oriented Micro-Services Architecture (DOMA)](doma/README.md)
+A item *<item>* is documented in a file named:
 
+ - `<item>`.md 
 
-
-# How to add documentation
-
-- Document an item *<item>* in in a file named: 
-  - `README.md` file of the appropriate `<item>/` directory, OR
-  - a file name `<item>`.md  
-
-
-- Link the documentation the top-level [README](../README.md#user_stories) if the item is a *User Story*
+Each `<item>`.md shall be linked back to [Documentation Index](#documentation-index).

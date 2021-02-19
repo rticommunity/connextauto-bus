@@ -13,6 +13,6 @@ A Qos Profile is defined in a DDS-XML file: `*_qos.xml`
 
 Qos Profiles are organized as follows:
 
-- [flows/](flows/README.md)
+- [data/](data/README.md)
 - [services/](services/README.md)
 - [systems/](systems/README.md)
