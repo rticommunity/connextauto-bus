@@ -30,41 +30,51 @@ ensures that interface libraries are linked correctly (e.g. with the right
 compiler and linker options etc.)
 
 
-- [Organization](doc/doma/README.md)
-- [Documentation](doc/README.md)
-- [Emulation](#emulation)
+- [Getting Started](#getting-started)
+- [Understanding the System Databus](#understanding-the-system-databus)
+- [`DATABUS_PROJECT_DIR`](#databus_project_dir)
 - [Building](#building)
 - [Running](#running)
+- [Data-Oriented Micro-Services Architecture (DOMA)](doc/doma/README.md)
+- [Documentation Index](doc/README.md)
 
 
-# `DATABUS_PROJECT_DIR`
 
-The databus project may be used as a sub-project of other projects.
+# Getting Started
 
-In the documentation, the variable `DATABUS_PROJECT_DIR/` is used to refer
-to the path of this *databus* project directory (i.e. the directory
-containing this [README](./README.md) file).
+Assuming that you are familiar with the 
+[RTI Shapes Demo](https://www.rti.com/products/tools/shapes-demo),
+you can quickly get started by reviewing the data model and the service interfaces
+provided by the "Shapes Demo" databus. 
 
-When the working directory is not the same as the databus project directory,
-the appropriate `DATABUS_PROJECT_DIR` path should be used. It may  be a
-relative path or absolute path.
+You can run an emulation of the Shapes Demo databus interfaces as follows:
 
-For example:
+        [DATABUS_PROJECT_DIR/]bin/shapes [NDDSHOME]
+  e.g.
 
-    # when working directory is the databus project
-    DATABUS_PROJECT_DIR = .
+        bin/shapes [NDDSHOME]
+  or
 
-    # when the working directory contains the databus project as sub-directory
-    DATABUS_PROJECT_DIR = databus
+        databus/bin/shapes [NDDSHOME]
 
-    # when the working directory is two levels above the databus project
-    DATABUS_PROJECT_DIR = ../../databus
+To stop the shapes emulator, press ^C
+
+You can use the *RTI Admin Console* to visualize the databus.
+
+For more details, please refer to the documentation on
+[Shapes Service](doc/Shapes.md). 
 
 
-# Emulation
+# Understanding the System Databus
 
-- Emulate the system architecture and data flows with emulated components
-  (see [Drive Service](doc/Drive.md))
+Once you understand the [Shapes Demo Databus](#shapes-demo-databus),
+you can apply that understanding to become familiar with the 
+main autonomous *system databus*, since the data model and 
+service interfaces follow the same design patterns.
+
+You can run an emulation of the databus service interfaces as follows:  
+
+- Emulate the service interfaces and data flows with scripted components
 
         [DATABUS_PROJECT_DIR/]bin/emulator [NDDSHOME]
 
@@ -80,7 +90,7 @@ For example:
   The emulator uses the *RTI Prototyper with Lua* to emulate the entire system
   architecture.
 
-- Visualizing the system architecture
+- Visualizing the autonomous systems databus
   - Run `RTI Admin Console` to visualize databus.
   - Run `rtiddsspy` to view the data.
 
@@ -89,20 +99,41 @@ For example:
   incrementally, where some interfaces are emulated, while others are
   fully implemented components.
 
-- To get started, component interfaces for the familiar *RTI Shapes Demo* are
-  also provided (see [Shapes Service](doc/Shapes.md)). To emulate the Shapes
-  Demo interfaces:
 
-        [DATABUS_PROJECT_DIR/]bin/shapes [NDDSHOME]
-  e.g.
+- For more details, please refer to the documentation on
+[Drive Service](doc/Drive.md).
 
-        bin/shapes [NDDSHOME]
-  or
+Once you are familiar with the system databus, you are ready to explore 
+various ways of implementing the service interfaces, and illustrated by 
+projects defined elsewhere.
 
-        databus/bin/shapes [NDDSHOME]
+The rest of the document describes how to build the databus service 
+interface bindings for various programming languages, and how to 
+build and run components that use those service interfaces.  
 
-  To stop the shapes mulator, press ^C
 
+# `DATABUS_PROJECT_DIR`
+
+This databus project may be used as a sub-project of other projects.
+
+In the documentation, the variable `DATABUS_PROJECT_DIR/` is used to refer
+to the path of this *databus* project directory (i.e. the directory
+containing this [README](./README.md) file).
+
+When the working directory is not the same as the databus project directory,
+the appropriate `DATABUS_PROJECT_DIR` path should be used. It may  be a
+relative path or absolute path.
+
+For example:
+
+    # when the working directory is the 'databus' project
+    DATABUS_PROJECT_DIR = .
+
+    # when the working directory contains the 'databus' project as sub-directory
+    DATABUS_PROJECT_DIR = databus
+
+    # when the 'databus' project is two levels above the working directory
+    DATABUS_PROJECT_DIR = ../../databus
 
 
 ## Building
@@ -133,6 +164,10 @@ For example:
   or
 
       databus/bin/build-gen.sh pro x64Darwin17clang9.0 Debug
+
+   *NOTE:* The `build/` directory is creatd relative to the 
+    *working project directory* from where the `build-gen.sh` script was 
+    invoked (maybe the *top-level* project or an individual project).
 
 - Build the repository using the generated build system
 
@@ -165,6 +200,7 @@ For example:
      `build/<connext_sdk>/<target_arch>/<build_type>` tree, e.g.:
 
          rm -rf build/pro/x64Darwin17clang9.0/Debug
+
 
 ## Running
 
