@@ -1,7 +1,7 @@
 # Drive Service
 
-The *Drive* service defines the *service* interface for the **Connext Drive
-Auto Framework**.
+The *Drive* service defines the *service* interface for 
+an autonomous vehicle databus.
 
 - [Service Definition](#service-definition)
 - [System Definition](#system-definition)
