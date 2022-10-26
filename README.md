@@ -18,8 +18,7 @@ Each component interface is  emulated using  *RTI Prototyper with Lua*.
 The data flows and the component interfaces can be visualized
 using *RTI Admin Console*.
 
-The databus project also provides a way to build all the generated datatypes
-and interfaces into libraries, ready to be linked with components
+The databus project also provides a way to build all the generated datatypes and interfaces into libraries, ready to be linked with components
 implementations. This saves not only time, but also ensures that all the
 generated code is compiled in a consistemt manner with the right settings
 (e.g. -unboundedSupport, -namespace etc.)
@@ -243,3 +242,9 @@ applications can be launched as follows.
 
         build/micro/<target_arch>/<build_type>/MyApp
 
+---
+(C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+
+By accessing, downloading, or otherwise using this software, you agree to be bound by those terms.

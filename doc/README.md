@@ -7,8 +7,7 @@
 
 - [Data-Oriented Micro-Services Architecture (DOMA)](doma/README.md)
 - [Databus Project](../README.md)
-   - [Drive Service](doc/Drive.md)
-   - [Shapes Service](doc/Shapes.md)
+
 
 
 ## How To

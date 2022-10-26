@@ -1,16 +1,11 @@
 --*****************************************************************************
---  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
---
---   Licensed according to the terms in the LICENSE.md file located at the root 
---  of this software repository:
---
---                               LICENSE.md
---
+-- PURPOSE:
+--  List the endpoints (DataWriters and DataReaders) in a DDS-XML configuration
+--  
+-- USAGE:
+--   rtiddsprototyper 
+--      <select the participant configuration>
 --*****************************************************************************
--- Endpoint List
---   List the endpoints (DataWriters and DataReaders) in a DDS-XML configuration
--- 
--- USAGE 
 --[[
 
 rtiddsprototyper -luaFile src/utils/Endpoints.lua -cfgName <name>

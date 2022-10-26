@@ -1,8 +1,12 @@
-# (c) 2017 Copyright, Real-Time Innovations, Inc.  All rights reserved.
-# No duplications, whole or partial, manual or electronic, may be made
-# without express written permission.  Any such copies, or revisions thereof,
-# must display this notice unaltered.
-# This code contains trade secrets of Real-Time Innovations, Inc.
+#******************************************************************************
+# (C) Copyright 2017-2022 Real-Time Innovations, Inc.  All rights reserved.
+#
+# The use of this software is governed by the terms specified in the 
+# RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+#
+# By accessing, downloading, or otherwise using this software, you agree to 
+# be bound by those terms.
+#*****************************************************************************
 
 #[[.rst:
 .. _codegen_rticonnextdds:

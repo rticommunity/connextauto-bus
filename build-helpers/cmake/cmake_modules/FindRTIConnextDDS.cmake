@@ -1,9 +1,13 @@
 #.rst:
-# (c) 2017 Copyright, Real-Time Innovations, Inc. All rights reserved.
-# RTI grants Licensee a license to use, modify, compile, and create derivative
-# works of this file solely for use with RTI Connext DDS.  Licensee may
-# redistribute copies of this file provided that all such copies are subject
-# to this license.
+#******************************************************************************
+# (C) Copyright 2017-2022 Real-Time Innovations, Inc.  All rights reserved.
+#
+# The use of this software is governed by the terms specified in the 
+# RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+#
+# By accessing, downloading, or otherwise using this software, you agree to 
+# be bound by those terms.
+#*****************************************************************************
 #
 # FindRTIConnextDDS
 # -----------------

@@ -1,14 +1,14 @@
 --*****************************************************************************
---  (c) 2020 Copyright, Real-Time Innovations, Inc. (RTI) All rights reserved.
+-- (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 --
---   Licensed according to the terms in the LICENSE.md file located at the root 
---  of this software repository:
+-- The use of this software is governed by the terms specified in the 
+-- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
 --
---                               LICENSE.md
---
+-- By accessing, downloading, or otherwise using this software, you agree to 
+-- be bound by those terms.
 --*****************************************************************************
--- Generic Subscriber
---   Take data arriving on all inputs (DataReaders) 
+-- Subscriber
+--   A generic subscriber to Take data arriving on all inputs (DataReaders) 
 -- 
 -- USAGE 
 --[[
@@ -16,6 +16,7 @@
 rtiddsprototyper -luaOnPeriod 0 -luaFile src/utils/Subscriber.lua -cfgName <name>
 
 --]]
+--*****************************************************************************
 
 -- Globals (preserved across invocations)
 if not count then count = 0 else count = count + 1 end

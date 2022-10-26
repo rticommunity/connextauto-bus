@@ -32,7 +32,7 @@ The following system deployments for the *Drive* service are currently available
 
 ## Dependencies 
 
-[RTI Connext DDS 6.0.1+](https://community.rti.com/documentation)
+[RTI Connext DDS 6.1.1+](https://community.rti.com/documentation)
 
 
 ## Setup RTI Connext DDS Environment
@@ -123,3 +123,10 @@ To add a new service, called `My`:
 5. Add service interface constants in: `res/types/services/My_svc_t.idl` and update the `CMakeLists.txt` file
 6. Test the service interfaces using `rtiddsprototyper`
 7. Update [emulator](../bin/emulator.sh) script(s) to append the new service interface to the `COMPONENT` list
+
+---
+(C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+
+By accessing, downloading, or otherwise using this software, you agree to be bound by those terms.
