@@ -1,246 +1,142 @@
-# Databus
+# Software Databus
 
-The [databus](doc/doma/Bus.md) project comprises of:
-
-- A common [Data Model](doc/doma/DataModel.md), and
-- Component Micro-Service [Interfaces](doc/doma/Interface.md)
-  that use the common data model
-
-
-The databus project does not contain component implementations.
-Many components implementations are possible for the the defined
-component interfaces. Components implementations are provided by
-component implementation specific projects define elsewhere.
-
-The databus project does provide a way to run and visualize the
-enrire system architecture by emulating all the dataflows.
-Each component interface is  emulated using  *RTI Prototyper with Lua*.
-The data flows and the component interfaces can be visualized
-using *RTI Admin Console*.
-
-The databus project also provides a way to build all the generated datatypes and interfaces into libraries, ready to be linked with components
-implementations. This saves not only time, but also ensures that all the
-generated code is compiled in a consistemt manner with the right settings
-(e.g. -unboundedSupport, -namespace etc.)
-
-The databus project also provides a build system that can be used to
-build the component implementations for the various service interfaces, and
-ensures that interface libraries are linked correctly (e.g. with the right
-compiler and linker options etc.)
-
-
+- [Introduction](#introduction)
 - [Getting Started](#getting-started)
-- [Understanding the System Databus](#understanding-the-system-databus)
-- [`DATABUS_PROJECT_DIR`](#databus_project_dir)
-- [Building](#building)
-- [Running](#running)
-- [Data-Oriented Micro-Services Architecture (DOMA)](doc/doma/README.md)
-- [Documentation Index](doc/README.md)
+- [Exploring Further](#exploring-the-repository)
+
+## Introduction
+
+This [software databus](doc/doma/Bus.md) project repo comprises of:
+
+- A **common [Data Model](doc/doma/DataModel.md)** using the [DDS](https://www.dds-foundation.org/omg-dds-standard/) standard
+-  Micro **[Services](doc/doma/Service.md)** and Component **[Interfaces](doc/doma/Interface.md)**
+  that use the common data model
+- A **[common build system](doc/Build.md)** for building the interfaces and the components that use those interfaces
+
+The common data model can be used to define many component interfaces. Thus the component interfaces defined in this repo should be regarded as examples of  possible functional decomposition of a software system architecture using the common data model. 
+
+For each component interface, many implementations are possible. Component implementations may be written in any supported programming language of choice with any RTI Connext DDS Software Development Kit (SDK) such as *RTI Connext Professional* or *RTI Connext Micro*. Component implementations could also be written using a scipting language such as Python, Lua, or JavaScript---especially useful for generating test data, prototyping, or emulation. This repo does **not** contain component implementations. Components implementations are provided by **component specific project repositories *defined elsewhere***. Components implement component interfaces defined in this repo. 
+
+This repo provides a **common build system** for building generated datatypes and interfaces into a common library that can be linked to by component implementations. The *common build system* is intended to be used by use by component repositories that use this repo. Thus, this repo is a dependency (prerequisite) for building independent standalone components using the provided *common data model, interfaces, and build system*.
+
+This repo also provide a way to emulate and visualize the *software system architecture functional blocks and data flows*. Each component interface is emulated using  *[RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0)*. The data flows and the component interfaces can be visualized using *RTI Admin Console*. Thus, changes to the data model and functional interfaces can be quickly visualized and validated at the software system architecture level.
 
 
+## Prerequisites
 
-# Getting Started
+Please ensure that the following are installed on your development host:
 
-Assuming that you are familiar with the 
-[RTI Shapes Demo](https://www.rti.com/products/tools/shapes-demo),
-you can quickly get started by reviewing the data model and the service interfaces
-provided by the "Shapes Demo" databus. 
+- [CMake](https://cmake.org/): 3.14 or later
+- A [RTI Connext SDK](https://community.rti.com/documentation/), i.e. one or both of the following:
+  - RTI Connext DDS Professional: 6.1.1 LTS or later
+  - RTI Connext DDS Micro: 2.4.14 or later
 
-You can run an emulation of the Shapes Demo databus interfaces as follows:
 
-        [DATABUS_PROJECT_DIR/]bin/shapes [NDDSHOME]
-  e.g.
+Currently this repo and the common build system had been verified on the following development hosts:
+- macOS
+- Linux: ubuntu:20.04, docker/ubuntu:20.04​
 
-        bin/shapes [NDDSHOME]
-  or
+## Getting Started
+### Get this repo
 
-        databus/bin/shapes [NDDSHOME]
+- Clone (or fork and clone) this repo
 
-To stop the shapes emulator, press ^C
+      git clone <a_git_url_to_this_repository>
 
-You can use the *RTI Admin Console* to visualize the databus.
+### Setup the environnment variables
 
-For more details, please refer to the documentation on
+- Setup the [DATABUSHOME](doc/DATABUSHOME.md) environment variable to point to [this repo](./)
+
+      cd </path/to/this/repo/>         # created by git clone above
+      export DATABUSHOME=$(pwd -P)     # /path/to/this/repo
+
+Setup environment variables for at least one RTI Connext SDK:
+- If you want to build for *RTI Connext DDS Professional*, setup `NDDSHOME`
+
+      export NDDSHOME=/path/to/<rti_connext_dds-x.y.z>
+
+- If you want to build for *RTI Connext DDS Micro*, setup `RTIMEHOME`
+
+      export RTIMEHOME=/path/to/<rti_connext_dds_micro-x.y.z>
+
+- Setup both `NDDSHOME` and `RTIMEHOME` if you want to build for **both SDKs**.
+
+### Generate the build system for at least one RTI Connext SDK
+ 
+From the repo's top-level directory:
+
+- To generate the build system for *RTI Connext DDS Professional*, e.g.
+
+      $DATABUSHOME/bin/build-gen.sh pro x64Darwin17clang9.0 Debug
+
+- To generate the build system for *RTI Connext DDS Micro*, e.g.
+
+      $DATABUSHOME/bin/build-gen.sh micro x64Darwin17clang9.0 Debug
+
+This step creates a `build/` directory in the project top-level directory. The `build/` directory contains a shell script to build for the specified target platform and build kind.
+
+For more details, please refer to the documentation on the [comon build system](doc/Build.md). 
+
+### Build the datatypes for at least one RTI Connext SDK
+
+From this git repo's top-level directory, run the generated build script to build the datatypes:
+
+- To build for *RTI Connext DDS Professional*, e.g.:
+
+      ./build/pro-x64Darwin17clang9.0-Debug.sh
+
+- To build for *RTI Connext DDS Micro*, e.g.:
+
+      ./build/pro-x64Darwin17clang9.0-Debug.sh
+
+This step generates the equivalent XML representations of the datatypes in the [res/types/](res/types/) directory tree. It also ensures that the code generated from the IDL datatype definitions in this repo are buildable for the selected target platform.
+  
+The generated XML datatype representations are now ready for use by the emulators, tools, and infrastruture services, and components that use dynamic datatypes.
+
+Repeat this step everytime a source *IDL* or *XML App Creation* file is updated.
+
+For more details, please refer to the documentation on the [comon build system](doc/Build.md).
+
+### Run the *Shapes* service emulation
+
+From this git repo's top-level directory, run an emulation of the [Shapes](https://www.rti.com/products/tools/shapes-demo) service interfaces as follows:
+      
+      ./bin/shapes
+
+- Use the `RTI Admin Console` to visualize the data flows and the emulated component interfaces. 
+- Use `rtiddsspy` to view the data.
+
+To stop the shapes data flow emulator, press `^C` (Control-C)
+
+For more details, please refer to the documentation on the
 [Shapes Service](doc/Shapes.md). 
 
+### Run the *Drive* service emulation
 
-# Understanding the System Databus
-
-Once you understand the [Shapes Demo Databus](#shapes-demo-databus),
-you can apply that understanding to become familiar with the 
-main autonomous *system databus*, since the data model and 
-service interfaces follow the same design patterns.
-
-You can run an emulation of the databus service interfaces as follows:  
-
-- Emulate the service interfaces and data flows with scripted components
-
-        [DATABUS_PROJECT_DIR/]bin/emulator [NDDSHOME]
-
-  e.g.
-
-        bin/emulator [NDDSHOME]
-  or
-
-        databus/bin/emulator [NDDSHOME]
-
-  To stop the emulator, press ^C
-
-  The emulator uses the *RTI Prototyper with Lua* to emulate the entire system
-  architecture.
-
-- Visualizing the autonomous systems databus
-  - Run `RTI Admin Console` to visualize databus.
-  - Run `rtiddsspy` to view the data.
-
-- Emulated components can be mixed and matched with full component interface
-  implementations defined elsewhere. This allows a system to be built
-  incrementally, where some interfaces are emulated, while others are
-  fully implemented components.
-
-
-- For more details, please refer to the documentation on
-[Drive Service](doc/Drive.md).
-
-Once you are familiar with the system databus, you are ready to explore 
-various ways of implementing the service interfaces, and illustrated by 
-projects defined elsewhere.
-
-The rest of the document describes how to build the databus service 
-interface bindings for various programming languages, and how to 
-build and run components that use those service interfaces.  
-
-
-# `DATABUS_PROJECT_DIR`
-
-This databus project may be used as a sub-project of other projects.
-
-In the documentation, the variable `DATABUS_PROJECT_DIR/` is used to refer
-to the path of this *databus* project directory (i.e. the directory
-containing this [README](./README.md) file).
-
-When the working directory is not the same as the databus project directory,
-the appropriate `DATABUS_PROJECT_DIR` path should be used. It may  be a
-relative path or absolute path.
-
-For example:
-
-    # when the working directory is the 'databus' project
-    DATABUS_PROJECT_DIR = .
-
-    # when the working directory contains the 'databus' project as sub-directory
-    DATABUS_PROJECT_DIR = databus
-
-    # when the 'databus' project is two levels above the working directory
-    DATABUS_PROJECT_DIR = ../../databus
-
-
-## Building
-
-- Specify the **RTI Connext SDK** to build for, by setting the environment
-  variables
-
-  - `NDDSHOME` to the location of the RTI Connext DDS Professional
-  - `RTIMEHOME` to the location of the RTI Connext Micro
-     - needed only if building components for Connext DDS Micro
-
-- Generate the build system
-
-      [DATABUS_PROJECT_DIR/]bin/build-gen.sh [<connext_sdk> [<target-arch> [<build_type>]]]
-
-  where 
-  - `<connext_sdk>` is the name that you want to use to refer to the build 
-     for the selected SDK.  In the documentation, we use the names
-      - `pro` | `micro` | `micro2`
-     for Connext Professional, Connext Micro, and Connext Micro 2 respectively.
-  - `<build_type>` is the type of build
-    - `Debug` : to build using the debug libraries of the selected RTI Connext SDK
-    - `Release` : to build using the release libraries of the selected RTI Connext SDK 
-
-  e.g. (default)
-
-      bin/build-gen.sh pro x64Darwin17clang9.0 Debug
-  or
-
-      databus/bin/build-gen.sh pro x64Darwin17clang9.0 Debug
-
-   *NOTE:* The `build/` directory is creatd relative to the 
-    *working project directory* from where the `build-gen.sh` script was 
-    invoked (maybe the *top-level* project or an individual project).
-
-- Build the repository using the generated build system
-
-      build/<connext_sdk>-<target_arch>-<build_type>.sh
-        
-  e.g. (pro):
-
-      build/pro-x64Darwin17clang9.0-Debug.sh
-
-- You can repeat the above steps for any desired combinations of 
-  `(connext_sdk, target_arch, build_type)`
-
-   - An isolated build tree is generated for each combination
-         
-         build/<connext_sdk>/<target_arch>/<build_type>/
-   
-   - A standalone build script is generated for each combination
-         
-         build/<connext_sdk>-<target_arch>-<build_type>.sh
-
-   - All the combinations can co-exist 
-
-- Cleaning the generated build system
-
-   - Delete the `build` directory to remove ALL the generated build systems
+From the git repo's top-level directory, run an emulation of the *Drive* service interfaces as follows:
       
-         rm -rf build/
+      ./bin/drive
 
-   - Remove a specific combination of the build tree by removing a specific 
-     `build/<connext_sdk>/<target_arch>/<build_type>` tree, e.g.:
+- Use the `RTI Admin Console` to visualize the data flows and the emulated component interfaces. 
+- Use `rtiddsspy` to view the data.
 
-         rm -rf build/pro/x64Darwin17clang9.0/Debug
+To stop the drive data flow emulator, press `^C` (Control-C)
 
+For more details, please refer to the documentation on the 
+[Drive Service](doc/Drive.md). 
 
-## Running
+## Exploring Further
 
-Once components are built (see [Building](#building)), the component
-applications can be launched as follows.
-
-- Connext Professional Apps
-
-    The `[DATABUS_PROJECT_DIR/]/bin/run` app launcher sets up the environment
-    to load the XML files (if any) needed by the Connext Profesional
-    Applications. It should  be used to launch the Connext Professional Apps
-    as follows:
-
-        [DATABUS_PROJECT_DIR/]bin/run build/pro/<target_arch>/<build_type>/MyApp
-
-    e.g.
-
-        bin/run build/pro/<target_arch>/<build_type>/MyApp
-    or
-
-        databus/bin/run build/pro/<target_arch>/<build_type>/MyApp
-
-- Connext Micro Apps
-
-     The `databus/bin/run` app launcher can also be used to launch the Connext 
-     Micro Applications, even though the micro apps do not need the XML 
-     environment:
-
-        [DATABUS_PROJECT_DIR/]bin/run build/pro/<target_arch>/<build_type>/MyApp
-
-     e.g.
-
-        bin/run build/pro/<target_arch>/<build_type>/MyApp
-     or
-
-        databus/bin/run build/pro/<target_arch>/<build_type>/MyApp
-
-
-     *NOTE:* The Connext Micro Apps can also be simply launched directly:
-
-        build/micro/<target_arch>/<build_type>/MyApp
+- Common Data Model
+  - [data types](res/types/data/) (structure)
+  - [qos of service](res/qos/data/) (behavior)
+- Micro Services and Component Interfaces
+  - [Shapes](doc/Shapes.md) : DDS Shapes Demo Service
+  - [Drive](doc/Drive.md) : Automated and Assisted Driving (ADAS) Service
+- [Data-Oriented Micro-Services Architecture (DOMA)](doc/doma/README.md) : software system architecture and repository organization
+  - Component repositories : a downstream component repository would implement one or more [component interfaces](if/) defined in this repository using the [comon build system](doc/Build.md)
+  - System repositories: a downstream system repository would configure multiple components for a deployment to realize system use cases
+- Run components using the [common component launcher](doc/Run.md) utility
 
 ---
 (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.

@@ -10,7 +10,7 @@
 #*****************************************************************************
 
 echo "USAGE:"
-echo "    $0 [<pro|micro|micro2> [<target-arch> [<Debug|Release>]]]"
+echo "    $(basename $0) [<pro|micro|micro2> [<target-arch> [<Debug|Release>]]]"
 echo
 
 # Build System Parameters
@@ -20,7 +20,7 @@ RTI_BUILD_TYPE=${3:-Debug}
 
 
 echo "Running..."
-echo "    $0 $RTI_CONNEXT_SDK $RTI_ARCH $RTI_BUILD_TYPE" 
+echo "    $(basename $0) $RTI_CONNEXT_SDK $RTI_ARCH $RTI_BUILD_TYPE" 
 echo
 
 

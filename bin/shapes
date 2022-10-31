@@ -25,7 +25,7 @@ NDDSHOME=${1:-$NDDSHOME}
 if [ "$NDDSHOME" = "" ] ; then
     echo "Usage:"
     echo "$(basename $0) [NDDSHOME]"
-    echo "   Set the NDDSHOME environment variable or specify is on the command line" 
+    echo "   Set the NDDSHOME environment variable or specify it as an argument"
     exit 0
 fi
 

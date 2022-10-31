@@ -54,15 +54,15 @@ Generate the XML representation of the datatypes from XML as follows:
 
  
 
-## Running the reference architeture using emulated components
+## Visualizing the software system architecture using emulated components
 
-- Run the system using emulated components
+- Run the emulated component interfaces
 
-        ./bin/emulator [NDDSHOME]
+        ./bin/drive
 
-  To stop the emulator, press ^C
+  To stop the drive data flow emulator, press ^C
 
-  The emulator uses the `RTI Prototyper with Lua` to emulate the entire system architecture.
+  The drive emulator uses the `RTI Prototyper with Lua` to emulate the software system architecture.
   - Run `RTI Admin Console` to visualize databus.
   - Run `rtiddsspy` to view the data.
 
@@ -122,7 +122,14 @@ To add a new service, called `My`:
 4. Add service to the `NDDS_QOS_PROFILES` in the file: `res/cfg/Drive_QOS_PROVIDER.sh`
 5. Add service interface constants in: `res/types/services/My_svc_t.idl` and update the `CMakeLists.txt` file
 6. Test the service interfaces using `rtiddsprototyper`
-7. Update [emulator](../bin/emulator.sh) script(s) to append the new service interface to the `COMPONENT` list
+7. Update [drive](../bin/drive) script(s) to append the new service interface to the `COMPONENT` list
+
+
+## Implementing Components
+
+Component interface implementations are independently **defined elsewhere in other project repositories**. Those component implementation repositories depend on this repository for the common data model, component interfaces, and the common build system.
+
+The component implementations defined elsewhere can be mixed and matched with the emulated components defined in this repository. This allows a software system to be built incrementally, where some interfaces are emulated, while others are fully implemented components.
 
 ---
 (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
