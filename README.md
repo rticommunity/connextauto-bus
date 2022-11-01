@@ -101,8 +101,11 @@ For more details, please refer to the documentation on the [comon build system](
 
 From this git repo's top-level directory, run an emulation of the [Shapes](https://www.rti.com/products/tools/shapes-demo) service interfaces as follows:
       
-      ./bin/shapes
+      $DATABUSHOME/bin/run Shapes_QOS_PROVIDER ./bin/shapes [domainId]
 
+where the [bin/shapes](bin/shapes) component emulates the Shapes interfaces using *RTI Prototyper with Lua*.
+
+- For more details on running components, please refer to the documentation on the [common component launcher](doc/Run.md) utility.
 - Use the `RTI Admin Console` to visualize the data flows and the emulated component interfaces. 
 - Use `rtiddsspy` to view the data.
 
@@ -115,8 +118,11 @@ For more details, please refer to the documentation on the
 
 From the git repo's top-level directory, run an emulation of the *Drive* service interfaces as follows:
       
-      ./bin/drive
+      $DATABUSHOME/bin/run Drive_QOS_PROVIDER ./bin/drive [domainId]
 
+where the [bin/drive](bin/drive) component emulates the Drive interfaces using *RTI Prototyper with Lua*.
+
+- For more details on running components, please refer to the documentation on the [common component launcher](doc/Run.md) utility.
 - Use the `RTI Admin Console` to visualize the data flows and the emulated component interfaces. 
 - Use `rtiddsspy` to view the data.
 
@@ -136,7 +142,8 @@ For more details, please refer to the documentation on the
 - [Data-Oriented Micro-Services Architecture (DOMA)](doc/doma/README.md) : software system architecture and repository organization
   - Component repositories : a downstream component repository would implement one or more [component interfaces](if/) defined in this repository using the [comon build system](doc/Build.md)
   - System repositories: a downstream system repository would configure multiple components for a deployment to realize system use cases
-- Run components using the [common component launcher](doc/Run.md) utility
+- [Common Component Launcher](doc/Run.md) utility
+- [Common Build System Generator](doc/Build.md) utility
 
 ---
 (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.

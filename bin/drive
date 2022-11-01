@@ -9,23 +9,17 @@
 # be bound by those terms.
 #*****************************************************************************
 # 
-# Emulate all the components of the Drive service using
+# Emulate all the interfaces of the Drive service using
 # rtiddsprototyper with Lua to write dummy data.
 #
 # USAGE:
-#     drive
+#     $DATABUSHOME/bin/run Drive_QOS_PROVIDER ./bin/drive [domainId]
 #*****************************************************************************
 
 if [ "${NDDSHOME}" = "" ]; then echo "NDDSHOME Undefined!" ; exit 1; fi
 
-# --- Project Directory ---
-DATABUSHOME=$(cd $(dirname "$0")/..; pwd -P)
-
-# Initialize environment
-. $DATABUSHOME/res/cfg/Drive_QOS_PROVIDER.sh
-
-# Change working directory to the project directory 
-cd $DATABUSHOME
+# Arguments
+DOMAIN_ID=${1:-0}
 
 # Service Components to launch
 COMPONENTS=""
@@ -46,7 +40,11 @@ i=0
 for component in ${COMPONENTS} 
 do
     echo "$component"
-    $NDDSHOME/bin/rtiddsprototyper -luaOnData 0 -luaFile src/utils/Publisher.lua -cfgName $component &
+    $NDDSHOME/bin/rtiddsprototyper \
+        -luaOnData 0 \
+        -luaFile src/utils/Publisher.lua \
+        -domainId ${DOMAIN_ID} \
+        -cfgName $component &
     COMPONENT_PID[$i]=$!
     echo "   PID = ${COMPONENT_PID[$i]}"
     i=$((i+1))
