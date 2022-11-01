@@ -28,23 +28,23 @@ fi
 
 # Parse arguments
 SERVICE_ENV="$1"
-echo "SERVICE_ENV=$SERVICE_ENV"
+echo "SERVICE_ENV=${SERVICE_ENV}"
 shift
 COMPONENT_DIR=$(cd $(dirname "$1"); pwd -P)
 COMPONENT_EXE=$(basename $1)
-echo "COMPONENT_EXE=$COMPONENT_EXE"
+echo "COMPONENT_EXE=${COMPONENT_EXE}"
 shift
 COMPONENT_ARGS="$*"
-echo "COMPONENT_ARGS=$COMPONENT_ARGS"
+echo "COMPONENT_ARGS=${COMPONENT_ARGS}"
 
 # Change working directory to the databus directory so that
 # the relative paths embedded in the NDDS_QOS_PROFILES XML
 # files are correctly resolved
-DATABUS_PROJECT_DIR=$(cd $(dirname "$0")/..; pwd -P)
-echo "Changing working directory to DATABUS_PROJECT_DIR: $DATABUS_PROJECT_DIR"
-cd $DATABUS_PROJECT_DIR
+DATABUSHOME=$(cd $(dirname "$0")/..; pwd -P) # local to this script
+echo "Changing working directory to DATABUSHOME: $DATABUSHOME"
+cd ${DATABUSHOME}
 
 # Run the component executable
 echo "Running: ${COMPONENT_DIR}/${COMPONENT_EXE} ${COMPONENT_ARGS}"
-. $DATABUS_PROJECT_DIR/res/cfg/${SERVICE_ENV}.sh
+. ${DATABUSHOME}/res/cfg/${SERVICE_ENV}.sh
 exec ${COMPONENT_DIR}/${COMPONENT_EXE} ${COMPONENT_ARGS}

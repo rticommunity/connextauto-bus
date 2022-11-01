@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #******************************************************************************
 # (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 #
@@ -9,31 +9,37 @@
 # be bound by those terms.
 #*****************************************************************************
 # USAGE:
-#     source Drive_QOS_PROVIDER.sh
+#   Source the environment variables into the current shell
+#     . Drive_QOS_PROVIDER.sh
 #*****************************************************************************
 
 # --- Project Directory ---
-DATABUS_PROJECT_DIR=$(cd $(dirname "${BASH_SOURCE}")/../..; pwd -P)
-source $DATABUS_PROJECT_DIR/res/cfg/QOS_PROVIDER.sh
+if [ "${DATABUSHOME}" = "" ]; then echo "DATABUSHOME Undefined!" ; return; fi
+
+# -- Base Environment ---
+[ -f $DATABUSHOME/res/cfg/QOS_PROVIDER.sh ] && 
+. $DATABUSHOME/res/cfg/QOS_PROVIDER.sh || NDDS_QOS_PROFILES=""
+
 
 # --- QoS Profiles ---
 
 # QoS: Services
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/services/Drive_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/Drive_qos.xml"
 
 # QoS: Systems
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/systems/Drive-default_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/systems/Drive-default_qos.xml"
+
 
 # --- Data-Oriented Interfaces ---
 
 # Interfaces: Services
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/Drive_bus.xml"
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/Sensing_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/Perception_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/Planning_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/Actuation_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/HMI_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/CAN_svc.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_bus.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Sensing_svc.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Perception_svc.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Planning_svc.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Actuation_svc.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/HMI_svc.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CAN_svc.xml"
 
 # --- Show Environment --- 
 echo NDDS_QOS_PROFILES=$NDDS_QOS_PROFILES

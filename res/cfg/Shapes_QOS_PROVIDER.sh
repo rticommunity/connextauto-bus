@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #******************************************************************************
 # (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 #
@@ -9,23 +9,28 @@
 # be bound by those terms.
 #*****************************************************************************
 # USAGE:
-#     source Shapes_QOS_PROVIDER.sh
+#   Source the environment variables into the current shell
+#     . Shapes_QOS_PROVIDER.sh
 #*****************************************************************************
 
 # --- Project Directory ---
-DATABUS_PROJECT_DIR=$(cd $(dirname "${BASH_SOURCE}")/../..; pwd -P)
-source $DATABUS_PROJECT_DIR/res/cfg/QOS_PROVIDER.sh
+if [ "${DATABUSHOME}" = "" ]; then echo "DATABUSHOME Undefined!" ; return; fi
+
+# -- Base Environment ---
+[ -f $DATABUSHOME/res/cfg/QOS_PROVIDER.sh ] && 
+. $DATABUSHOME/res/cfg/QOS_PROVIDER.sh || NDDS_QOS_PROFILES=""
+
 
 # --- QoS Profiles ---
 
 # QoS: Services
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/services/Shapes_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/Shapes_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---
 
 # Interfaces: Services
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/Shapes_svc.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Shapes_svc.xml"
 
 
 # --- Show Environment --- 

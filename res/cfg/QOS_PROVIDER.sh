@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #******************************************************************************
 # (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 #
@@ -9,44 +9,43 @@
 # be bound by those terms.
 #*****************************************************************************
 # USAGE:
-#     source QOS_PROVIDER.sh
+#   Source the environment variables into the current shell
+#     . QOS_PROVIDER.sh
 #*****************************************************************************
 
 # --- Project Directory ---
-DATABUS_PROJECT_DIR=$(cd $(dirname "${BASH_SOURCE}")/../..; pwd -P)
-echo "DATABUS_PROJECT_DIR=$DATABUS_PROJECT_DIR"
-
+if [ "${DATABUSHOME}" = "" ]; then echo "DATABUSHOME Undefined!" ; return; fi
 
 # --- QoS Profiles ---
 
 NDDS_QOS_PROFILES=""
 
 # QoS: Snippets
-NDDS_QOS_PROFILES+="$DATABUS_PROJECT_DIR/res/qos/data/snippets/factory_qos.xml"
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/data/snippets/participant_qos.xml"
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/data/snippets/endpoint_qos.xml"
+NDDS_QOS_PROFILES+="$DATABUSHOME/res/qos/data/snippets/factory_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/snippets/participant_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/snippets/endpoint_qos.xml"
 
 # QoS: Flows
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/data/doa_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/doa_qos.xml"
 
 # QoS: Services
-[ -f $DATABUS_PROJECT_DIR/res/qos/services/MyService_qos.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/services/MyService_qos.xml"
+[ -f $DATABUSHOME/res/qos/services/MyService_qos.xml ] && 
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/MyService_qos.xml"
 
 # QoS: Systems
-[ -f $DATABUS_PROJECT_DIR/res/qos/services/MySystem_qos.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/res/qos/systems/MySystem_qos.xml"
+[ -f $DATABUSHOME/res/qos/services/MySystem_qos.xml ] && 
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/systems/MySystem_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---
 
 # Interfaces: Services
-[ -f $DATABUS_PROJECT_DIR/if/MyService.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/MyService.xml"
+[ -f $DATABUSHOME/if/MyService.xml ] && 
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/MyService.xml"
 
 # Interfaces: Systems
-[ -f $DATABUS_PROJECT_DIR/if/MySystem.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUS_PROJECT_DIR/if/MySystem.xml"
+[ -f $DATABUSHOME/if/MySystem.xml ] && 
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/MySystem.xml"
 
 
 

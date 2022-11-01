@@ -10,30 +10,22 @@
 #*****************************************************************************
 # 
 # Emulate all the components of the Shapes service using 
-# rtiddsprototyper with Lua, with dummy data. Visualize the databus using
-# RTI Admin Console.
+# rtiddsprototyper with Lua to write dummy data. 
 #
 # USAGE:
-#     shapes.sh
+#     shapes
 #*****************************************************************************
 
+if [ "${NDDSHOME}" = "" ]; then echo "NDDSHOME Undefined!" ; exit 1; fi
+
 # --- Project Directory ---
-DATABUS_PROJECT_DIR=$(cd $(dirname "$0")/..; pwd -P)
-NDDSHOME=${1:-$NDDSHOME}
+DATABUSHOME=$(cd $(dirname "$0")/..; pwd -P)
 
-# Print Help:
-if [ "$NDDSHOME" = "" ] ; then
-    echo "Usage:"
-    echo "$(basename $0) [NDDSHOME]"
-    echo "   Set the NDDSHOME environment variable or specify it as an argument"
-    exit 0
-fi
-
-# Initialize environment
-source $DATABUS_PROJECT_DIR/res/cfg/Shapes_QOS_PROVIDER.sh
+# Source the service environment
+. $DATABUSHOME/res/cfg/Shapes_QOS_PROVIDER.sh
 
 # Change working directory to the project directory 
-cd $DATABUS_PROJECT_DIR
+cd $DATABUSHOME
 
 # Service Components to launch
 COMPONENTS=""
