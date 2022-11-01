@@ -7,7 +7,9 @@
 # By accessing, downloading, or otherwise using this software, you agree to 
 # be bound by those terms.
 #*****************************************************************************
-
+# CONNEXTDDSMICRO_DIR='<RTI Connext DDS Micro Installation directory>'
+#  - if set, that value is used (eg. specified by -DCONNEXTDDSMICRO_DIR=<>)
+#  - else, the value defaults to the value of RTIMEHOME or ENV{RTIMEHOME}
 #####################################################################
 # Helper Functions                                                  #
 #####################################################################
@@ -136,8 +138,9 @@ if(NOT CONNEXTDDSMICRO_DIR)
         set(CONNEXTDDSMICRO_DIR "$ENV{RTIMEHOME}")
     else()
         set(msg
-            "CONNEXTDDSMICRO_DIR not provided. Please, provide it to CMake "
-            "using -DCONNEXTDDSMICRO_DIR="
+        "\nRTIMEHOME Undefined! Please set it to point to the "
+        "RTI Connext DDS Micro Installation directory, e.g.:\n"
+        "\t RTIMEHOME=/path/to/<rti_connext_dds_micro-x.y.z>\n"
         )
         message(FATAL_ERROR ${msg})
     endif()
@@ -161,8 +164,8 @@ find_path(RTICODEGENMICRO_DIR
 if(NOT RTICODEGENMICRO_DIR)
     set(warning
         "Codegen was not found. Please, check if rtiddsgen is under your "
-        "NDDSHOME/bin directory or provide it to CMake using "
-        "-DRTICODEGENMICRO_DIR"
+        "${CONNEXTDDSMICRO_DIR}/rtiddsgen/scripts/ directory or provide "
+        "it to CMake using -DRTICODEGENMICRO_DIR"
     )
         message(WARNING ${warning})
 else()
