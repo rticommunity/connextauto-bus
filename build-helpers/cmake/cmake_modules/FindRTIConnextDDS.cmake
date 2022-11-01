@@ -483,9 +483,11 @@ if(NOT CONNEXTDDS_DIR)
     elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Darwin")
         set(connextdds_root_hints
             "/Applications/rti_connext_dds-${folder_version}"
+            "$ENV{HOME}/Applications/rti_connext_dds-${folder_version}"
         )
         set(connextdds_root_paths
             "/Applications/rti_connext_dds-*"
+            "$ENV{HOME}/Applications/rti_connext_dds-*"
         )
     endif()
 
