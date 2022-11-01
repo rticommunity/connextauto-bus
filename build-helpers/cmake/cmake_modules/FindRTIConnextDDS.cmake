@@ -463,9 +463,13 @@ if(NOT CONNEXTDDS_DIR)
     if (CMAKE_HOST_SYSTEM_NAME MATCHES "Linux")
         set(connextdds_root_hints
             "$ENV{HOME}/rti_connext_dds-${folder_version}"
+            "/usr/local/rti_connext_dds-${folder_version}"
+            "/opt/rti_connext_dds-${folder_version}"
         )
         set(connextdds_root_paths
             "$ENV{HOME}/rti_connext_dds-*"
+            "/usr/local/rti_connext_dds-*"
+            "/opt/rti_connext_dds-*"
         )
 
     elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Windows")
@@ -482,12 +486,12 @@ if(NOT CONNEXTDDS_DIR)
 
     elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Darwin")
         set(connextdds_root_hints
-            "/Applications/rti_connext_dds-${folder_version}"
             "$ENV{HOME}/Applications/rti_connext_dds-${folder_version}"
+            "/Applications/rti_connext_dds-${folder_version}"
         )
         set(connextdds_root_paths
-            "/Applications/rti_connext_dds-*"
             "$ENV{HOME}/Applications/rti_connext_dds-*"
+            "/Applications/rti_connext_dds-*"
         )
     endif()
 
@@ -515,8 +519,10 @@ find_path(CONNEXTDDS_DIR
 
 if(NOT CONNEXTDDS_DIR)
     set(error
-        "CONNEXTDDS_DIR not specified. Please set -DCONNEXTDDS_DIR= to "
-        "your RTI Connext DDS installation directory")
+        "\nCONNEXTDDS_DIR not specified! Please specify using either...\n"
+        " - NDDSHOME=/path/to/<rti_connext_dds-x.y.z>\n"
+        " - or cmake -DCONNEXTDDS_DIR=/path/to/<rti_connext_dds-x.y.z>\n"
+    )
     message(FATAL_ERROR ${error})
 endif()
 
@@ -536,7 +542,8 @@ find_path(RTICODEGEN_DIR
 if(NOT RTICODEGEN_DIR)
     set(warning
         "Codegen was not found. Please, check if rtiddsgen is under your "
-        "NDDSHOME/bin directory or provide it to CMake using -DRTICODEGEN_DIR"
+        "${CONNEXTDDS_DIR}/bin directory or provide "
+        "it to CMake using -DRTICODEGEN_DIR"
     )
         message(WARNING ${warning})
 else()

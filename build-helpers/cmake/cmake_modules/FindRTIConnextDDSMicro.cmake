@@ -132,18 +132,21 @@ endfunction()
 
 # Find the ConnextDDS Micro installation ####################################
 if(NOT CONNEXTDDSMICRO_DIR)
+    message(VERBOSE "CONNEXTDDSMICRO_DIR not specified")
     if(RTIMEHOME)
         set(CONNEXTDDSMICRO_DIR "${RTIMEHOME}")
     elseif(DEFINED ENV{RTIMEHOME})
         set(CONNEXTDDSMICRO_DIR "$ENV{RTIMEHOME}")
-    else()
-        set(msg
-        "\nRTIMEHOME Undefined! Please set it to point to the "
-        "RTI Connext DDS Micro Installation directory, e.g.:\n"
-        "\t RTIMEHOME=/path/to/<rti_connext_dds_micro-x.y.z>\n"
-        )
-        message(FATAL_ERROR ${msg})
     endif()
+endif()
+
+if(NOT CONNEXTDDSMICRO_DIR)
+    set(error
+    "\nCONNEXTDDSMICRO_DIR not specified! Please specify using either...\n"
+    " - RTIMEHOME=/path/to/<rti_connext_dds_micro-x.y.z>\n"
+    " - or cmake -DCONNEXTDDSMICRO_DIR=/path/to/<rti_connext_dds_micro-x.y.z>\n"
+    )
+    message(FATAL_ERROR ${error})
 endif()
 
 message(STATUS
@@ -167,7 +170,7 @@ if(NOT RTICODEGENMICRO_DIR)
         "${CONNEXTDDSMICRO_DIR}/rtiddsgen/scripts/ directory or provide "
         "it to CMake using -DRTICODEGENMICRO_DIR"
     )
-        message(WARNING ${warning})
+    message(WARNING ${warning})
 else()
     set(RTICODEGENMICRO
         "${RTICODEGENMICRO_DIR}/${codegen_name}"
