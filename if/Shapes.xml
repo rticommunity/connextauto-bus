@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+- (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+-
+- The use of this software is governed by the terms specified in the 
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+-
+- By accessing, downloading, or otherwise using this software, you agree to 
+- be bound by those terms.
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        Shapes Databus
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+
+    <!-- Data Types -->
+    <types>
+        <include file="res/types/data/demo/ShapeType_t.xml" />
+    </types>
+
+    <!-- Databus Library -->
+    <domain_library name="ShapesBusLib">
+
+        <!-- main databus -->
+        <domain name="main">
+            <!-- register types used by the service -->
+            <register_type name="ShapeType" type_ref="dds::demo::ShapeType" />
+
+            <!-- register topics used by the service -->
+            <topic name="Square"    register_type_ref="ShapeType"/>
+            <topic name="Circle"    register_type_ref="ShapeType"/>      
+            <topic name="Triangle"  register_type_ref="ShapeType"/> 
+        </domain>
+
+    </domain_library>
+</dds>

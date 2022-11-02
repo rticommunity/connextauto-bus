@@ -30,8 +30,10 @@ NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/Shapes_qos.xml"
 # --- Data-Oriented Interfaces ---
 
 # Interfaces: Services
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Shapes_svc.xml"
-
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Shapes.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Shapes_Pub.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Shapes_Sub.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Shapes_PubSub.xml"
 
 # --- Show Environment --- 
 echo NDDS_QOS_PROFILES=$NDDS_QOS_PROFILES

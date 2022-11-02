@@ -1,105 +1,51 @@
 # Shapes Service
 
-The *Shapes* service defines the *service* interface that can be used with
-the [**RTI Shapes Demo**](https://www.rti.com/gettingstarted/shapes-demo)
+The *Shapes* service comprises of the data flows and the interfaces defined by the [RTI Shapes Demo](https://www.rti.com/products/tools/shapes-demo). It consists of the following artifacts.
+- Common Data Model
+  - [data types](../res/types/data/) (structure)
+    - [ShapeType_t.idl](../res/types/data/demo/ShapeType_t.idl)
+  - [qos of service](../res/qos/data/) (behavior)
+     - [Shapes_qos.xml](../res/qos/services/Shapes_qos.xml)
+- Micro Service and Component Interfaces
+  - [databus](doma/Bus.md)
+    -  [Shapes.xml](../if/Shapes.xml)
+  - [interfaces](doma/Interface.md)
+    - [Shapes_Pub](../if/Shapes_Pub.xml)
+    - [Shapes_Sub](../if/Shapes_Sub.xml)
+    - [Shapes_PubSub](../if/Shapes_PubSub.xml)
+  - [Constants](../res/types/services/README.md)
+    - [Shapes_t.idl](../res/types/services/Shapes_t.idl)
+- Micro Service Environment
+  - [Shapes_QOS_PROVIDER.sh](../res/cfg/Shapes_QOS_PROVIDER.sh) 
 
-- [Service Definition](#service-definition)
-- [Dependencies](#dependencies)
-- [Generating Types](#generating-types)
-- [Running the Service](#running-the-service)
+The *Shapes* service artifacts are organized as shown below.
 
-## Service Definition
+    .
+    ├── doc
+    │   └── Shapes.md
+    ├── if
+    │   ├── Shapes.xml
+    │   ├── Shapes_Pub.xml
+    │   ├── Shapes_PubSub.xml
+    │   └── Shapes_Sub.xml
+    └── res
+        ├── cfg
+        │   └── Shapes_QOS_PROVIDER.sh
+        ├── qos/services
+        │   └── Shapes_qos.xml
+        └── types
+            ├── data/demo
+            │   └── ShapeType_t.idl
+            └── services
+                └── Shapes_t.idl
 
-The *Shapes* Service is defined by the following artifacts
+The *Shapes* service interfaces are interoperable with the [RTI Shapes Demo](https://www.rti.com/gettingstarted/shapes-demo). They can be used to implement new components that can exchange data with the *RTI Shapes Demo* app.
 
-- Service: [Shapes.xml](../if/Shapes.xml)
-- Data Model:
-  - Datatypes: [Shapes_t.idl](../res/types/Shapes_t.idl)
-  - QosProfiles: [Shapes_qos.xml](../res/qos/services/Shapes_qos.xml)
+For details on how to run an emulation of the Shapes service, please refer to [Run the *Shapes* service emulation](../README.md#run-the-shapes-service-emulation)
 
-- Configuration: [Shapes_QOS_PROVIDER.sh](../res/cfg/Shapes_QOS_PROVIDER.sh)
+To emulate a specific interface, say `ShapesIfLib::Pub`, using the [RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0), use the [common component launcher](Run.md) utility as follows:
 
-
-## Dependencies 
-
-[RTI Connext DDS 6.1.1+](https://community.rti.com/documentation)
-
-
-## Setup RTI Connext DDS Environment
-
-In each Terminal Window in which you want to run RTI COnnext DDS Applications:
-
-    source NDDSHOME/resource/scripts/rtisetenv_<architecture>.bash
-
-where `NDDSHOME` is the location of the **RTI Connext DDS** *installation directory*.
-
-## Generating Types
-
-*NOTE: the build steps automatically take care of the generation. The manual steps are
-listed below.*
-
-Generate the XML representation of the datatypes from XML as follows:
-
-    rtiddsgen -convertToXml res/types/Shapes_t.idl
-
-This step needs to be done only when [Shapes_t.idl](../res/types/Shapes_t.idl)
-changes.
- 
-## Running the Shapes system using emulated components
-
-- Run the shapes system using emulated components
-
-        ./bin/shapes
-
-  To stop the emulation, press ^C
-  
-  The above uses the `RTI Prototyper with Lua` to emulate the entire system architecture.
-  - Run `RTI Admin Console` to visualize databus.
-  - Run `rtiddsspy` to view the data.
-
-
-## Running the Components Individually
-
-### Run Shapes Publisher
-
-Open a Terminal Window, and run the shapes publisher and type:
-
-    # Setup the Shapes Service Configuration
-    source res/cfg/Shapes_QOS_PROVIDER.sh
-
-    # Run the Shapes Service in RTI Prototyper
-    rtiddsprototyper -luaOnData 0 -luaFile src/utils/Publisher.lua -cfgName Shapes_svc::Pub
-
-
-### Run Shapes Subscriber
-
-Open a Terminal Window, and run the shapes publisher and type:
-
-    # Setup the Shapes Service Configuration
-    source res/cfg/Shapes_QOS_PROVIDER.sh
-
-    # Run the Shapes Service in RTI Prototyper
-    rtiddsprototyper -luaOnPeriod 0 -luaFile src/utils/Subscriber.lua -cfgName Shapes_svc::Sub 
-
-
-## Run RTI Shapes Demo
-
-Use the RTI Launcher to launch 
-[RTI Shapes Demo](https://www.rti.com/gettingstarted/shapes-demo), or
-Open a Terminal Window and type:
-
-    rtishapesdemo
-
-
-## Run RTI Admin Console
-
-View the system connectivity using 
-[RTI Admin Console](https://www.rti.com/gettingstarted/adminconsole).
-
-Use the RTI Launcher to launch RTI Admin Console, or 
-Open a Terminal Window and type:
-
-    rtiadminconsole
+    $DATABUSHOME/bin/run Shapes_QOS_PROVIDER $NDDSHOME/bin/rtiddsprototyper -luaOnData 0 -luaFile src/utils/Publisher.lua -cfgName ShapesIfLib::Pub
 
 ---
 (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.

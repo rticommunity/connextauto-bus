@@ -106,8 +106,8 @@ From this git repo's top-level directory, run an emulation of the [Shapes](https
 where the [bin/shapes](bin/shapes) component emulates the Shapes interfaces using *RTI Prototyper with Lua*.
 
 - For more details on running components, please refer to the documentation on the [common component launcher](doc/Run.md) utility.
-- Use the `RTI Admin Console` to visualize the data flows and the emulated component interfaces. 
-- Use `rtiddsspy` to view the data.
+- Use the [RTI Admin Console](https://www.rti.com/gettingstarted/adminconsole) to visualize the data flows and the emulated component interfaces.
+- Use [rtiddsspy](https://community.rti.com/static/documentation/connext-dds/7.0.0/doc/manuals/connext_dds_professional/tools/rti_dds_spy/index.html) to view the data.
 
 To stop the shapes data flow emulator, press `^C` (Control-C)
 
@@ -123,8 +123,8 @@ From the git repo's top-level directory, run an emulation of the *Drive* service
 where the [bin/drive](bin/drive) component emulates the Drive interfaces using *RTI Prototyper with Lua*.
 
 - For more details on running components, please refer to the documentation on the [common component launcher](doc/Run.md) utility.
-- Use the `RTI Admin Console` to visualize the data flows and the emulated component interfaces. 
-- Use `rtiddsspy` to view the data.
+- Use the [RTI Admin Console](https://www.rti.com/gettingstarted/adminconsole) to visualize the data flows and the emulated component interfaces.
+- Use [rtiddsspy](https://community.rti.com/static/documentation/connext-dds/7.0.0/doc/manuals/connext_dds_professional/tools/rti_dds_spy/index.html) to view the data.
 
 To stop the drive data flow emulator, press `^C` (Control-C)
 

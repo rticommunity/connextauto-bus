@@ -1,0 +1,42 @@
+/******************************************************************************
+(C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the 
+RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+
+By accessing, downloading, or otherwise using this software, you agree to 
+be bound by those terms.
+*****************************************************************************/
+
+#ifndef SHAPE_TYPE_IDL
+#define SHAPE_TYPE_IDL
+
+module dds {
+    module demo {
+
+        /** RTI Shapes Demo Datatype
+            https://www.rti.com/products/tools/shapes-demo
+        */
+        struct ShapeType {
+            @key // identifies the instance (a.k.a data-object)
+                string<128> color; 
+
+            long x;
+            long y;
+            long shapesize; 
+        };
+
+        enum ShapeFillKind {
+            SOLID_FILL,
+            TRANSPARENT_FILL,
+            HORIZONTAL_HATCH_FILL,
+            VERTICAL_HATCH_FILL
+        };
+
+        struct ShapeTypeExtended : ShapeType {
+            ShapeFillKind fillKind;
+            float angle;
+        };
+    };
+};
+#endif /* SHAPE_TYPE_IDL */

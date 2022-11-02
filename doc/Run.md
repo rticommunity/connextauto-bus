@@ -20,7 +20,7 @@ The `run` utility loads the service environment from the file: [res/cfg/\<servic
 
 For *RTI Connext DDS Professional* the run utility sets up the environment to load the XML files (if any) needed by the component executable.
 
-## Running Apps Using the Compoment Launcher
+## Running Apps Using the Component Launcher
 
 To use the service environment `<service_env>` for launching the component `<app>`:
 

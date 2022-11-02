@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+- (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+-
+- The use of this software is governed by the terms specified in the 
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+-
+- By accessing, downloading, or otherwise using this software, you agree to 
+- be bound by those terms.
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        Shapes - Interface - PubSub
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+
+    <!-- Participants : each participant defines a data-oriented interface -->
+    <domain_participant_library name="ShapesIfLib">
+
+        <!-- Define a data-oriented interface: "PubSub" -->
+        <domain_participant name="PubSub" domain_ref="ShapesBusLib::main">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="Shape_reader" topic_ref="Circle">
+                    <datareader_qos base_name="ShapesQosLib::PubSub" />
+                </data_reader>
+                <subscriber_qos base_name="ShapesQosLib::PubSub" />
+            </subscriber>
+            
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Shape_writer" topic_ref="Circle">
+                    <datawriter_qos base_name="ShapesQosLib::PubSub" />
+                </data_writer>
+                <publisher_qos base_name="ShapesQosLib::PubSub" />
+            </publisher>
+            <participant_qos base_name="ShapesQosLib::PubSub" />
+        </domain_participant>
+
+    </domain_participant_library>
+</dds>

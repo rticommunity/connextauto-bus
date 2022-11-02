@@ -1,0 +1,62 @@
+/******************************************************************************
+(C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the 
+RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+
+By accessing, downloading, or otherwise using this software, you agree to 
+be bound by those terms.
+*****************************************************************************/
+
+#ifndef SHAPES_IDL
+#define SHAPES_IDL
+
+module dds {
+    module demo {
+        module Shapes {
+            /******************************************************************
+             * Databus - DDS-XML Interface String Constants, for use in code
+            */
+            module BusLib {
+
+                module registered_type {
+                    const string ShapeType      = "ShapeType";
+                };
+
+                module topic {
+                    const string Square         = "Square";
+                    const string Circle         = "Circle";
+                    const string Triangle       = "Triangle";
+                };
+            };
+
+            /******************************************************************
+            *  Interfaces - DDS-XML If String Constants, for use in code
+            */
+            module IfLib {
+                module Pub {
+                    const string participant    = "ShapesIfLib::Pub";
+                    module writer {
+                        const string Shape      = "outputs::Shape_writer";
+                    };
+                };
+                module Sub {
+                    const string participant    = "ShapesIfLib::Sub";
+                    module reader {
+                        const string Shape      = "inputs::Shape_reader";
+                    };
+                };
+                module PubSub {
+                    const string participant    = "ShapesIfLib::PubSub";
+                    module reader {
+                        const string Shape      = "inputs::Shape_reader";
+                    };
+                    module writer {
+                        const string Shape      = "outputs::Shape_writer";
+                    };
+                };
+            };
+        };
+    };
+};
+#endif /* SHAPES_IDL */

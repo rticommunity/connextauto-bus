@@ -14,7 +14,7 @@ cmake_minimum_required(VERSION 3.14)
 # Convert IDLs to XML
 ###################################################################################
 
-set(IDLs Shapes_t)
+set(IDLs ShapeType_t)
 set(resulting_files)
 
 foreach(IDL ${IDLs})

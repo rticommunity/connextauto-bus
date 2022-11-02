@@ -22,4 +22,5 @@ set(IDLs
   Perception_svc_t
   Planning_svc_t
   Sensing_svc_t
+  Shapes_t
 )

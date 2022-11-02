@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+- (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+-
+- The use of this software is governed by the terms specified in the 
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+-
+- By accessing, downloading, or otherwise using this software, you agree to 
+- be bound by those terms.
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        Shapes Service - Interface - Sub
+- RTI Shapes Demo can be considered as an implementation of this interface
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+
+    <!-- Participants : each participant defines a data-oriented interface -->
+    <domain_participant_library name="ShapesIfLib">
+
+        <!-- Define a data-oriented interface: "Sub" -->
+        <domain_participant name="Sub" domain_ref="ShapesBusLib::main">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="Shape_reader" topic_ref="Triangle">
+                    <datareader_qos base_name="ShapesQosLib::Sub" />
+                </data_reader>
+                <subscriber_qos base_name="ShapesQosLib::Sub" />
+            </subscriber>
+            <participant_qos base_name="ShapesQosLib::Sub" />
+        </domain_participant>
+
+    </domain_participant_library>
+</dds>
