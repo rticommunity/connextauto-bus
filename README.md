@@ -19,7 +19,7 @@ For each component interface, many implementations are possible. Component imple
 
 This repo provides a **common build system** for building generated datatypes and interfaces into a common library that can be linked to by component implementations. The *common build system* is intended to be used by use by component repositories that use this repo. Thus, this repo is a dependency (prerequisite) for building independent standalone components using the provided *common data model, interfaces, and build system*.
 
-This repo also provide a way to emulate and visualize the *software system architecture functional blocks and data flows*. Each component interface is emulated using  *[RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0)*. The data flows and the component interfaces can be visualized using *RTI Admin Console*. Thus, changes to the data model and functional interfaces can be quickly visualized and validated at the software system architecture level.
+This repo also provide a way to emulate and visualize the *software system architecture functional blocks and data flows*. Each component interface is emulated using  *[RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0)*. The data flows and the component interfaces can be visualized using *[RTI Admin Console](https://www.rti.com/gettingstarted/adminconsole)*. Thus, changes to the data model and functional interfaces can be quickly visualized and validated at the software system architecture level.
 
 
 ## Prerequisites
@@ -118,9 +118,9 @@ For more details, please refer to the documentation on the
 
 From the git repo's top-level directory, run an emulation of the *Drive* service interfaces as follows:
       
-      $DATABUSHOME/bin/run Drive_QOS_PROVIDER ./bin/drive [domainId]
+      $DATABUSHOME/bin/run Drive_QOS_PROVIDER ./bin/Drive [domainId]
 
-where the [bin/drive](bin/drive) component emulates the Drive interfaces using *RTI Prototyper with Lua*.
+where the [bin/Drive](bin/Drive) component emulates the Drive interfaces using *RTI Prototyper with Lua*.
 
 - For more details on running components, please refer to the documentation on the [common component launcher](doc/Run.md) utility.
 - Use the [RTI Admin Console](https://www.rti.com/gettingstarted/adminconsole) to visualize the data flows and the emulated component interfaces.
@@ -138,12 +138,16 @@ For more details, please refer to the documentation on the
   - [qos of service](res/qos/data/) (behavior)
 - Micro Services and Component Interfaces
   - [Shapes](doc/Shapes.md) : DDS Shapes Demo Service
-  - [Drive](doc/Drive.md) : Automated and Assisted Driving (ADAS) Service
+  - [Drive](doc/Drive.md) : Automated and Assisted Driving (AD) Service
 - [Data-Oriented Micro-Services Architecture (DOMA)](doc/doma/README.md) : software system architecture and repository organization
   - Component repositories : a downstream component repository would implement one or more [component interfaces](if/) defined in this repository using the [comon build system](doc/Build.md)
   - System repositories: a downstream system repository would configure multiple components for a deployment to realize system use cases
 - [Common Component Launcher](doc/Run.md) utility
 - [Common Build System Generator](doc/Build.md) utility
+
+Component implementations are independently **defined elsewhere in other project repositories**. Those component implementation repositories depend on this repository for the common data model, the component interfaces, the common build system, and the common component launcher.
+
+The component implementations defined elsewhere can be mixed and matched with the emulated components defined in this repository. Such an approach allows a software system to be built and tested incrementally, where some interfaces are emulated, while others are being fully implemented.
 
 ---
 (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.

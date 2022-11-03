@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+-******************************************************************************
+- (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+-
+- The use of this software is governed by the terms specified in the 
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+-
+- By accessing, downloading, or otherwise using this software, you agree to 
+- be bound by those terms.
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+    
+    <!-- HMI Service -->
+    <domain_participant_library name="Drive">
+
+        <!-- HMI interface -->
+        <domain_participant name="HMI" domain_ref="DriveBus::main">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="Alert_reader" topic_ref="Status/Alert">
+                    <datareader_qos base_name="DriveQosLib::HMI" />
+                </data_reader>
+                <subscriber_qos base_name="DriveQosLib::HMI" />
+            </subscriber>
+           <participant_qos base_name="DriveDeploymentQosLib::HMI" />
+        </domain_participant>
+
+   </domain_participant_library>
+</dds>

@@ -33,13 +33,14 @@ NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/systems/Drive-default_qos.xml"
 # --- Data-Oriented Interfaces ---
 
 # Interfaces: Services
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_bus.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Sensing_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Perception_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Planning_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Actuation_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/HMI_svc.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CAN_svc.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Camera.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Lidar.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Perceptor.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Planner.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Actuator.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_HMI.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_CAN.xml"
 
 # --- Show Environment --- 
 echo NDDS_QOS_PROFILES=$NDDS_QOS_PROFILES

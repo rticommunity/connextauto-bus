@@ -13,10 +13,10 @@
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
     
     <!-- CAN Service -->
-    <domain_participant_library name="CAN_svc">
+    <domain_participant_library name="Drive">
 
         <!-- CAN Gateway interface -->
-        <domain_participant name="CANGateway" domain_ref="Drive_bus::CAN">
+        <domain_participant name="CANGateway" domain_ref="DriveBus::can">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="SignalInfo_reader" topic_ref="Config/SignalInfo">
@@ -38,7 +38,7 @@
         </domain_participant>
 
         <!-- CAN Component interface -->
-        <domain_participant name="CANComponent" domain_ref="Drive_bus::CAN">
+        <domain_participant name="CANComponent" domain_ref="DriveBus::can">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="SignalInfo_reader" topic_ref="Config/SignalInfo">
@@ -60,7 +60,7 @@
         </domain_participant>
 
         <!-- CAN Tunnel interface -->
-        <domain_participant name="CANTunnel" domain_ref="Drive_bus::CAN">
+        <domain_participant name="CANTunnel" domain_ref="DriveBus::can">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="Frame_reader" topic_ref="Stream/FrameIn">

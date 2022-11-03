@@ -13,10 +13,10 @@
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
     
     <!-- Actuation Service -->
-    <domain_participant_library name="Actuation_svc">
+    <domain_participant_library name="Drive">
 
         <!-- Actuator interface -->
-        <domain_participant name="Actuator" domain_ref="Drive_bus::main">
+        <domain_participant name="Actuator" domain_ref="DriveBus::main">
             <!-- Inputs -->
             <subscriber name="inputs">
                <data_reader name="Steering_reader" topic_ref="Status/SteeringDesired">

@@ -54,10 +54,11 @@ set(IDLs
 
   data/gateway/CAN_t.idl
 
+  data/demo/ShapeType_t.idl
+
   # Services
-  services/Drive_bus_t.idl
-  services/CAN_svc_t.idl
   services/Shapes_t.idl
+  services/Drive_t.idl
 )
 
 list(LENGTH IDLs IDLs_length)

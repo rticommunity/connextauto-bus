@@ -13,10 +13,10 @@
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
     
     <!-- Perception Service -->
-    <domain_participant_library name="Perception_svc">
+    <domain_participant_library name="Drive">
 
         <!-- Perceptor interface -->
-        <domain_participant name="Perceptor" domain_ref="Drive_bus::main">
+        <domain_participant name="Perceptor" domain_ref="DriveBus::main">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="Camera_reader" topic_ref="Stream/Camera">

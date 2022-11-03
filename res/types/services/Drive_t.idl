@@ -1,0 +1,162 @@
+/******************************************************************************
+(C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the 
+RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+
+By accessing, downloading, or otherwise using this software, you agree to 
+be bound by those terms.
+*****************************************************************************/
+
+#ifndef DRIVE_IDL
+#define DRIVE_IDL
+
+module dds {
+    module Drive {
+        /******************************************************************
+        * Bus - DDS-XML Interface String Constants, for use in code
+        */
+        module Bus {
+            module main {
+                module registered_type {
+                    const string Camera         = "dds::sensing::Camera";
+                    const string Lidar          = "dds::sensing::Lidar";
+
+                    const string Track          = "dds::perception::Track";
+                    const string TrackInfo      = "dds::perception::TrackInfo";
+
+                    const string Lane           = "dds::perception::Lane";
+                    const string LaneInfo       = "dds::perception::LaneInfo";
+
+                    const string Alert          = "dds::planning::Alert";
+
+                    const string SteeringDesired= "dds::actuation::SteeringDesired";
+                    const string SteeringActual = "dds::actuation::SteeringActual";
+                };
+
+                module topic {
+                    const string Camera         = "Stream/Camera";
+                    const string Lidar          = "Stream/Lidar";
+
+                    const string Track          = "Status/Track";
+                    const string TrackInfo      = "Config/TrackInfo";
+
+                    const string Lane           = "Status/Lane";
+                    const string LaneInfo       = "Config/LaneInfo";
+
+                    const string Alert          = "Status/Alert";
+
+                    const string SteeringDesired= "Status/SteeringDesired";
+                    const string SteeringActual = "Status/SteeringActual";
+                };
+            };
+
+            module can {
+                module registered_type {
+                    const string CANSignalInfo  = "dds::can::CANSignalInfo";
+                    const string CANSignal      = "dds::can::CANSignal";
+                    const string CANFrame       = "dds::can::CANFrame";                    
+                };
+                module topic {
+                    const string SignalInfo     = "Config/SignalInfo";
+                    const string SignalIn       = "Status/SignalIn";
+                    const string SignalOut      = "Status/SignalOut";
+                    const string FrameIn        = "Stream/FrameIn";
+                    const string FrameOut       = "Stream/FrameOut";
+                };
+            };
+        };
+
+        /******************************************************************
+        *  Interfaces - DDS-XML If String Constants, for use in code
+        */
+        module Actuator {
+            const string participant    = "Drive::Actuator";
+            module reader {
+                const string Steering   = "inputs::Steering_reader";
+            };
+            module writer {
+                const string Steering   = "outputs::Steering_writer";
+            };
+        };
+        module Camera {
+            const string participant    = "Drive::Camera";
+            module writer {
+                const string Camera     = "outputs::Camera_writer";
+            };
+        };
+        module Lidar {
+            const string participant    = "Drive::Lidar";
+            module writer {
+                const string Lidar      = "outputs::Lidar_writer";
+            };
+        };
+        module CANGateway {
+            const string participant    = "Drive::CANGateway";
+
+            /* for implementations that use a separate participant outgoing 
+            path, and separate participant for the incoming path */
+            const string participant_in = "Drive::CANGateway_can_to_dds";
+            const string participant_out= "Drive::CANGateway_dds_to_can";
+
+            module reader {
+                const string SignalInfo = "inputs::SignalInfo_reader";
+                const string Signal     = "inputs::Signal_reader";
+            };
+            module writer {
+                const string Signal     = "outputs::Signal_writer";
+            };
+        };
+        module CANComponent {
+            const string participant    = "Drive::CANComponent";
+            const string tester         = "Drive::CANComponent_tester";
+
+            module reader {
+                const string SignalInfo = "inputs::SignalInfo_reader";
+                const string Signal     = "inputs::Signal_reader";
+            };
+            module writer {
+                const string Signal     = "outputs::Signal_writer";
+            };
+        };
+        module CANTunnel {
+            const string participant    = "Drive::CANTunnel";
+            module reader {
+                const string Frame      = "inputs::Frame_reader";
+            };
+            module writer {
+                const string Frame      = "outputs::Frame_writer";
+            };
+        };
+        module HMI {
+            const string participant    = "Drive::HMI";
+            module reader {
+                const string Alert      = "outputs::Alert_reader";
+            };
+        };
+        module Perceptor {
+            const string participant    = "Drive::Perceptor";
+            module reader {
+                const string Camera     = "inputs::Camera_reader";
+                const string Lidar      = "inputs::Lidar_reader";
+            };
+            module writer {
+                const string Track      = "outputs::Track_writer";
+                const string Lane       = "outputs::Lane_writer";
+            };
+        };
+        module Planner {
+            const string participant    = "Drive::Planner";
+            module reader {
+                const string Track      = "inputs::Track_reader";
+                const string Lane       = "inputs::Track_reader";
+                const string Steering   = "inputs::Steering_reader";
+            };
+            module writer {
+                const string Steering   = "outputs::Steering_writer";
+                const string Alert      = "outputs::Alert_writer";
+            };
+        };
+    };  
+};
+#endif /* DRIVE_IDL */

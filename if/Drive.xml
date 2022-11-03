@@ -24,9 +24,9 @@
     </types>
 
     <!-- Databus Library -->
-    <domain_library name="Drive_bus">
+    <domain_library name="DriveBus">
 
-        <!-- main vehicle databus -->
+        <!-- main databus -->
         <domain name="main">
             
             <!-- Camera -->
@@ -91,8 +91,8 @@
 
 
         
-        <!-- DDS-CAN databus (may be layered) --> 
-        <domain name="CAN">
+        <!-- DDS-CAN databus --> 
+        <domain name="can">
 
             <!-- CANSignalInfo -->
             <register_type name="dds::can::CANSignalInfo" 

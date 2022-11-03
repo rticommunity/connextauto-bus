@@ -12,19 +12,19 @@
 -->
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
     
-    <!-- HMI Service -->
-    <domain_participant_library name="HMI_svc">
+    <!-- Camera Service -->
+    <domain_participant_library name="Drive">
 
-        <!-- HMI interface -->
-        <domain_participant name="HMI" domain_ref="Drive_bus::main">
-            <!-- Inputs -->
-            <subscriber name="inputs">
-                <data_reader name="Alert_reader" topic_ref="Status/Alert">
-                    <datareader_qos base_name="DriveQosLib::HMI" />
-                </data_reader>
-                <subscriber_qos base_name="DriveQosLib::HMI" />
-            </subscriber>
-           <participant_qos base_name="DriveDeploymentQosLib::HMI" />
+        <!-- Lidar interface -->
+        <domain_participant name="Lidar" domain_ref="DriveBus::main">
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Lidar_writer" topic_ref="Stream/Lidar">
+                    <datawriter_qos base_name="DriveQosLib::Lidar" />
+                </data_writer>
+                <publisher_qos base_name="DriveQosLib::Lidar" />
+            </publisher>
+            <participant_qos base_name="DriveDeploymentQosLib::Lidar" />
         </domain_participant>
 
    </domain_participant_library>

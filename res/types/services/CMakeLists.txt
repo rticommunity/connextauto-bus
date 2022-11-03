@@ -15,12 +15,6 @@ cmake_minimum_required(VERSION 3.14)
 ###################################################################################
 
 set(IDLs
-  Actuation_svc_t
-  CAN_svc_t
-  Drive_bus_t
-  HMI_svc_t
-  Perception_svc_t
-  Planning_svc_t
-  Sensing_svc_t
   Shapes_t
+  Drive_t
 )

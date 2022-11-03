@@ -23,15 +23,15 @@ DOMAIN_ID=${1:-0}
 
 # Service Components to launch
 COMPONENTS=""
-COMPONENTS+=" Sensing_svc::Camera " 
-COMPONENTS+=" Sensing_svc::Lidar "
-COMPONENTS+=" Perception_svc::Perceptor " 
-COMPONENTS+=" Planning_svc::Planner "
-COMPONENTS+=" Actuation_svc::Actuator "
-COMPONENTS+=" HMI_svc::HMI "
-COMPONENTS+=" CAN_svc::CANGateway "
-COMPONENTS+=" CAN_svc::CANComponent "
-COMPONENTS+=" CAN_svc::CANTunnel "
+COMPONENTS+=" Drive::Camera " 
+COMPONENTS+=" Drive::Lidar "
+COMPONENTS+=" Drive::Perceptor " 
+COMPONENTS+=" Drive::Planner "
+COMPONENTS+=" Drive::Actuator "
+COMPONENTS+=" Drive::HMI "
+COMPONENTS+=" Drive::CANGateway "
+COMPONENTS+=" Drive::CANComponent "
+COMPONENTS+=" Drive::Tunnel "
 
 echo "COMPONENTS = $COMPONENTS"
 

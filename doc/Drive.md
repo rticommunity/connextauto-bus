@@ -1,135 +1,55 @@
 # Drive Service
 
-The *Drive* service defines the *service* interface for 
-an autonomous vehicle databus.
+The *Drive* service comprises of the data flows and the interfaces defined for Automated and Assisted Driving (AD). Over time, the intention is to cover [SAE levels 2 to 5](https://www.sae.org/standards/content/j3016_202104/). The data-centric approach allows the sotware system architectuture to include new data flows and component interfaces for increasing levels of autonomy, and evolve incrementally over time. Currently, the *Drive* service consists of the following artifacts.
 
-- [Service Definition](#service-definition)
-- [System Definition](#system-definition)
-- [Dependencies](#dependencies)
-- [Generating Types](#generating-types)
-- [Running the Service](#running-the-service)
-- [Adding a new Service](#adding-a-new-service)
+- Common Data Model
+  - [data types](../res/types/data/) (structure)
+    - [res/types/data/**/*_t.idl](../res/types/data/)
+  - [qos of service](../res/qos/data/) (behavior)
+     - [Drive_qos.xml](../res/qos/services/Drive_qos.xml)
+     - [Drive-default_qos.xml](../res/qos/systems/Drive-default_qos.xml)
+- Micro Service and Component Interfaces
+  - [databus](doma/Bus.md)
+    -  [Drive.xml](../if/Drive.xml)
+  - [interfaces](doma/Interface.md)
+    - [Drive_*.xml](../if/)
+  - [constants](../res/types/services/README.md)
+    - [Drive_t.idl](../res/types/services/Drive_t.idl)
+- Micro Service Environment
+  - [Drive_QOS_PROVIDER.sh](../res/cfg/Drive_QOS_PROVIDER.sh) 
 
-## Service Definition
+The *Drive* service artifacts are organized as shown below.
 
-The reference architecture is defined as a collection
-of data-oriented micro-services.
+    .
+    ├── bin
+    │   └── Drive
+    ├── doc
+    │   └── Drive.md
+    ├── if
+    │   ├── Drive.xml
+    │   ├── Drive_Actuator.xml
+    │   ├── Drive_CAN.xml
+    │   ├── Drive_Camera.xml
+    │   ├── Drive_HMI.xml
+    │   ├── Drive_Lidar.xml
+    │   ├── Drive_Perceptor.xml
+    │   └── Drive_Planner.xml
+    └── res
+        ├── cfg
+        │   └── Drive_QOS_PROVIDER.sh
+        ├── qos
+        │   ├── services
+        │   │   └── Drive_qos.xml
+        │   └── systems
+        │       └── Drive-default_qos.xml
+        └── types/services
+            └── Drive_t.idl
 
-- Services: [if/](../if/)
-- Data Model
-  - Datatypes: [res/types/data/](../res/types/data)
-  - Qos Profiles: [Drive_qos.xml](../res/qos/services/Drive_qos.xml)
+For details on how to run an emulation of the Drive service, please refer to [Run the *Drive* service emulation](../README.md#run-the-drive-service-emulation)
 
+To emulate a specific interface, say [Drive::Camera](../if/Drive_Camera.xml), using the [RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0), use the [common component launcher](Run.md) utility as follows:
 
-## System Deployments
-
-The following system deployments for the *Drive* service are currently available:
-
-  - `default` 
-    - Qos Profiles: [Drive-default_qos.xml](../res/qos/systems/Drive-default_qos.xml)
-    - Configuration: [Drive_QOS_PROVIDER.sh](../res/cfg/Drive_QOS_PROVIDER.sh)
-
-
-## Dependencies 
-
-[RTI Connext DDS 6.1.1+](https://community.rti.com/documentation)
-
-
-## Setup RTI Connext DDS Environment
-
-In each Terminal Window in which you want to run RTI Connext DDS Applications:
-
-    source NDDSHOME/resource/scripts/rtisetenv_<architecture>.bash
-
-where `NDDSHOME` is the location of the **RTI Connext DDS** *installation directory*.
-
-## Generating Types
-
-*NOTE: the build steps automatically take care of the generation. The manual steps are
-listed below.*
-
-Generate the XML representation of the datatypes from XML as follows:
-
-    rtiddsgen -convertToXml res/types/data/<path/to/datatype>_t.idl
-
- 
-
-## Visualizing the software system architecture using emulated components
-
-- Run the emulated component interfaces
-
-        ./bin/drive
-
-  To stop the drive data flow emulator, press ^C
-
-  The drive emulator uses the `RTI Prototyper with Lua` to emulate the software system architecture.
-  - Run `RTI Admin Console` to visualize databus.
-  - Run `rtiddsspy` to view the data.
-
-
-## Running the Components Individually 
-
-*NOTE: The steps below show how to emulate individual components*
-
-### Run a Publisher
-
-Open a Terminal Window, and run the test publisher:
-
-    # Setup the Drive Service Configuration
-    source res/cfg/Drive_QOS_PROVIDER.sh
-
-    # Run the Drive Service in RTI Prototyper
-    rtiddsprototyper -luaOnData 0 -luaFile src/utils/Publisher.lua -cfgName <ServiceName>_svc::<InterfaceName>
-
-
-### Run a Subscriber
-
-Open a Terminal Window, and run the test subscriber:
-
-    # Setup the Drive Service Configuration
-    source res/cfg/Drive_QOS_PROVIDER.sh
-
-    # Run the Drive Service in RTI Prototyper
-    rtiddsprototyper -luaOnPeriod 0 -luaFile src/utils/Subscriber.lua -cfgName <ServiceName>_svc::<InterfaceName>
-
-
-## Run rtiddsspy
-
-Open a Terminal Window, and run spy:
-
-    rtiddsspy -printSample
-
- 
-
-## Run RTI Admin Console
-
-View the system connectivity using 
-[RTI Admin Console](https://www.rti.com/gettingstarted/adminconsole).
-
-Use the RTI Launcher to launch RTI Admin Console, or 
-Open a Terminal Window and type:
-
-    rtiadminconsole
-
-
-## Adding a new service
-
-To add a new service, called `My`:
-
-1. Define the service interfaces in `if/My_svc.xml`
-2. Add service interface specific qos profiles in: `res/qos/services/Drive_qos.xml`
-3. Add service interface deployment specific qos profiles in: `res/qos/systems/Drive-default_qos.xml`
-4. Add service to the `NDDS_QOS_PROFILES` in the file: `res/cfg/Drive_QOS_PROVIDER.sh`
-5. Add service interface constants in: `res/types/services/My_svc_t.idl` and update the `CMakeLists.txt` file
-6. Test the service interfaces using `rtiddsprototyper`
-7. Update [drive](../bin/drive) script(s) to append the new service interface to the `COMPONENT` list
-
-
-## Implementing Components
-
-Component interface implementations are independently **defined elsewhere in other project repositories**. Those component implementation repositories depend on this repository for the common data model, component interfaces, and the common build system.
-
-The component implementations defined elsewhere can be mixed and matched with the emulated components defined in this repository. This allows a software system to be built incrementally, where some interfaces are emulated, while others are fully implemented components.
+    $DATABUSHOME/bin/run Drive_QOS_PROVIDER $NDDSHOME/bin/rtiddsprototyper -luaOnData 0 -luaFile src/utils/Publisher.lua -cfgName Drive::Camera
 
 ---
 (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.

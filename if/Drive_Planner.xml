@@ -13,10 +13,10 @@
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
     
     <!-- Planning Service -->
-    <domain_participant_library name="Planning_svc">
+    <domain_participant_library name="Drive">
 
         <!-- Planner interface -->
-        <domain_participant name="Planner" domain_ref="Drive_bus::main">
+        <domain_participant name="Planner" domain_ref="DriveBus::main">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="Track_reader" topic_ref="Status/Track">
