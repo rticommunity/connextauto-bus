@@ -23,7 +23,7 @@
     </types>
 
     <!-- Databus Library -->
-    <domain_library name="ShapesBusLib">
+    <domain_library name="ShapesBus">
 
         <!-- main databus -->
         <domain name="main">

@@ -101,9 +101,9 @@ For more details, please refer to the documentation on the [comon build system](
 
 From this git repo's top-level directory, run an emulation of the [Shapes](https://www.rti.com/products/tools/shapes-demo) service interfaces as follows:
       
-      $DATABUSHOME/bin/run Shapes_QOS_PROVIDER ./bin/shapes [domainId]
+      $DATABUSHOME/bin/run Shapes_QOS_PROVIDER ./bin/Shapes [domainId]
 
-where the [bin/shapes](bin/shapes) component emulates the Shapes interfaces using *RTI Prototyper with Lua*.
+where the [bin/Shapes](bin/Shapes) component emulates the Shapes interfaces using *RTI Prototyper with Lua*.
 
 - For more details on running components, please refer to the documentation on the [common component launcher](doc/Run.md) utility.
 - Use the [RTI Admin Console](https://www.rti.com/gettingstarted/adminconsole) to visualize the data flows and the emulated component interfaces.

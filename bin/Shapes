@@ -23,9 +23,9 @@ DOMAIN_ID=${1:-0}
 
 # Service Components to launch
 COMPONENTS=""
-COMPONENTS+=" ShapesIfLib::Pub "
-COMPONENTS+=" ShapesIfLib::Sub "
-COMPONENTS+=" ShapesIfLib::PubSub "
+COMPONENTS+=" Shapes::Pub "
+COMPONENTS+=" Shapes::Sub "
+COMPONENTS+=" Shapes::PubSub "
 
 echo "COMPONENTS = $COMPONENTS"
 

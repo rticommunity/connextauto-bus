@@ -19,10 +19,10 @@
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
 
     <!-- Participants : each participant defines a data-oriented interface -->
-    <domain_participant_library name="ShapesIfLib">
+    <domain_participant_library name="Shapes">
 
         <!-- Define a data-oriented interface: "Sub" -->
-        <domain_participant name="Sub" domain_ref="ShapesBusLib::main">
+        <domain_participant name="Sub" domain_ref="ShapesBus::main">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="Shape_reader" topic_ref="Triangle">

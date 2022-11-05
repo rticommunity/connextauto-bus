@@ -13,7 +13,7 @@ The *Shapes* service comprises of the data flows and the interfaces defined by t
     - [Shapes_Pub](../if/Shapes_Pub.xml)
     - [Shapes_Sub](../if/Shapes_Sub.xml)
     - [Shapes_PubSub](../if/Shapes_PubSub.xml)
-  - [Constants](../res/types/services/README.md)
+  - [constants](../res/types/services/README.md)
     - [Shapes_t.idl](../res/types/services/Shapes_t.idl)
 - Micro Service Environment
   - [Shapes_QOS_PROVIDER.sh](../res/cfg/Shapes_QOS_PROVIDER.sh) 
@@ -21,6 +21,8 @@ The *Shapes* service comprises of the data flows and the interfaces defined by t
 The *Shapes* service artifacts are organized as shown below.
 
     .
+    ├── bin
+    │   └── Shapes
     ├── doc
     │   └── Shapes.md
     ├── if
@@ -33,19 +35,16 @@ The *Shapes* service artifacts are organized as shown below.
         │   └── Shapes_QOS_PROVIDER.sh
         ├── qos/services
         │   └── Shapes_qos.xml
-        └── types
-            ├── data/demo
-            │   └── ShapeType_t.idl
-            └── services
-                └── Shapes_t.idl
+        └── types/services
+            └── Shapes_t.idl
 
 The *Shapes* service interfaces are interoperable with the [RTI Shapes Demo](https://www.rti.com/gettingstarted/shapes-demo). They can be used to implement new components that can exchange data with the *RTI Shapes Demo* app.
 
 For details on how to run an emulation of the Shapes service, please refer to [Run the *Shapes* service emulation](../README.md#run-the-shapes-service-emulation)
 
-To emulate a specific interface, say `ShapesIfLib::Pub`, using the [RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0), use the [common component launcher](Run.md) utility as follows:
+To emulate a specific interface, say [Shapes::Pub](../if/Shapes_Pub.xml), using the [RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0), use the [common component launcher](Run.md) utility as follows:
 
-    $DATABUSHOME/bin/run Shapes_QOS_PROVIDER $NDDSHOME/bin/rtiddsprototyper -luaOnData 0 -luaFile src/utils/Publisher.lua -cfgName ShapesIfLib::Pub
+    $DATABUSHOME/bin/run Shapes_QOS_PROVIDER $NDDSHOME/bin/rtiddsprototyper -luaOnData 0 -luaFile src/utils/Publisher.lua -cfgName Shapes::Pub
 
 ---
 (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
