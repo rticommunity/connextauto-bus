@@ -9,18 +9,18 @@
 This [software databus](doc/doma/Bus.md) project repo comprises of:
 
 - A **common [Data Model](doc/doma/DataModel.md)** using the [DDS](https://www.dds-foundation.org/omg-dds-standard/) standard
--  Micro **[Services](doc/doma/Service.md)** and Component **[Interfaces](doc/doma/Interface.md)**
+-  Component **[Interfaces](doc/doma/Interface.md)**
   that use the common data model
-- A **[common build system](doc/Build.md)** for building the interfaces and the components that use those interfaces
+  - An emulation of the software system architecture **functional blocks** and **data flows** for system software architects
+- A **[common build system](doc/Build.md)** for building the interfaces and the components that use those interfaces for application developers
 
-The common data model can be used to define many component interfaces. Thus the component interfaces defined in this repo should be regarded as examples of  possible functional decomposition of a software system architecture using the common data model. 
+The common data model can be used to define many component interfaces. The component interfaces defined in this repo should be regarded as examples of  possible functional decomposition of a software system architecture using the common data model. For each component interface, many implementations are possible. Components implement component interfaces defined in this repo. Component implementations may be written in any supported programming language of choice with any RTI Connext DDS Software Development Kit (SDK) such as *RTI Connext Professional* or *RTI Connext Micro*. Component implementations could also be written using a scipting language such as Python, Lua, or JavaScript---especially useful for generating test data, prototyping, or emulation. This repo does **not** contain component implementations. Components implementations are provided by **component specific project repositories *defined elsewhere***. 
 
-For each component interface, many implementations are possible. Component implementations may be written in any supported programming language of choice with any RTI Connext DDS Software Development Kit (SDK) such as *RTI Connext Professional* or *RTI Connext Micro*. Component implementations could also be written using a scipting language such as Python, Lua, or JavaScript---especially useful for generating test data, prototyping, or emulation. This repo does **not** contain component implementations. Components implementations are provided by **component specific project repositories *defined elsewhere***. Components implement component interfaces defined in this repo. 
+This repo showcases an approach for rapidly building large distibuted system software spread across multiple teams. A component interface is an executable contract that a **system software architecture team** can share with an **application development team** for implementing a component. Each application devleopment team can work independently, with the assurance that their component implementation would be easily and quickly integrated into the software system.  The system software architecture team can independently evolve the data models and interfaces consistently across application development teams, to support rapid and agile software development.
 
-This repo provides a **common build system** for building generated datatypes and interfaces into a common library that can be linked to by component implementations. The *common build system* is intended to be used by use by component repositories that use this repo. Thus, this repo is a dependency (prerequisite) for building independent standalone components using the provided *common data model, interfaces, and build system*.
+This repo provides a way to emulate and visualize the *software system architecture functional blocks and data flows* for system software architects. Each component interface is emulated using  *[RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0)*. The data flows and the component interfaces can be visualized using *[RTI Admin Console](https://www.rti.com/gettingstarted/adminconsole)*. Thus, changes to the data model and functional interfaces can be quickly visualized and validated at the software system architecture level.
 
-This repo also provide a way to emulate and visualize the *software system architecture functional blocks and data flows*. Each component interface is emulated using  *[RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0)*. The data flows and the component interfaces can be visualized using *[RTI Admin Console](https://www.rti.com/gettingstarted/adminconsole)*. Thus, changes to the data model and functional interfaces can be quickly visualized and validated at the software system architecture level.
-
+This repo provides a **common build system** for application developers, to build generated datatypes and interfaces into a common library that can be linked to by component implementations. The *common build system* is intended to be used by component repositories that use this repo. Thus, this repo would be a dependency (prerequisite) for building independent standalone components using the provided *common data model, interfaces, and build system*.
 
 ## Prerequisites
 
@@ -136,12 +136,12 @@ For more details, please refer to the documentation on the
 - Common Data Model
   - [data types](res/types/data/) (structure)
   - [qos of service](res/qos/data/) (behavior)
-- Micro Services and Component Interfaces
+- Component Interfaces
   - [Shapes](doc/Shapes.md) : DDS Shapes Demo Service
   - [Drive](doc/Drive.md) : Automated and Assisted Driving (AD) Service
-- [Data-Oriented Micro-Services Architecture (DOMA)](doc/doma/README.md) : software system architecture and repository organization
-  - Component repositories : a downstream component repository would implement one or more [component interfaces](if/) defined in this repository using the [comon build system](doc/Build.md)
-  - System repositories: a downstream system repository would configure multiple components for a deployment to realize system use cases
+- [Data-Oriented Micro-Services Architecture (DOMA)](doc/doma/README.md) : an approach to software system architecture and repository organization that supports independent lifecycles for artifacts that need to be mainatained by system software architects and by applicaton developers.
+  -  Databus repository : this repository, maintained by system architects, that defines the data flows and [component interfaces](if/) declaratively
+  - Component repositories : downstream component repositories, maintained by application developers, that implement [component interfaces](if/) defined in this repository using the [comon build system](doc/Build.md)
 - [Common Component Launcher](doc/Run.md) utility
 - [Common Build System Generator](doc/Build.md) utility
 
