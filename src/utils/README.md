@@ -6,9 +6,7 @@ Implementations that work with *any* interface definition.
 
 Typically used for architecture validation.
 
-Typically implemented using *Lua* scripting, since *Lua* runs on **all** of 
-the supported platforms can be used to rapidly implement interface emulation, 
-data injection, unit tests for service interfaces 
+Typically implemented using *Lua* scripting, since *Lua* runs on **all** of the supported platforms can be used to rapidly implement interface emulation, data injection, unit tests for service interfaces 
 
 ## Organization
 

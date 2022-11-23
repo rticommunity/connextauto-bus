@@ -1,9 +1,3 @@
 # bin/
 
-## Purpose
-
-Executable component binaries and shell scripts.
-
-## Organization
-
-Collection of binaries and shell scripts to run various execution scenarios. 
+For this directory's purpose and organization, see [doma-skel/bin/](https://github.com/rajive/doma-skel/blob/master/bin/README.md)

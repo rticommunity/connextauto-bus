@@ -1,13 +1,4 @@
 # res/types/
 
-## Purpose
+For this directory's purpose and organization, see [doma-skel/res/types/](https://github.com/rajive/doma-skel/blob/master/res/types/README.md)
 
-Datatype definitions.
-
-
-## Organization
-
-Datatypes are defined in IDL files, organized as appropriate. 
-
-- [data/](data/README.md)
-- [services/](services/README.md)

@@ -1,12 +1,3 @@
 # res/
 
-## Purpose
-
-Resource definitions.
-
-
-## Organization
-
- - [types/](types/README.md)
- - [qos/](qos/README.md)
- - [cfg/](cfg/README.md)
+For this directory's purpose and organization, see [doma-skel/res/](https://github.com/rajive/doma-skel/blob/master/res/README.md)

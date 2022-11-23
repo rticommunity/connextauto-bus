@@ -18,7 +18,7 @@ The *Drive* service comprises of the data flows and the interfaces defined for A
 - Micro Service Environment
   - [Drive_QOS_PROVIDER.sh](../res/cfg/Drive_QOS_PROVIDER.sh) 
 
-The *Drive* service artifacts are organized as shown below.
+The *Drive* service artifacts are organized as shown below, following the [Data-Oriented Micro-Services Architecture (DOMA)](https://github.com/rajive/doma-skel/blob/master/doc/doma/README.md) approach.
 
     .
     ├── bin

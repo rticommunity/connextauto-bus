@@ -6,10 +6,10 @@
 
 ## Introduction
 
-This [software databus](doc/doma/Bus.md) project repo comprises of:
+This [software databus](https://github.com/rajive/doma-skel/blob/master/doc/doma/Bus.md) project repo comprises of:
 
-- A **common [Data Model](doc/doma/DataModel.md)** using the [DDS](https://www.dds-foundation.org/omg-dds-standard/) standard
--  Component **[Interfaces](doc/doma/Interface.md)**
+- A **common [Data Model](https://github.com/rajive/doma-skel/blob/master/doc/doma/DataModel.md)** using the [DDS](https://www.dds-foundation.org/omg-dds-standard/) standard
+-  Component **[Interfaces](https://github.com/rajive/doma-skel/blob/master/doc/doma/Interface.md)**
   that use the common data model
   - An emulation of the software system architecture **functional blocks** and **data flows** for system software architects
 - A **[common build system](doc/Build.md)** for building the interfaces and the components that use those interfaces for application developers
@@ -139,7 +139,7 @@ For more details, please refer to the documentation on the
 - Component Interfaces
   - [Shapes](doc/Shapes.md) : DDS Shapes Demo Service
   - [Drive](doc/Drive.md) : Automated and Assisted Driving (AD) Service
-- [Data-Oriented Micro-Services Architecture (DOMA)](doc/doma/README.md) : an approach to software system architecture and repository organization that supports independent lifecycles for artifacts that need to be mainatained by system software architects and by applicaton developers.
+- [Data-Oriented Micro-Services Architecture (DOMA)](https://github.com/rajive/doma-skel) : an approach to data-centric system software architecture repository organization that supports independent lifecycles for artifacts that need to be maintained by system software architects and by applicaton developers.
   -  Databus repository : this repository, maintained by system architects, that defines the data flows and [component interfaces](if/) declaratively
   - Component repositories : downstream component repositories, maintained by application developers, that implement [component interfaces](if/) defined in this repository using the [comon build system](doc/Build.md)
 - [Common Component Launcher](doc/Run.md) utility

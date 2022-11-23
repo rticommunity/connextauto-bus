@@ -1,17 +1,6 @@
 # if/
 
-## Purpose
-
-[Interface](../doc/doma/Interface.md) definitions.
-
-## Organization
-
-A [service](../doc/doma/Service.md) or a [system](../doc/doma/System.md) *<name>* is
-defined in a DDS-XML file as follows:
-
- - `<name>`_svc.xml
-   - collection of service endpoint interfaces defined in DDS-XML
-
+For this directory's purpose and organization, see [doma-skel/if/](https://github.com/rajive/doma-skel/blob/master/if/README.md)
 
 ## Dependencies
 

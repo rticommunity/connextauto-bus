@@ -18,7 +18,7 @@ The *Shapes* service comprises of the data flows and the interfaces defined by t
 - Micro Service Environment
   - [Shapes_QOS_PROVIDER.sh](../res/cfg/Shapes_QOS_PROVIDER.sh) 
 
-The *Shapes* service artifacts are organized as shown below.
+The *Shapes* service artifacts are organized as shown below, following the [Data-Oriented Micro-Services Architecture (DOMA)](https://github.com/rajive/doma-skel/blob/master/doc/doma/README.md) approach.
 
     .
     ├── bin

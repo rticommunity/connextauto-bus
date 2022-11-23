@@ -1,19 +1,7 @@
 # doc/
 
-- [Documentation Index](#documentation-index)
-- [How To](#how-to)
+This repository follows the organization scheme specified by the [Data-Oriented Micro-Services Architecture (DOMA)](https://github.com/rajive/doma-skel/blob/master/doc/doma/README.md) approach.
 
-## Documentation Index
-
-- [Data-Oriented Micro-Services Architecture (DOMA)](doma/README.md)
-- [Databus Project](../README.md)
-
-
-
-## How To
-
-A item *<item>* is documented in a file named:
-
- - `<item>`.md 
-
-Each `<item>`.md shall be linked back to [Documentation Index](#documentation-index).
+It defines the following services.
+- [Shapes Service](Shapes.md)
+- [Drive Service](Drive.md)

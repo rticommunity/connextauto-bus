@@ -1,18 +1,3 @@
 # res/qos/
 
-## Purpose
-
-Qos Profile definitions.
-
-Qos Profiles define the *behavior* of a service interface input/output.
-
-
-## Organization
-
-A Qos Profile is defined in a DDS-XML file: `*_qos.xml`
-
-Qos Profiles are organized as follows:
-
-- [data/](data/README.md)
-- [services/](services/README.md)
-- [systems/](systems/README.md)
+For this directory's purpose and organization, see [doma-skel/res/qos/](https://github.com/rajive/doma-skel/blob/master/res/qos/README.md)
