@@ -32,20 +32,20 @@ NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/doa_qos.xml"
 [ -f $DATABUSHOME/res/qos/services/MyService_qos.xml ] && 
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/MyService_qos.xml"
 
-# QoS: Systems
+# QoS: Service Deployments
 [ -f $DATABUSHOME/res/qos/services/MySystem_qos.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/systems/MySystem_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/MyService-deployment_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---
 
-# Interfaces: Services
+# Interfaces: Databus
 [ -f $DATABUSHOME/if/MyService.xml ] && 
 NDDS_QOS_PROFILES+=";$DATABUSHOME/if/MyService.xml"
 
-# Interfaces: Systems
+# Interfaces: Components
 [ -f $DATABUSHOME/if/MySystem.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/MySystem.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/MyService_InterfaceX.xml"
 
 
 
