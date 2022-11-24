@@ -9,10 +9,10 @@
 # be bound by those terms.
 #*****************************************************************************
 #
-# Run an executable in the specified service environment
+# Run an executable in the specified environment
 #
 # USAGE:
-#    run <service_env> <path/to/dds/component/executable> [<args>]
+#    run <env_name> <path/to/dds/component/executable> [<args>]
 #*****************************************************************************
 
 # Exit on first error
@@ -21,14 +21,14 @@ set -Eeuo pipefail
 # Print Help:
 if [ "$#" -le 1 ] ; then
     echo "USAGE:"
-    echo "    $(basename $0) <service_env> <path/to/dds/component/executable> [<args>]"
+    echo "    $(basename $0) <env_name> <path/to/dds/component/executable> [<args>]"
     echo
     exit 0
 fi
 
 # Parse arguments
-SERVICE_ENV="$1"
-echo "SERVICE_ENV=${SERVICE_ENV}"
+ENV_NAME="$1"
+echo "ENV_NAME=${ENV_NAME}"
 shift
 COMPONENT_DIR=$(cd $(dirname "$1"); pwd -P)
 COMPONENT_EXE=$(basename $1)
@@ -46,5 +46,5 @@ cd ${DATABUSHOME}
 
 # Run the component executable
 echo "Running: ${COMPONENT_DIR}/${COMPONENT_EXE} ${COMPONENT_ARGS}"
-. ${DATABUSHOME}/res/cfg/${SERVICE_ENV}.sh
+. ${DATABUSHOME}/res/env/${ENV_NAME}.sh
 exec ${COMPONENT_DIR}/${COMPONENT_EXE} ${COMPONENT_ARGS}

@@ -16,7 +16,7 @@ The *Shapes* service comprises of the data flows and the interfaces defined by t
   - [constants](../res/types/services/README.md)
     - [Shapes_t.idl](../res/types/services/Shapes_t.idl)
 - Micro Service Environment
-  - [Shapes_QOS_PROVIDER.sh](../res/cfg/Shapes_QOS_PROVIDER.sh) 
+  - [Shapes.sh](../res/env/Shapes.sh)
 
 The *Shapes* service artifacts are organized as shown below, following the [Data-Oriented Micro-Services Architecture (DOMA)](https://github.com/rajive/doma-skel/blob/master/doc/doma/README.md) approach.
 
@@ -31,8 +31,8 @@ The *Shapes* service artifacts are organized as shown below, following the [Data
     │   ├── Shapes_PubSub.xml
     │   └── Shapes_Sub.xml
     └── res
-        ├── cfg
-        │   └── Shapes_QOS_PROVIDER.sh
+        ├── env
+        │   └── Shapes.sh
         ├── qos/services
         │   └── Shapes_qos.xml
         └── types/services
@@ -44,7 +44,7 @@ For details on how to run an emulation of the Shapes service, please refer to [R
 
 To emulate a specific interface, say [Shapes::Pub](../if/Shapes_Pub.xml), using the [RTI Prototyper with Lua](https://community.rti.com/static/documentation/connext-dds/6.1.0/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0), use the [common component launcher](Run.md) utility as follows:
 
-    $DATABUSHOME/bin/run Shapes_QOS_PROVIDER $NDDSHOME/bin/rtiddsprototyper -luaOnData 0 -luaFile src/utils/Publisher.lua -cfgName Shapes::Pub
+    $DATABUSHOME/bin/run Shapes $NDDSHOME/bin/rtiddsprototyper -luaOnData 0 -luaFile src/utils/Publisher.lua -cfgName Shapes::Pub
 
 ---
 (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.

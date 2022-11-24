@@ -101,7 +101,7 @@ For more details, please refer to the documentation on the [comon build system](
 
 From this git repo's top-level directory, run an emulation of the [Shapes](https://www.rti.com/products/tools/shapes-demo) service interfaces as follows:
       
-      $DATABUSHOME/bin/run Shapes_QOS_PROVIDER ./bin/Shapes [domainId]
+      $DATABUSHOME/bin/run Shapes ./bin/Shapes [domainId]
 
 where the [bin/Shapes](bin/Shapes) component emulates the Shapes interfaces using *RTI Prototyper with Lua*.
 
@@ -118,7 +118,7 @@ For more details, please refer to the documentation on the
 
 From the git repo's top-level directory, run an emulation of the *Drive* service interfaces as follows:
       
-      $DATABUSHOME/bin/run Drive_QOS_PROVIDER ./bin/Drive [domainId]
+      $DATABUSHOME/bin/run Drive ./bin/Drive [domainId]
 
 where the [bin/Drive](bin/Drive) component emulates the Drive interfaces using *RTI Prototyper with Lua*.
 

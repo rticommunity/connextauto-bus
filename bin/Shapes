@@ -13,7 +13,7 @@
 # rtiddsprototyper with Lua to write dummy data. 
 #
 # USAGE:
-#     $DATABUSHOME/bin/run Shapes_QOS_PROVIDER ./bin/shapes [domainId]
+#     $DATABUSHOME/bin/run Shapes ./bin/shapes [domainId]
 #*****************************************************************************
 
 if [ "${NDDSHOME}" = "" ]; then echo "NDDSHOME Undefined!" ; exit 1; fi
