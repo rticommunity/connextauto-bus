@@ -15,7 +15,7 @@
     <qos_library name="FlowQosLib">
 
         <!-- Streams : Stream/* -->
-        <qos_profile name="Streaming.BestEffort" base_name="BuiltinQosLibExp::Generic.BestEffort">
+        <qos_profile name="Streaming.BestEffort" base_name="BuiltinQosLib::Generic.BestEffort">
             <datareader_qos>
                 <history>
                     <depth>3</depth>
@@ -28,7 +28,7 @@
             </datawriter_qos>
         </qos_profile>
 
-        <qos_profile name="Streaming.Reliable" base_name="BuiltinQosLibExp::Pattern.ReliableStreaming">
+        <qos_profile name="Streaming.Reliable" base_name="BuiltinQosLib::Pattern.ReliableStreaming">
             <datareader_qos>
                 <history>
                     <depth>3</depth>
@@ -42,7 +42,7 @@
         </qos_profile>
 
         <!-- Events : Event/* -->
-        <qos_profile name="Event" base_name="BuiltinQosLibExp::Pattern.Event">
+        <qos_profile name="Event" base_name="BuiltinQosLib::Pattern.Event">
             <!-- may BLOCK writer for ReliabilityQosPolicy::max_blocking_time -->
         </qos_profile>
 
@@ -51,7 +51,7 @@
                 - Monitored, e.g. Health
                 - TRANSIENT_LOCAL
         -->
-        <qos_profile name="Status" base_name="BuiltinQosLibExp::Pattern.Status">
+        <qos_profile name="Status" base_name="BuiltinQosLib::Pattern.Status">
         </qos_profile>
 
 
@@ -59,7 +59,7 @@
                 - State needed for failover and recovery
                 - TRANSIENT (requires Persistence Service)
         -->
-        <qos_profile name="State" base_name="BuiltinQosLibExp::Pattern.Status">
+        <qos_profile name="State" base_name="BuiltinQosLib::Pattern.Status">
             <datareader_qos>
                 <durability>
                     <kind>TRANSIENT_DURABILITY_QOS</kind>
@@ -78,7 +78,7 @@
                 - Persistent Parameters
                 - PERSISTENT (requires Persistence Service)
         -->
-        <qos_profile name="Configuration" base_name="BuiltinQosLibExp::Pattern.LastValueCache">
+        <qos_profile name="Configuration" base_name="BuiltinQosLib::Pattern.LastValueCache">
             <datareader_qos>
                 <history>
                     <depth>1</depth>
@@ -103,7 +103,7 @@
                 - Command-Response 
                 - Objective State 
         -->
-        <qos_profile name="Request" base_name="BuiltinQosLibExp::Generic.StrictReliable">
+        <qos_profile name="Request" base_name="BuiltinQosLib::Generic.StrictReliable">
             <datareader_qos>
                 <!-- KEEP_ALL history: don't drop any requests -->
             </datareader_qos>
@@ -142,7 +142,7 @@
 
 
         <!-- Logging : Log/* -->
-        <qos_profile name="Logging" base_name="BuiltinQosLibExp::Generic.StrictReliable">
+        <qos_profile name="Logging" base_name="BuiltinQosLib::Generic.StrictReliable">
             <datawriter_qos>
                 <history>
                     <!-- don't block the writer -->
@@ -154,7 +154,7 @@
 
 
         <!-- Participant -->
-        <qos_profile name="Participant" base_name="BuiltinQosLibExp::Generic.Participant.LargeData" />
+        <qos_profile name="Participant" base_name="BuiltinQosLib::Generic.Participant.LargeData" />
 
     </qos_library>
 </dds>

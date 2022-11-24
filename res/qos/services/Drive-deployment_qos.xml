@@ -37,7 +37,6 @@
             <participant_qos base_name="FlowQosLib::Participant">
                 <participant_name>
                     <name>Example</name>
-                    <role_name>Camera</role_name>
                 </participant_name>
             </participant_qos>
         </qos_profile>

@@ -207,7 +207,7 @@
  
  
  
-    <qos_library name="BuiltinQosLibExp">
+    <qos_library name="BuiltinQosLib">
 
         <qos_profile name="Generic.BestEffort" base_name="BuiltinQosLib::Generic.Common">
             <datawriter_qos>
