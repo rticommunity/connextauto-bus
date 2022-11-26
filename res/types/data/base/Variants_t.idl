@@ -39,7 +39,7 @@ module dds {
             FLOAT32, FLOAT64, FLOAT128,
 
             /* String Types */
-            STRING8, STRING16, STRING32, STRING64, STRING128, STRING256
+            STRING4, STRING8, STRING16, STRING32, STRING64, STRING128, STRING256
         };
 
 
@@ -68,8 +68,8 @@ module dds {
         case base::FLOAT32:
             base::Float32 float32_v;
         
-        case base::STRING8:
-            base::StringBuf8 strbuf8_v;
+        case base::STRING4:
+            base::StringBuf4 strbuf4_v;
 
         default:
             base::Byte invalid_v;
@@ -154,7 +154,7 @@ module dds {
             base::Float128 float128_v;
         
         case base::STRING16:
-            base::StringBuf8 strbuf16_v;
+            base::StringBuf16 strbuf16_v;
 
         default:
             base::Byte invalid_v;

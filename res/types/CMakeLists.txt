@@ -48,10 +48,22 @@ set(IDLs
   data/base/Variants_t.idl
 
   data/physics/Time_t.idl
-  
-  data/sensing/Camera_t.idl
-  data/sensing/Image_t.idl
+  data/physics/Point2D_t.idl
+  data/physics/Point3D_t.idl
 
+  data/sensing/Image_t.idl
+  data/sensing/Camera_t.idl
+
+  data/sensing/PointCloud_t.idl
+  data/sensing/Lidar_t.idl
+
+  data/actuation/Actuation_t.idl
+
+  data/perception/Lane_t.idl
+  data/perception/Track_t.idl
+
+  data/planning/Alert_t.idl
+  
   data/gateway/CAN_t.idl
 
   data/demo/ShapeType_t.idl

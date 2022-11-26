@@ -75,7 +75,7 @@ From the repo's top-level directory:
 
 This step creates a `build/` directory in the project top-level directory. The `build/` directory contains a shell script to build for the specified target platform and build kind.
 
-For more details, please refer to the documentation on the [comon build system](doc/Build.md). 
+For more details, please refer to the documentation on the [common build system](doc/Build.md).
 
 ### Build the datatypes for at least one RTI Connext SDK
 
@@ -87,7 +87,7 @@ From this git repo's top-level directory, run the generated build script to buil
 
 - To build for *RTI Connext DDS Micro*, e.g.:
 
-      ./build/pro-x64Darwin17clang9.0-Debug.sh
+      ./build/micro-x64Darwin17clang9.0-Debug.sh
 
 This step generates the equivalent XML representations of the datatypes in the [res/types/](res/types/) directory tree. It also ensures that the code generated from the IDL datatype definitions in this repo are buildable for the selected target platform.
   
@@ -95,7 +95,7 @@ The generated XML datatype representations are now ready for use by the emulator
 
 Repeat this step everytime a source *IDL* or *XML App Creation* file is updated.
 
-For more details, please refer to the documentation on the [comon build system](doc/Build.md).
+For more details, please refer to the documentation on the [common build system](doc/Build.md).
 
 ### Run the *Shapes* service emulation
 
@@ -141,7 +141,7 @@ For more details, please refer to the documentation on the
   - [Drive](doc/Drive.md) : Automated and Assisted Driving (AD) Service
 - [Data-Oriented Micro-Services Architecture (DOMA)](https://github.com/rajive/doma-skel) : an approach to data-centric system software architecture repository organization that supports independent lifecycles for artifacts that need to be maintained by system software architects and by applicaton developers.
   -  Databus repository : this repository, maintained by system architects, that defines the data flows and [component interfaces](if/) declaratively
-  - Component repositories : downstream component repositories, maintained by application developers, that implement [component interfaces](if/) defined in this repository using the [comon build system](doc/Build.md)
+  - Component repositories : downstream component repositories, maintained by application developers, that implement [component interfaces](if/) defined in this repository using the [common build system](doc/Build.md)
 - [Common Component Launcher](doc/Run.md) utility
 - [Common Build System Generator](doc/Build.md) utility
 

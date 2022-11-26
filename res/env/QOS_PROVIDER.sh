@@ -28,27 +28,5 @@ NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/snippets/endpoint_qos.xml"
 # QoS: Flows
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/doa_qos.xml"
 
-# QoS: Services
-[ -f $DATABUSHOME/res/qos/services/MyService_qos.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/MyService_qos.xml"
-
-# QoS: Service Deployments
-[ -f $DATABUSHOME/res/qos/services/MySystem_qos.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/MyService-deployment_qos.xml"
-
-
-# --- Data-Oriented Interfaces ---
-
-# Interfaces: Databus
-[ -f $DATABUSHOME/if/MyService.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/MyService.xml"
-
-# Interfaces: Components
-[ -f $DATABUSHOME/if/MySystem.xml ] && 
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/MyService_InterfaceX.xml"
-
-
-
 # --- RTI Connext DDS Professional Runtime Environment ---
 export NDDS_QOS_PROFILES
-#echo NDDS_QOS_PROFILES=$NDDS_QOS_PROFILES

@@ -1,4 +1,12 @@
-# Databus - Release Notes
+# Release Notes
+
+# v0.2
+
+- Update license, headers, footers
+- Update documentation and align with DOMA guidelines
+- Improve usability and out-of-the box experience
+- Improve run script and build diagnostics
+- Fix environment sourcing and use Bourne Shell for portability
 
 # v0.1
 

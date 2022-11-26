@@ -11,10 +11,14 @@
 cmake_minimum_required(VERSION 3.14)
 
 add_subdirectory("base")
-add_subdirectory("sensing")
 add_subdirectory("physics")
+
+add_subdirectory("sensing")
+add_subdirectory("actuation")
+
 add_subdirectory("perception")
 add_subdirectory("planning")
-add_subdirectory("actuation")
+
 add_subdirectory("gateway")
+
 add_subdirectory("demo")
