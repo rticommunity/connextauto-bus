@@ -8,8 +8,8 @@
 # be bound by those terms.
 #*****************************************************************************
 
-cmake_minimum_required(VERSION 3.14)
-project(databus)
+cmake_minimum_required(VERSION 3.20)
+project(connextauto-bus)
 
 message(STATUS "databus_SOURCE_DIR = ${databus_SOURCE_DIR}")
 message(STATUS "databus_BINARY_DIR = ${databus_BINARY_DIR}")

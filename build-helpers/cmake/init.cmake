@@ -123,13 +123,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 #   i.e. DATABUS_PROJECT_DIR is NOT a subdirectory of CMAKE_SOURCE_DIR
 message(STATUS "DATABUS_PROJECT_DIR: ${DATABUS_PROJECT_DIR}")
 if(NOT "${DATABUS_PROJECT_DIR}" MATCHES "^${CMAKE_SOURCE_DIR}")
+    cmake_path(GET DATABUS_PROJECT_DIR FILENAME databus_project_name)
     set(databus_exports_file 
-        "${DATABUS_PROJECT_DIR}/build/${RTI_CONNEXT_SDK}/${RTI_ARCH}/${CMAKE_BUILD_TYPE}/databus-exports.cmake")
+        "${DATABUS_PROJECT_DIR}/build/${RTI_CONNEXT_SDK}/${RTI_ARCH}/${CMAKE_BUILD_TYPE}/${databus_project_name}-exports.cmake")
     if (EXISTS "${databus_exports_file}") 
         include("${databus_exports_file}")
     else()
         message(FATAL_ERROR 
-          "\nPlease build 'databus' project first!\n ${DATABUS_PROJECT_DIR}\n")
+          "\nPlease build '${databus_project_name}' project first!\n ${DATABUS_PROJECT_DIR}\n")
     endif()
 endif()
 
