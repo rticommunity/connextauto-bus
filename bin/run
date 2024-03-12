@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #******************************************************************************
 # (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 #
