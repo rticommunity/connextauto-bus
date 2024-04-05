@@ -15,7 +15,7 @@
 #####################################################################
 function(_get_version_number_field FIELD)
     file(STRINGS
-        "${CONNEXTDDSMICRO_DIR}/include/dds_c/dds_c_config.h"
+        "${CONNEXTDDSMICRO_DIR}/include/rti_me/dds_c/dds_c_config.h"
         build_id_line
         REGEX "#define ${FIELD}.*"
     )
@@ -279,7 +279,7 @@ create_connext_micro_imported_target(
 
 target_include_directories(RTIConnextDDSMicro::rti_me
     INTERFACE
-        "${CONNEXTDDSMICRO_DIR}/include"
+        "${CONNEXTDDSMICRO_DIR}/include/rti_me"
 )
 
 target_compile_definitions(RTIConnextDDSMicro::rti_me
