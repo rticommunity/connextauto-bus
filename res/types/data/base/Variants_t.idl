@@ -14,7 +14,7 @@ be bound by those terms.
 #include "res/types/data/base/Primitives_t.idl"
 
 module dds {
-    module base {
+    module variants {
         
         /**********************************************************************
         * Kind of Primitive Types 
@@ -48,27 +48,27 @@ module dds {
         *           - fixed length
         */
         @nested
-        union Variant32 switch (base::PrimitiveKind) {
+        union Variant32 switch (PrimitiveKind) {
 
-        case base::BOOLEAN:
+        case BOOLEAN:
             base::Boolean boolean_v; 
         
-        case base::CHAR8:
+        case CHAR8:
             base::Char8 char8_v;
         
-        case base::CHAR16:
+        case CHAR16:
             base::Char16 char16_v;
 
-        case base::INT32:
+        case INT32:
             base::Int32 int32_v;
         
-        case base::UINT32:
+        case UINT32:
             base::UInt32 uint32_v;
         
-        case base::FLOAT32:
+        case FLOAT32:
             base::Float32 float32_v;
         
-        case base::STRING4:
+        case STRING4:
             base::StringBuf4 strbuf4_v;
 
         default:
@@ -80,36 +80,36 @@ module dds {
         *           - fixed length
         */
         @nested
-        union Variant64 switch (base::PrimitiveKind) {
+        union Variant64 switch (PrimitiveKind) {
 
-        case base::BOOLEAN:
+        case BOOLEAN:
             base::Boolean boolean_v; 
         
-        case base::CHAR8:
+        case CHAR8:
             base::Char8 char8_v;
         
-        case base::CHAR16:
+        case CHAR16:
             base::Char16 char16_v;
 
-        case base::INT32:
+        case INT32:
             base::Int32 int32_v;
         
-        case base::UINT32:
+        case UINT32:
             base::UInt32 uint32_v;
         
-        case base::INT64:
+        case INT64:
             base::Int64 int64_v;
         
-        case base::UINT64:
+        case UINT64:
             base::UInt64 uint64_v;
         
-        case base::FLOAT32:
+        case FLOAT32:
             base::Float32 float32_v;
         
-        case base::FLOAT64:
+        case FLOAT64:
             base::Float64 float64_v;
         
-        case base::STRING8:
+        case STRING8:
             base::StringBuf8 strbuf8_v;
 
         default:
@@ -121,39 +121,39 @@ module dds {
         *            - fixed length
         */
         @nested
-        union Variant128 switch (base::PrimitiveKind) {
+        union Variant128 switch (PrimitiveKind) {
 
-        case base::BOOLEAN:
+        case BOOLEAN:
             base::Boolean boolean_v; 
         
-        case base::CHAR8:
+        case CHAR8:
             base::Char8 char8_v;
         
-        case base::CHAR16:
+        case CHAR16:
             base::Char16 char16_v;
 
-        case base::INT32:
+        case INT32:
             base::Int32 int32_v;
         
-        case base::UINT32:
+        case UINT32:
             base::UInt32 uint32_v;
         
-        case base::INT64:
+        case INT64:
             base::Int64 int64_v;
         
-        case base::UINT64:
+        case UINT64:
             base::UInt64 uint64_v;
         
-        case base::FLOAT32:
+        case FLOAT32:
             base::Float32 float32_v;
         
-        case base::FLOAT64:
+        case FLOAT64:
             base::Float64 float64_v;
 
-        case base::FLOAT128:
+        case FLOAT128:
             base::Float128 float128_v;
         
-        case base::STRING16:
+        case STRING16:
             base::StringBuf16 strbuf16_v;
 
         default:

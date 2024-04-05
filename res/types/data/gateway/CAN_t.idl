@@ -60,7 +60,7 @@ module dds {
             - Payload with different variants of primitive datatypes values 
             - Fixed length, to be memory efficient 
         */
-        typedef base::Variant64 CANData;
+        typedef variants::Variant64 CANData;
 
 
         /* CAN Signal Data-Object 
@@ -93,7 +93,7 @@ module dds {
         */
         struct CANSignalInfo : base::EntityInfo {
             // Additional relevant CAN database (DBC) entries go here:
-            base::PrimitiveKind kind; // sufficient to interpret a CANFrame 
+            variants::PrimitiveKind kind; // sufficient to interpret a CANFrame 
         };
     };
 };
