@@ -93,7 +93,7 @@ elseif("${RTI_CONNEXT_SDK}" MATCHES "micro")
 
   # Find the ConnextDDS Micro libraries and set the needed variables
   if("${RTI_CONNEXT_SDK}" STREQUAL "micro2")
-    find_package(RTIConnextDDSMicro 2.4.12)
+    find_package(RTIConnextDDSMicro 2.4.14.2)
   else() # micro [micro3+]
     find_package(RTIConnextDDSMicro 3.0.2)
   endif()
