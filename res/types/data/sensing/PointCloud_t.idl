@@ -68,8 +68,8 @@ module dds {
             struct PointCloud {
                 physics::Point3D_real scale;
                 physics::Point3D_real offset;
-                physics::Point3D_real max;
-                physics::Point3D_real min;
+                physics::Point3D_real point_max;
+                physics::Point3D_real point_min;
                 
                 /* These fields contain an array of the total point records per
                    return. The first value will be the total number of records
