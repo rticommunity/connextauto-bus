@@ -48,7 +48,7 @@ module dds {
             struct Image {
                 Format format;             // format of the image
 
-                base::UInt16 heigth;       // # of rows
+                base::UInt16 height;       // # of rows
                 base::UInt16 width;        // # of columns
 
                 /* width_step: the row length in bytes
