@@ -26,15 +26,15 @@ This repo provides a **common build system** for application developers, to buil
 
 Please ensure that the following are installed on your development host:
 
-- [CMake](https://cmake.org/): 3.14 or later
+- [CMake](https://cmake.org/): 3.20 or later
 - A [RTI Connext SDK](https://community.rti.com/documentation/), i.e. one or both of the following:
-  - RTI Connext DDS Professional: 6.1.1 LTS or later
-  - RTI Connext DDS Micro: 2.4.14 or later
+  - RTI Connext DDS Professional: 7.3 LTS or later
+  - RTI Connext DDS Micro: 2.4.14.2 or later
 
 
 Currently this repo and the common build system had been verified on the following development hosts:
 - macOS
-- Linux: ubuntu:20.04, docker/ubuntu:20.04​
+- Linux: ubuntu:22.04, docker/ubuntu:22.04​
 
 ## Getting Started
 ### Get this repo
@@ -61,7 +61,7 @@ Setup environment variables for at least one RTI Connext SDK:
 
 - Setup both `NDDSHOME` and `RTIMEHOME` if you want to build for **both SDKs**.
 
-Setup environment variables for your architecture.  Example:
+- Setup environment variables for your architecture. Example:
 
       export RTI_ARCH=x64Linux4gcc7.3.0
 
