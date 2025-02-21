@@ -14,7 +14,7 @@ This [software databus](https://github.com/rajive/doma-skel/blob/master/doc/doma
   - An emulation of the software system architecture **functional blocks** and **data flows** for system software architects
 - A **[common build system](doc/Build.md)** for building the interfaces and the components that use those interfaces for application developers
 
-The common data model can be used to define many component interfaces. The component interfaces defined in this repo should be regarded as examples of  possible functional decomposition of a software system architecture using the common data model. For each component interface, many implementations are possible. Components implement component interfaces defined in this repo. Component implementations may be written in any supported programming language of choice with any RTI Connext DDS Software Development Kit (SDK) such as *RTI Connext Professional* or *RTI Connext Micro*. Component implementations could also be written using a scipting language such as Python, Lua, or JavaScript---especially useful for generating test data, prototyping, or emulation. This repo does **not** contain component implementations. Components implementations are provided by **component specific project repositories *defined elsewhere***. 
+The common data model can be used to define many component interfaces. The component interfaces defined in this repo should be regarded as examples of  possible functional decomposition of a software system architecture using the common data model. For each component interface, many implementations are possible. Components implement component interfaces defined in this repo. Component implementations may be written in any supported programming language of choice with any RTI Connext DDS Software Development Kit (SDK) such as *RTI Connext Professional* or *RTI Connext Micro*. Component implementations could also be written using a scipting language such as Python, Lua, or JavaScript---especially useful for generating test data, prototyping, or emulation. This repo does **not** contain component implementations. Components implementations are provided by **component specific project repositories *defined elsewhere***.
 
 This repo showcases an approach for rapidly building large distibuted system software spread across multiple teams. A component interface is an executable contract that a **system software architecture team** can share with an **application development team** for implementing a component. Each application devleopment team can work independently, with the assurance that their component implementation would be easily and quickly integrated into the software system.  The system software architecture team can independently evolve the data models and interfaces consistently across application development teams, to support rapid and agile software development.
 
@@ -61,17 +61,21 @@ Setup environment variables for at least one RTI Connext SDK:
 
 - Setup both `NDDSHOME` and `RTIMEHOME` if you want to build for **both SDKs**.
 
+Setup environment variables for your architecture.  Example:
+
+      export RTI_ARCH=x64Linux4gcc7.3.0
+
 ### Generate the build system for at least one RTI Connext SDK
- 
+
 From the repo's top-level directory:
 
 - To generate the build system for *RTI Connext DDS Professional*, e.g.
 
-      $DATABUSHOME/bin/build-gen.sh pro x64Darwin17clang9.0 Debug
+      $DATABUSHOME/bin/build-gen.sh pro ${RTI_ARCH} Debug
 
 - To generate the build system for *RTI Connext DDS Micro*, e.g.
 
-      $DATABUSHOME/bin/build-gen.sh micro x64Darwin17clang9.0 Debug
+      $DATABUSHOME/bin/build-gen.sh micro ${RTI_ARCH} Debug
 
 This step creates a `build/` directory in the project top-level directory. The `build/` directory contains a shell script to build for the specified target platform and build kind.
 
@@ -83,14 +87,14 @@ From this git repo's top-level directory, run the generated build script to buil
 
 - To build for *RTI Connext DDS Professional*, e.g.:
 
-      ./build/pro-x64Darwin17clang9.0-Debug.sh
+      ./build/pro-${RTI_ARCH}-Debug.sh
 
 - To build for *RTI Connext DDS Micro*, e.g.:
 
-      ./build/micro-x64Darwin17clang9.0-Debug.sh
+      ./build/micro-${RTI_ARCH}-Debug.sh
 
 This step generates the equivalent XML representations of the datatypes in the [res/types/](res/types/) directory tree. It also ensures that the code generated from the IDL datatype definitions in this repo are buildable for the selected target platform.
-  
+
 The generated XML datatype representations are now ready for use by the emulators, tools, and infrastruture services, and components that use dynamic datatypes.
 
 Repeat this step everytime a source *IDL* or *XML App Creation* file is updated.
@@ -100,7 +104,7 @@ For more details, please refer to the documentation on the [common build system]
 ### Run the *Shapes* service emulation
 
 From this git repo's top-level directory, run an emulation of the [Shapes](https://www.rti.com/products/tools/shapes-demo) service interfaces as follows:
-      
+
       $DATABUSHOME/bin/run Shapes ./bin/Shapes [domainId]
 
 where the [bin/Shapes](bin/Shapes) component emulates the Shapes interfaces using *RTI Prototyper with Lua*.
@@ -112,12 +116,12 @@ where the [bin/Shapes](bin/Shapes) component emulates the Shapes interfaces usin
 To stop the shapes data flow emulator, press `^C` (Control-C)
 
 For more details, please refer to the documentation on the
-[Shapes Service](doc/Shapes.md). 
+[Shapes Service](doc/Shapes.md).
 
 ### Run the *Drive* service emulation
 
 From the git repo's top-level directory, run an emulation of the *Drive* service interfaces as follows:
-      
+
       $DATABUSHOME/bin/run Drive ./bin/Drive [domainId]
 
 where the [bin/Drive](bin/Drive) component emulates the Drive interfaces using *RTI Prototyper with Lua*.
@@ -128,8 +132,8 @@ where the [bin/Drive](bin/Drive) component emulates the Drive interfaces using *
 
 To stop the drive data flow emulator, press `^C` (Control-C)
 
-For more details, please refer to the documentation on the 
-[Drive Service](doc/Drive.md). 
+For more details, please refer to the documentation on the
+[Drive Service](doc/Drive.md).
 
 ## Exploring Further
 
@@ -152,6 +156,6 @@ The component implementations defined elsewhere can be mixed and matched with th
 ---
 (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 
-The use of this software is governed by the terms specified in the RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+The use of this software is governed by the terms specified in the RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
 
 By accessing, downloading, or otherwise using this software, you agree to be bound by those terms.
