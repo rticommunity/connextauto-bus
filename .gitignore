@@ -1,5 +1,6 @@
 # Temporary build artifacts
-build/
+build*/
+.nvimlog
 
 # Compiled source #
 ###################
