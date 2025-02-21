@@ -71,11 +71,11 @@ From the repo's top-level directory:
 
 - To generate the build system for *RTI Connext DDS Professional*, e.g.
 
-      $DATABUSHOME/bin/build-gen.sh pro ${RTI_ARCH} Debug
+      $DATABUSHOME/bin/build-gen.sh pro $RTI_ARCH Debug
 
 - To generate the build system for *RTI Connext DDS Micro*, e.g.
 
-      $DATABUSHOME/bin/build-gen.sh micro ${RTI_ARCH} Debug
+      $DATABUSHOME/bin/build-gen.sh micro $RTI_ARCH Debug
 
 This step creates a `build/` directory in the project top-level directory. The `build/` directory contains a shell script to build for the specified target platform and build kind.
 
@@ -87,11 +87,11 @@ From this git repo's top-level directory, run the generated build script to buil
 
 - To build for *RTI Connext DDS Professional*, e.g.:
 
-      ./build/pro-${RTI_ARCH}-Debug.sh
+      ./build/pro-$RTI_ARCH-Debug.sh
 
 - To build for *RTI Connext DDS Micro*, e.g.:
 
-      ./build/micro-${RTI_ARCH}-Debug.sh
+      ./build/micro-$RTI_ARCH-Debug.sh
 
 This step generates the equivalent XML representations of the datatypes in the [res/types/](res/types/) directory tree. It also ensures that the code generated from the IDL datatype definitions in this repo are buildable for the selected target platform.
 
