@@ -20,26 +20,26 @@ module dds {
         * Kind of Primitive Types 
         */
         enum PrimitiveKind { 
-            UNKNOWN,
+            PK_UNKNOWN,
 
             /* Boolean Type: TRUE or FALSE */
-            BOOLEAN,
+            PK_BOOLEAN,
 
             /* Byte Type (opaque) */
-            BYTE,
+            PK_BYTE,
 
             /* Character Types */
-            CHAR8, CHAR16,
+            PK_CHAR8, PK_CHAR16,
 
             /* Integer Types */
-             INT8,  INT16,  INT32,  INT64, 
-            UINT8, UINT16, UINT32, UINT64,
+             PK_INT8,  PK_INT16,  PK_INT32,  PK_INT64, 
+            PK_UINT8, PK_UINT16, PK_UINT32, PK_UINT64,
 
             /* Real Types */
-            FLOAT32, FLOAT64, FLOAT128,
+            PK_FLOAT32, PK_FLOAT64, PK_FLOAT128,
 
             /* String Types */
-            STRING4, STRING8, STRING16, STRING32, STRING64, STRING128, STRING256
+            PK_STRING4, PK_STRING8, PK_STRING16, PK_STRING32, PK_STRING64, PK_STRING128, PK_STRING256
         };
 
 
@@ -50,25 +50,25 @@ module dds {
         @nested
         union Variant32 switch (base::PrimitiveKind) {
 
-        case base::BOOLEAN:
+        case base::PK_BOOLEAN:
             base::Boolean boolean_v; 
         
-        case base::CHAR8:
+        case base::PK_CHAR8:
             base::Char8 char8_v;
         
-        case base::CHAR16:
+        case base::PK_CHAR16:
             base::Char16 char16_v;
 
-        case base::INT32:
+        case base::PK_INT32:
             base::Int32 int32_v;
         
-        case base::UINT32:
+        case base::PK_UINT32:
             base::UInt32 uint32_v;
         
-        case base::FLOAT32:
+        case base::PK_FLOAT32:
             base::Float32 float32_v;
         
-        case base::STRING4:
+        case base::PK_STRING4:
             base::StringBuf4 strbuf4_v;
 
         default:
@@ -82,34 +82,34 @@ module dds {
         @nested
         union Variant64 switch (base::PrimitiveKind) {
 
-        case base::BOOLEAN:
+        case base::PK_BOOLEAN:
             base::Boolean boolean_v; 
         
-        case base::CHAR8:
+        case base::PK_CHAR8:
             base::Char8 char8_v;
         
-        case base::CHAR16:
+        case base::PK_CHAR16:
             base::Char16 char16_v;
 
-        case base::INT32:
+        case base::PK_INT32:
             base::Int32 int32_v;
         
-        case base::UINT32:
+        case base::PK_UINT32:
             base::UInt32 uint32_v;
         
-        case base::INT64:
+        case base::PK_INT64:
             base::Int64 int64_v;
         
-        case base::UINT64:
+        case base::PK_UINT64:
             base::UInt64 uint64_v;
         
-        case base::FLOAT32:
+        case base::PK_FLOAT32:
             base::Float32 float32_v;
         
-        case base::FLOAT64:
+        case base::PK_FLOAT64:
             base::Float64 float64_v;
         
-        case base::STRING8:
+        case base::PK_STRING8:
             base::StringBuf8 strbuf8_v;
 
         default:
@@ -123,37 +123,37 @@ module dds {
         @nested
         union Variant128 switch (base::PrimitiveKind) {
 
-        case base::BOOLEAN:
+        case base::PK_BOOLEAN:
             base::Boolean boolean_v; 
         
-        case base::CHAR8:
+        case base::PK_CHAR8:
             base::Char8 char8_v;
         
-        case base::CHAR16:
+        case base::PK_CHAR16:
             base::Char16 char16_v;
 
-        case base::INT32:
+        case base::PK_INT32:
             base::Int32 int32_v;
         
-        case base::UINT32:
+        case base::PK_UINT32:
             base::UInt32 uint32_v;
         
-        case base::INT64:
+        case base::PK_INT64:
             base::Int64 int64_v;
         
-        case base::UINT64:
+        case base::PK_UINT64:
             base::UInt64 uint64_v;
         
-        case base::FLOAT32:
+        case base::PK_FLOAT32:
             base::Float32 float32_v;
         
-        case base::FLOAT64:
+        case base::PK_FLOAT64:
             base::Float64 float64_v;
 
-        case base::FLOAT128:
+        case base::PK_FLOAT128:
             base::Float128 float128_v;
         
-        case base::STRING16:
+        case base::PK_STRING16:
             base::StringBuf16 strbuf16_v;
 
         default:
