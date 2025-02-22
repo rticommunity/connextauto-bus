@@ -122,9 +122,9 @@ For more details, please refer to the documentation on the [common build system]
 
 - Follow the [Getting Started](https://github.com/rticommunity/connextauto-swc-template?tab=readme-ov-file#getting-started) in README of the new software component repo
 
-- Populate the [CMakeLists.txt](Mhttps://github.com/rticommunity/connextauto-swc-template/blob/master/CMakeLists.txt) in the new software component repo with list of applications to build, the source files, and SDKs
+- Populate the [`CMakeLists.txt`](Mhttps://github.com/rticommunity/connextauto-swc-template/blob/master/CMakeLists.txt) in the new software component repo with list of executables to build, the source files, the SDKs to build for, and the libraries to link.
 
-- To include datatypes, use the paths to the datatype files (`.idl`) **relative** to  the `$DATABUSHOME` top-level directory. For example, in C or C++:
+- To include datatypes, use the paths to the datatype files (`.idl`) **relative** to the `$DATABUSHOME` top-level directory. For example, in C or C++:
 
       #include "res/types/data/sensing/Camera_t.h"
       #include "res/types/data/sensing/Camera_tSupport.h"
