@@ -140,10 +140,20 @@ Selected examples of data architecture emulation are descibed below.
 - [Shapes](doc/Shapes.md) : DDS Shapes Demo
 - [Drive](doc/Drive.md) : Automated and Assisted Driving (AD)
 
+*NOTE: The data interface emulation currently relies on Lua scripting provided by the
+[RTI Prototyper](https://community.rti.com/documentation/rti-connext-dds-612#doc_tools),
+and that was deprecated after RTI Connext 6.1.2 LTS. The examples below
+use the [rtiddsprototyper](https://community.rti.com/static/documentation/connext-dds/6.1.2/doc/manuals/connext_dds_professional/tools/prototyper/index.htm#prototyper/LuaComponentProgModel.htm%3FTocPath%3D7.%2520Lua%2520Component%2520Programming%2520Model%7C_____0)
+from RTI Connext 6.1.2, by simply overriding the NDDSHOME environment variable, as shown below.*
+
+      env NDDSHOME=/path/to/rti_connext_dds-6.1.2
+      $DATABUSHOME/bin/run <env_name> ./bin/<script> [<args>]
+
 ### Run the *Shapes* emulation
 
 From this git repo's top-level directory, run an emulation of the [Shapes](https://www.rti.com/products/tools/shapes-demo) data interfaces as follows:
 
+      env NDDSHOME=/path/to/rti_connext_dds-6.1.2 \
       $DATABUSHOME/bin/run Shapes ./bin/Shapes [domainId]
 
 where the [bin/Shapes](bin/Shapes) component emulates the Shapes data interfaces using *RTI Prototyper with Lua*.
@@ -161,6 +171,7 @@ For more details, please refer to the documentation on
 
 From the git repo's top-level directory, run an emulation of the *Drive* interfaces as follows:
 
+      env NDDSHOME=/path/to/rti_connext_dds-6.1.2 \
       $DATABUSHOME/bin/run Drive ./bin/Drive [domainId]
 
 where the [bin/Drive](bin/Drive) component emulates the Drive data interfaces using *RTI Prototyper with Lua*.
