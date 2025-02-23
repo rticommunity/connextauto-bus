@@ -10,8 +10,9 @@
 - be bound by those terms.
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
-    
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
+
     <!-- Planning Service -->
     <domain_participant_library name="Drive">
 
@@ -28,7 +29,7 @@
                 <data_reader name="Steering_reader" topic_ref="Status/SteeringActual">
                     <datareader_qos base_name="DriveQosLib::Planner" />
                 </data_reader>
-                 <subscriber_qos base_name="DriveQosLib::Planner" />
+                <subscriber_qos base_name="DriveQosLib::Planner" />
             </subscriber>
             <!-- Outputs -->
             <publisher name="outputs">
@@ -38,10 +39,10 @@
                 <data_writer name="Alert_writer" topic_ref="Status/Alert">
                     <datawriter_qos base_name="DriveQosLib::Planner" />
                 </data_writer>
-                 <publisher_qos base_name="DriveQosLib::Planner" />
+                <publisher_qos base_name="DriveQosLib::Planner" />
             </publisher>
             <participant_qos base_name="DriveDeploymentQosLib::Planner" />
         </domain_participant>
 
-   </domain_participant_library>
+    </domain_participant_library>
 </dds>

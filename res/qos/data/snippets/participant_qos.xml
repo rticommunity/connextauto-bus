@@ -10,7 +10,8 @@
 - be bound by those terms.
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
     <qos_library name="SnippetQosLib">
 
@@ -46,17 +47,11 @@
                 <transport_builtin>
                     <mask>SHMEM</mask>
                     <shmem>
-                        <message_size_max>
-                            65536
-                            <!-- Alternate: 4MB+1KB, default: 65536 -->
+                        <message_size_max> 65536 <!-- Alternate: 4MB+1KB, default: 65536 -->
                         </message_size_max>
-                        <received_message_count_max>
-                            1024
-                            <!-- default: 64 -->
+                        <received_message_count_max> 1024 <!-- default: 64 -->
                         </received_message_count_max>
-                        <receive_buffer_size>
-                            60000000
-                            <!-- 60MB, default: 1048576 ~ 1MB -->
+                        <receive_buffer_size> 60000000 <!-- 60MB, default: 1048576 ~ 1MB -->
                         </receive_buffer_size>
                     </shmem>
                 </transport_builtin>
@@ -68,13 +63,9 @@
                 <transport_builtin>
                     <mask>UDPv4</mask>
                     <udpv4>
-                        <send_socket_buffer_size>
-                            1000000
-                            <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
+                        <send_socket_buffer_size> 1000000 <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
                         </send_socket_buffer_size>
-                        <recv_socket_buffer_size>
-                            2000000
-                            <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
+                        <recv_socket_buffer_size> 2000000 <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
                         </recv_socket_buffer_size>
                     </udpv4>
                 </transport_builtin>
@@ -100,13 +91,9 @@
                 <transport_builtin>
                     <mask>UDPv6</mask>
                     <udpv6>
-                        <send_socket_buffer_size>
-                            1000000
-                            <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
+                        <send_socket_buffer_size> 1000000 <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
                         </send_socket_buffer_size>
-                        <recv_socket_buffer_size>
-                            2000000
-                            <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
+                        <recv_socket_buffer_size> 2000000 <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
                         </recv_socket_buffer_size>
                     </udpv6>
                 </transport_builtin>
@@ -207,13 +194,9 @@
             <!-- N -->
             <participant_qos>
                 <wire_protocol>
-                    <rtps_app_id>
-                        1
-                        <!-- N -->
+                    <rtps_app_id> 1 <!-- N -->
                     </rtps_app_id>
-                    <participant_id>
-                        1
-                        <!-- N -->
+                    <participant_id> 1 <!-- N -->
                     </participant_id>
                 </wire_protocol>
             </participant_qos>

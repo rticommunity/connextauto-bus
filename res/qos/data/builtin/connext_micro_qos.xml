@@ -18,7 +18,7 @@
              NDDSHOME/resource/xml/BuiltinProfiles.documentationONLY.xml
 -->
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
     <qos_library name="ResourceQosLib">
 
@@ -35,7 +35,7 @@
         <qos_profile name="Memory" base_name="Factory">
             <participant_qos>
                 <!-- Increase limits for Admin Console as described in
-                     https://community.rti.com/static/documentation/connext-micro/2.4.11/doc/html/group__UserManuals__MicroAndCore.html 
+                https://community.rti.com/static/documentation/connext-micro/2.4.11/doc/html/group__UserManuals__MicroAndCore.html
                  -->
                 <resource_limits>
                     <remote_participant_allocation>
@@ -48,7 +48,7 @@
                         <max_count>1<!-- 16 + 24 AdminConsole --></max_count>
                     </remote_reader_allocation>
                     <matching_writer_reader_pair_allocation>
-                       <max_count>1<!-- 4 + 48 AdminConsole --></max_count>
+                        <max_count>1<!-- 4 + 48 AdminConsole --></max_count>
                     </matching_writer_reader_pair_allocation>
                     <matching_reader_writer_pair_allocation>
                         <max_count>1</max_count>
@@ -76,7 +76,7 @@
                     <local_subscriber_allocation>
                         <max_count>1</max_count>
                     </local_subscriber_allocation>
-                </resource_limits>  
+                </resource_limits>
             </participant_qos>
 
             <datawriter_qos>
@@ -87,8 +87,8 @@
                     <max_instances>1</max_instances>
                     <max_samples_per_instance>3</max_samples_per_instance>
                     <max_samples>3</max_samples>
-                 </resource_limits>
-                 <writer_resource_limits>
+                </resource_limits>
+                <writer_resource_limits>
                     <max_remote_readers>1</max_remote_readers>
                 </writer_resource_limits>
             </datawriter_qos>
@@ -130,8 +130,8 @@
 
 
         <!-- Transports -->
-        <qos_profile name="Transport.Intra" 
-                     base_name="Protocol">
+        <qos_profile name="Transport.Intra"
+            base_name="Protocol">
             <participant_qos>
                 <transport_builtin>
                     <mask>INTRA</mask>
@@ -139,8 +139,8 @@
             </participant_qos>
         </qos_profile>
 
-        <qos_profile name="Transport.Intra.UDPv4" 
-                     base_name="Protocol">
+        <qos_profile name="Transport.Intra.UDPv4"
+            base_name="Protocol">
             <participant_qos>
                 <transport_builtin>
                     <mask>INTRA|UDPv4</mask>
@@ -148,8 +148,8 @@
             </participant_qos>
         </qos_profile>
 
-        <qos_profile name="Transport.Selected" 
-                     base_name="Transport.Intra.UDPv4" />
+        <qos_profile name="Transport.Selected"
+            base_name="Transport.Intra.UDPv4" />
 
 
         <!-- Discovery -->
@@ -193,20 +193,18 @@
              Discovery.None: for INTRA only transport
              Discovery.DPDE: for dynamic discovery over selected transports
              Discovery.DPSE: for static discovery over selected transports
-        --> 
+        -->
         <qos_profile name="Discovery.Selected" base_name="Discovery.DPDE" />
 
     </qos_library>
 
 
-
     <qos_library name="BuiltinQosLib">
-        <qos_profile name="Generic.Common" 
-                     base_name="ResourceQosLib::Discovery.Selected"/>
+        <qos_profile name="Generic.Common"
+            base_name="ResourceQosLib::Discovery.Selected" />
     </qos_library>
- 
- 
- 
+
+
     <qos_library name="BuiltinQosLib">
 
         <qos_profile name="Generic.BestEffort" base_name="BuiltinQosLib::Generic.Common">
@@ -219,7 +217,7 @@
                     <depth>3</depth>
                 </history>
             </datawriter_qos>
-    
+
             <datareader_qos>
                 <reliability>
                     <kind>BEST_EFFORT_RELIABILITY_QOS</kind>
@@ -248,7 +246,7 @@
                         <!-- All write() calls will block (for at most max_blocking_time) if 
                             there are 40 unacknowledged samples in the writer queue -->
                         <max_send_window_size>40</max_send_window_size>
-                        <heartbeats_per_max_samples>1</heartbeats_per_max_samples> 
+                        <heartbeats_per_max_samples>1</heartbeats_per_max_samples>
                         <heartbeat_period>
                             <sec>0</sec>
                             <nanosec>200000000</nanosec>
@@ -257,7 +255,7 @@
                     </rtps_reliable_writer>
                 </protocol>
             </datawriter_qos>
-    
+
             <datareader_qos>
                 <reliability>
                     <kind>RELIABLE_RELIABILITY_QOS</kind>
@@ -280,7 +278,7 @@
                     </rtps_reliable_writer>
                 </protocol>
             </datawriter_qos>
-    
+
             <datareader_qos>
                 <history>
                     <kind>KEEP_LAST_HISTORY_QOS</kind>
@@ -288,13 +286,14 @@
             </datareader_qos>
         </qos_profile>
 
-        <qos_profile name="Generic.KeepLastReliable.TransientLocal" base_name="Generic.KeepLastReliable">
+        <qos_profile name="Generic.KeepLastReliable.TransientLocal"
+            base_name="Generic.KeepLastReliable">
             <datareader_qos>
                 <durability>
                     <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
                 </durability>
             </datareader_qos>
-    
+
             <datawriter_qos>
                 <durability>
                     <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
@@ -311,7 +310,7 @@
                     </period>
                 </deadline>
             </datawriter_qos>
-    
+
             <datareader_qos>
                 <deadline>
                     <period>
@@ -321,8 +320,8 @@
                 </deadline>
             </datareader_qos>
         </qos_profile>
-                
-        <qos_profile name="Pattern.Streaming" base_name="Pattern.PeriodicData"/>
+
+        <qos_profile name="Pattern.Streaming" base_name="Pattern.PeriodicData" />
 
 
         <qos_profile name="Pattern.ReliableStreaming" base_name="Generic.KeepLastReliable">
@@ -331,15 +330,15 @@
                     <depth>3</depth>
                 </history>
             </datawriter_qos>
-    
+
             <datareader_qos>
                 <history>
                     <depth>3</depth>
                 </history>
             </datareader_qos>
         </qos_profile>
-    
-    
+
+
         <qos_profile name="Pattern.Event" base_name="Generic.StrictReliable">
             <datawriter_qos>
                 <liveliness>
@@ -349,7 +348,7 @@
                     </lease_duration>
                 </liveliness>
             </datawriter_qos>
-    
+
             <datareader_qos>
                 <liveliness>
                     <lease_duration>
@@ -358,20 +357,21 @@
                     </lease_duration>
                 </liveliness>
             </datareader_qos>
-        </qos_profile>        
-
-       
-       <qos_profile name="Pattern.AlarmEvent" base_name="Pattern.Event"/>
-
-        
-       <qos_profile name="Pattern.Status" base_name="Generic.KeepLastReliable.TransientLocal"/>
+        </qos_profile>
 
 
-       <qos_profile name="Pattern.AlarmStatus" base_name="Pattern.Status"/>
+        <qos_profile name="Pattern.AlarmEvent" base_name="Pattern.Event" />
 
 
-       <qos_profile name="Pattern.LastValueCache" base_name="Generic.KeepLastReliable.TransientLocal"/>
-    
+        <qos_profile name="Pattern.Status" base_name="Generic.KeepLastReliable.TransientLocal" />
+
+
+        <qos_profile name="Pattern.AlarmStatus" base_name="Pattern.Status" />
+
+
+        <qos_profile name="Pattern.LastValueCache"
+            base_name="Generic.KeepLastReliable.TransientLocal" />
+
     </qos_library>
 
 </dds>

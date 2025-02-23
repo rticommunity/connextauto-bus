@@ -12,70 +12,69 @@
 -->
 <dds
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
-    <qos_library name="FlowQosLib">
+    <qos_library name="AutosarQosLib">
 
         <!-- Methods -->
-        <qos_profile name="MethodRequest" base_name="BuiltinQosLib::Pattern.Event"/>
-        <qos_profile name="MethodReply"   base_name="MethodRequest"/>
-        
-       
+        <qos_profile name="MethodRequest" base_name="BuiltinQosLib::Pattern.Event" />
+        <qos_profile name="MethodReply" base_name="MethodRequest" />
+
+
         <!-- Fields -->
-        <qos_profile name="FieldRequest" base_name="MethodRequest"/>
-        <qos_profile name="FieldReply"   base_name="MethodReply"/>
-        <qos_profile name="Field"        base_name="BuiltinQosLib::Pattern.Status"/>
-        
+        <qos_profile name="FieldRequest" base_name="MethodRequest" />
+        <qos_profile name="FieldReply" base_name="MethodReply" />
+        <qos_profile name="Field" base_name="BuiltinQosLib::Pattern.Status" />
 
 
         <!-- Events -->
-        
+
         <!-- Event.Reliable.Strict -->
-        <qos_profile name="Event.Reliable.Strict" 
-                base_name="BuiltinQosLib::Generic.StrictReliable.LowLatency">
+        <qos_profile name="Event.Reliable.Strict"
+            base_name="BuiltinQosLib::Generic.StrictReliable.LowLatency">
             <base_name>
                 <element>SnippetQosLib::Reliable.Strict</element>
                 <element>SnippetQosLib::Reliable.Strict.Name</element>
             </base_name>
         </qos_profile>
-        <qos_profile name="Event.Reliable.Strict.Large" 
-                base_name="BuiltinQosLib::Generic.StrictReliable.LargeData">
+        <qos_profile name="Event.Reliable.Strict.Large"
+            base_name="BuiltinQosLib::Generic.StrictReliable.LargeData">
             <base_name>
                 <element>SnippetQosLib::Reliable.Strict</element>
-                <element>SnippetQosLib::Reliable.Strict.Name.Large</element>              
-            </base_name>          
+                <element>SnippetQosLib::Reliable.Strict.Name.Large</element>
+            </base_name>
         </qos_profile>
 
 
         <!-- Event.Reliable.KeepLast -->
-        <qos_profile name="Event.Reliable.KeepLast" 
-                base_name="BuiltinQosLib::Generic.KeepLastReliable">
+        <qos_profile name="Event.Reliable.KeepLast"
+            base_name="BuiltinQosLib::Generic.KeepLastReliable">
             <base_name>
                 <element>SnippetQosLib::Reliable.KeepLast</element>
                 <element>SnippetQosLib::Reliable.KeepLast.Name</element>
             </base_name>
         </qos_profile>
         <qos_profile name="Event.Reliable.KeepLast.Large"
-                base_name="BuiltinQosLib::Generic.KeepLastReliable.LargeData">
+            base_name="BuiltinQosLib::Generic.KeepLastReliable.LargeData">
             <base_name>
                 <element>SnippetQosLib::Reliable.KeepLast</element>
                 <element>SnippetQosLib::Reliable.KeepLast.Name.Large</element>
             </base_name>
         </qos_profile>
-                
-                
+
+
         <!-- Event.BestEffort -->
-        <qos_profile name="Event.BestEffort"         
-                base_name="BuiltinQosLib::Generic.BestEffort">
+        <qos_profile name="Event.BestEffort"
+            base_name="BuiltinQosLib::Generic.BestEffort">
             <base_name>
                 <element>SnippetQosLib::BestEffort</element>
-                <element>SnippetQosLib::BestEffort.Name</element>      
+                <element>SnippetQosLib::BestEffort.Name</element>
             </base_name>
         </qos_profile>
 
 
         <!-- Participant -->
-        <qos_profile name="Participant" 
-                base_name="BuiltinQosLib::Generic.Participant.LargeData"/>      
+        <qos_profile name="Participant"
+            base_name="BuiltinQosLib::Generic.Participant.LargeData" />
     </qos_library>
 </dds>

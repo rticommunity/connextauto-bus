@@ -10,7 +10,8 @@
 - be bound by those terms.
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
     <qos_library name="FlowQosLib">
 
@@ -69,7 +70,7 @@
                 <durability>
                     <kind>TRANSIENT_DURABILITY_QOS</kind>
                 </durability>
-             </datawriter_qos>
+            </datawriter_qos>
         </qos_profile>
 
 
@@ -86,7 +87,7 @@
                 <durability>
                     <kind>TRANSIENT_DURABILITY_QOS</kind>
                 </durability>
-             </datareader_qos>
+            </datareader_qos>
             <datawriter_qos>
                 <history>
                     <!-- data + dispose + unregister -->
@@ -95,7 +96,7 @@
                 <durability>
                     <kind>TRANSIENT_DURABILITY_QOS</kind>
                 </durability>
-             </datawriter_qos>
+            </datawriter_qos>
         </qos_profile>
 
 
@@ -116,13 +117,13 @@
                     <depth>3</depth>
                 </history>
             </datawriter_qos>
-       </qos_profile>
+        </qos_profile>
 
         <!-- Service Response: Service/Response/*
                 - Command-Response
                 - Objective State 
         -->
-         <qos_profile name="Response" base_name="Request">
+        <qos_profile name="Response" base_name="Request">
             <datareader_qos>
                 <!-- KEEP_ALL history: don't drop any responses -->
             </datareader_qos>
@@ -132,13 +133,10 @@
                     <!-- don't block the writer -->
                     <kind>KEEP_LAST_HISTORY_QOS</kind>
                     <!-- N responses (Objectives) outstanding -->
-                    <depth>
-                        <!-- N = -->
-                        3
-                    </depth>
+                    <depth>3</depth>
                 </history>
             </datawriter_qos>
-       </qos_profile>
+        </qos_profile>
 
 
         <!-- Logging : Log/* -->

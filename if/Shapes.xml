@@ -15,7 +15,8 @@
                         Shapes Databus
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
 
     <!-- Data Types -->
     <types>
@@ -31,9 +32,9 @@
             <register_type name="ShapeType" type_ref="dds::demo::ShapeType" />
 
             <!-- register topics used by the service -->
-            <topic name="Square"    register_type_ref="ShapeType"/>
-            <topic name="Circle"    register_type_ref="ShapeType"/>      
-            <topic name="Triangle"  register_type_ref="ShapeType"/> 
+            <topic name="Square" register_type_ref="ShapeType" />
+            <topic name="Circle" register_type_ref="ShapeType" />
+            <topic name="Triangle" register_type_ref="ShapeType" />
         </domain>
 
     </domain_library>

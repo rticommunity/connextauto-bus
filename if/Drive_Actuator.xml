@@ -10,8 +10,9 @@
 - be bound by those terms.
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
-    
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
+
     <!-- Actuation Service -->
     <domain_participant_library name="Drive">
 
@@ -19,19 +20,19 @@
         <domain_participant name="Actuator" domain_ref="DriveBus::main">
             <!-- Inputs -->
             <subscriber name="inputs">
-               <data_reader name="Steering_reader" topic_ref="Status/SteeringDesired">
+                <data_reader name="Steering_reader" topic_ref="Status/SteeringDesired">
                     <datareader_qos base_name="DriveQosLib::Actuator" />
                 </data_reader>
-                 <subscriber_qos base_name="DriveQosLib::Actuator" />
+                <subscriber_qos base_name="DriveQosLib::Actuator" />
             </subscriber>
             <!-- Outputs -->
             <publisher name="outputs">
                 <data_writer name="Steering_writer" topic_ref="Status/SteeringActual">
                     <datawriter_qos base_name="DriveQosLib::Actuator" />
                 </data_writer>
-           </publisher>
+            </publisher>
             <participant_qos base_name="DriveDeploymentQosLib::Actuator" />
         </domain_participant>
 
-   </domain_participant_library>
+    </domain_participant_library>
 </dds>

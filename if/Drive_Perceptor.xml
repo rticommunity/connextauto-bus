@@ -10,8 +10,9 @@
 - be bound by those terms.
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
-    
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
+
     <!-- Perception Service -->
     <domain_participant_library name="Drive">
 
@@ -35,10 +36,10 @@
                 <data_writer name="Lane_writer" topic_ref="Status/Lane">
                     <datawriter_qos base_name="DriveQosLib::Perceptor" />
                 </data_writer>
-                 <publisher_qos base_name="DriveQosLib::Perceptor" />
+                <publisher_qos base_name="DriveQosLib::Perceptor" />
             </publisher>
             <participant_qos base_name="DriveDeploymentQosLib::Perceptor" />
         </domain_participant>
 
-   </domain_participant_library>
+    </domain_participant_library>
 </dds>

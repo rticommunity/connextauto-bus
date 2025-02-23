@@ -10,8 +10,9 @@
 - be bound by those terms.
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_profiles.xsd">
-    
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
+
     <!-- CAN Service -->
     <domain_participant_library name="Drive">
 
@@ -78,5 +79,5 @@
             <participant_qos base_name="DriveDeploymentQosLib::CANTunnel" />
         </domain_participant>
 
-   </domain_participant_library>
+    </domain_participant_library>
 </dds>
