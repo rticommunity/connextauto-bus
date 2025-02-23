@@ -20,7 +20,7 @@
         <include file="res/types/data/perception/Track_t.xml" />
         <include file="res/types/data/perception/Lane_t.xml" />
         <include file="res/types/data/planning/Alert_t.xml" />
-        <include file="res/types/data/actuation/Actuation_t.xml" />
+        <include file="res/types/data/actuation/Steering_t.xml" />
         <include file="res/types/data/gateway/CAN_t.xml" />
     </types>
 

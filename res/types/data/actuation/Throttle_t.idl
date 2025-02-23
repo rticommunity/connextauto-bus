@@ -1,0 +1,41 @@
+/******************************************************************************
+(C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the
+RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+
+By accessing, downloading, or otherwise using this software, you agree to
+be bound by those terms.
+*****************************************************************************/
+
+#ifndef THROTTLE_IDL
+#define THROTTLE_IDL
+
+module dds {
+    module actuation {
+
+        /**
+        * ThrottleDesired - desired throttle state
+        *    command request given to the vehicle
+        */
+        struct ThrottleDesired {
+            int32 throttle_goal;
+        };
+
+        /**
+        * ThrottleActual - actual throttle state
+        *    state may change as a result of ThrottleDesired commands
+        */
+        struct ThrottleActual {
+            int32 throttle_current;
+        };
+
+        /**
+        * ThrottleInfo - information about the throttle calibration
+        */
+        struct ThrottleInfo {
+            double throttle_scale;
+        };
+    };
+};
+#endif /* THROTTLE_IDL */

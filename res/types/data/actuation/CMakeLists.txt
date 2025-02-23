@@ -13,7 +13,7 @@ cmake_minimum_required(VERSION 3.14)
 ###################################################################################
 # Convert IDLs to XML
 ###################################################################################
-set(IDLs Actuation_t)
+set(IDLs Steering_t Brake_t Throttle_t Indicator_t Window_t)
 set(resulting_files)
 
 foreach(IDL ${IDLs})

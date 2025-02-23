@@ -9,7 +9,7 @@
     "useAsSnippetIfName": true,
     "enableValidation": false
   },
-  "ui_lastSaveTime": "22/2/2025 @ 19:54:22",
+  "ui_lastSaveTime": "23/2/2025 @ 15:44:33",
   "ui_creationDate": "22/2/2025 @ 17:42:34",
   "ui_creationSysDVersion": "7.3.0.2",
   "ui_projectNotes": "",
@@ -115,7 +115,27 @@
       "builtin": false
     },
     {
-      "path": "res/types/data/actuation/Actuation_t.xml",
+      "path": "res/types/data/actuation/Steering_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/actuation/Brake_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/actuation/Throttle_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/actuation/Indicator_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/actuation/Window_t.xml",
       "readonly": false,
       "builtin": false
     },

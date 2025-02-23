@@ -1,0 +1,41 @@
+/******************************************************************************
+(C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the
+RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+
+By accessing, downloading, or otherwise using this software, you agree to
+be bound by those terms.
+*****************************************************************************/
+
+#ifndef BRAKE_IDL
+#define BRAKE_IDL
+
+module dds {
+    module actuation {
+
+        /**
+        * BrakeDesired - desired brake state
+        *    command request given to the vehicle
+        */
+        struct BrakeDesired {
+            int32 brake_goal;
+        };
+
+        /**
+        * BrakeActual - actual brake state
+        *    state may change as a result of BrakeDesired commands
+        */
+        struct BrakeActual {
+            int32 brake_current;
+        };
+
+        /**
+        * BrakeInfo - information about the Brake calibration
+        */
+        struct BrakeInfo {
+            double brake_scale;
+        };
+    };
+};
+#endif /* BRAKE_IDL */

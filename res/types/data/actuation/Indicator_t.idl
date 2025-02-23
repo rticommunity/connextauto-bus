@@ -1,0 +1,54 @@
+/******************************************************************************
+(C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the
+RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+
+By accessing, downloading, or otherwise using this software, you agree to
+be bound by those terms.
+*****************************************************************************/
+
+#ifndef INDICATOR_IDL
+#define INDICATOR_IDL
+
+module dds {
+    module actuation {
+
+        /**
+        * IndicatorKind - indicators to signal intentions
+        */
+        enum IndicatorKind {
+            INDICATOR_NONE,
+            INDICATOR_LEFT,
+            INDICATOR_RIGHT,
+            INDICATOR_HAZARD
+        };
+
+        /**:
+        * Indicator - indicator identity
+        */
+        @nested
+        struct Indicator {
+            @key
+            IndicatorKind indicator_id;
+        };
+
+
+        /**
+        * IndicatorDesired - desired indicator state
+        *    command request given to the vehicle
+        */
+        struct IndicatorDesired : Indicator {
+            boolean indicator_goal;
+        };
+
+        /**
+        * IndicatorActual - actual indicator state
+        *    state may change as a result of IndicatorDesired commands
+        */
+        struct IndicatorActual  : Indicator {
+            boolean indicator_current;
+        };
+    };
+};
+#endif /* INDICATOR_IDL */

@@ -1,0 +1,62 @@
+/******************************************************************************
+(C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the
+RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+
+By accessing, downloading, or otherwise using this software, you agree to
+be bound by those terms.
+*****************************************************************************/
+
+#ifndef WINDOW_IDL
+#define WINDOW_IDL
+
+module dds {
+    module actuation {
+
+        /**
+        * Window - windows and roofs (sunroof, moonroof, ...)
+        */
+        enum WindowKind {
+            WINDOW_NONE,
+            WINDOW_LEFT_FRONT,
+            WINDOW_LEFT_REAR,
+            WINDOW_RIGHT_FRONT,
+            WINDOW_RIGHT_REAR,
+            WINDOW_ROOF
+        };
+
+        /**:
+        * Window - window identity
+        */
+        @nested
+        struct Window {
+            @key
+            WindowKind window_id;
+        };
+
+        /**
+        * WindowDesired - desired window state
+        *    command request given to the vehicle
+        */
+        struct WindowDesired : Window {
+            int32 window_goal;
+        };
+
+        /**
+        * WindowActual - actual window state
+        *    state may change as a result of WindowDesired commands
+        */
+        struct WindowActual  : Window {
+            int32 window_current;
+        };
+
+        /**
+        * WindowInfo - information about the window calibration
+        */
+        struct WindowInfo : Window {
+            double window_scale;
+        };
+    };
+};
+#endif /* WINDOW_IDL */

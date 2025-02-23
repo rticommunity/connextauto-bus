@@ -57,7 +57,11 @@ set(IDLs
   data/sensing/PointCloud_t.idl
   data/sensing/Lidar_t.idl
 
-  data/actuation/Actuation_t.idl
+  data/actuation/Steering_t.idl
+  data/actuation/Brake_t.idl
+  data/actuation/Throttle_t.idl
+  data/actuation/Indicator_t.idl
+  data/actuation/Window_t.idl
 
   data/perception/Lane_t.idl
   data/perception/Track_t.idl

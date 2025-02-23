@@ -1,0 +1,43 @@
+/******************************************************************************
+(C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+
+The use of this software is governed by the terms specified in the
+RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+
+By accessing, downloading, or otherwise using this software, you agree to
+be bound by those terms.
+*****************************************************************************/
+
+#ifndef STEERING_IDL
+#define STEERING_IDL
+
+module dds {
+    module actuation {
+
+        /**
+        * SteeringDesired - desired steering
+        *    command request given to the vehicle
+        */
+        struct SteeringDesired {
+            float position;
+            float speed;
+        };
+
+        /**
+        * SteeringActual - actual steering state of the vehicle
+        *    state may change as a result of SteeringDesired commands
+        */
+        struct SteeringActual {
+            float position;
+        };
+
+        /**
+        * SteeringInfo - information about the Steering calibration
+        */
+        struct SteeringInfo {
+            double position_scale;
+            double speed_scale;
+        };
+    };
+};
+#endif /* STEERING_IDL */
