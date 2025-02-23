@@ -1,0 +1,209 @@
+{
+  "ui_projectName": "connextauto",
+  "ui_settings": {
+    "confirmDelete": true,
+    "showEZSecure": false,
+    "enableValuetypes": false,
+    "autosave": 1,
+    "enforceSnippetSeparation": true,
+    "useAsSnippetIfName": true,
+    "enableValidation": false
+  },
+  "ui_lastSaveTime": "22/2/2025 @ 19:54:22",
+  "ui_creationDate": "22/2/2025 @ 17:42:34",
+  "ui_creationSysDVersion": "7.3.0.2",
+  "ui_projectNotes": "",
+  "ui_include": [
+    {
+      "path": "BaselineRoot.documentationONLY.xml",
+      "readonly": true,
+      "builtin": true
+    },
+    {
+      "path": "BuiltinProfiles.documentationONLY.xml",
+      "readonly": true,
+      "builtin": true
+    },
+    {
+      "path": "res/qos/data/snippets/endpoint_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/snippets/participant_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/snippets/factory_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/doa_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/autosar_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/Shapes_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/Drive_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/Drive-deployment_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/base/Primitives_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/base/Entity_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/base/Variants_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/physics/Time_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/physics/Point2D_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/physics/Point3D_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/sensing/Image_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/sensing/Camera_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/sensing/PointCloud_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/sensing/Lidar_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/actuation/Actuation_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/perception/Lane_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/perception/Track_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/planning/Alert_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/gateway/CAN_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/demo/ShapeType_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Shapes.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Shapes_Pub.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Shapes_Sub.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Shapes_PubSub.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Drive.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Drive_Actuator.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Drive_CAN.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Drive_Camera.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Drive_HMI.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Drive_Lidar.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Drive_Perceptor.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Drive_Planner.xml",
+      "readonly": false,
+      "builtin": false
+    }
+  ],
+  "ui_projectGUID": "d4496cf5-946a-8832-e284-557d9d8b2e77"
+}
