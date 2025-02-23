@@ -59,12 +59,6 @@ Currently this repo and the common build system had been verified on the followi
 
       git clone <a_git_url_to_this_repository>
 
-### Browse the Data Architecture in System Designer
-
-- Launch [RTI System Designer](https://community.rti.com/static/documentation/connext-dds/current/doc/manuals/connext_dds_professional/tools/system_designer/index.html)
-
-- Open the `connextauto.rtisdproj`
-
 ### Setup the environnment variables
 
 - Setup the [DATABUSHOME](doc/DATABUSHOME.md) environment variable to point to [this repo](./)
@@ -75,11 +69,11 @@ Currently this repo and the common build system had been verified on the followi
 - Setup environment variables for at least one RTI Connext SDK:
   - If you want to build for *RTI Connext DDS Professional*, setup `NDDSHOME`
 
-      export NDDSHOME=/path/to/<rti_connext_dds-x.y.z>
+        export NDDSHOME=/path/to/<rti_connext_dds-x.y.z>
 
   - If you want to build for *RTI Connext DDS Micro*, setup `RTIMEHOME`
 
-      export RTIMEHOME=/path/to/<rti_connext_dds_micro-x.y.z>
+        export RTIMEHOME=/path/to/<rti_connext_dds_micro-x.y.z>
 
   - Setup both `NDDSHOME` and `RTIMEHOME` if you want to build for **both SDKs**.
 
@@ -126,10 +120,15 @@ For more details, please refer to the documentation on the [common build system]
 
 ## Usage
 
-- Use [RTI System Designer](https://community.rti.com/static/documentation/connext-dds/current/doc/manuals/connext_dds_professional/tools/system_designer/index.html) or 
-a code editor with XML completion to browse and edit the Data Architecture in *this* repo
+Browse and Edit the Data Architecture:
 
-- Use the [connextauto-swc-template](https://github.com/rticommunity/connextauto-swc-template) to create a new software component repo
+  - Use [RTI System Designer](https://community.rti.com/static/documentation/connext-dds/current/doc/manuals/connext_dds_professional/tools/system_designer/index.html) to browse and edit the Data Architecture in *this* repo
+    -  Launch [RTI System Designer](https://community.rti.com/static/documentation/connext-dds/current/doc/manuals/connext_dds_professional/tools/system_designer/index.html)
+    - Open the `connextauto.rtisdproj`
+  - Alternatively, use a code editor with XML completion to browse and edit the Data Architecture in *this* repo
+  - Rebuld *this* repo if you modify the data architeture, following the [Getting Started](#getting-started) steps.
+
+Use the [connextauto-swc-template](https://github.com/rticommunity/connextauto-swc-template) to create a new software component repo
 
 - Follow the [Getting Started](https://github.com/rticommunity/connextauto-swc-template?tab=readme-ov-file#getting-started) in README of the new software component repo
 
