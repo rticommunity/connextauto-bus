@@ -19,9 +19,39 @@
   new component is added in the if/*.xml file
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
-    <!-- Service QosProfiles -->
+    <qos_library name="DriveQosLib">
+        <!-- Camera : interface specific QosProfile -->
+        <qos_profile name="Camera" base_name="_root_">
+        </qos_profile>
+        <!-- Lidar : interface specific QosProfile -->
+        <qos_profile name="Lidar" base_name="_root_">
+        </qos_profile>
+        <!-- Perceptor : interface specific QosProfile -->
+        <qos_profile name="Perceptor" base_name="_root_">
+        </qos_profile>
+        <!-- Planner : interface specific QosProfile -->
+        <qos_profile name="Planner" base_name="_root_">
+        </qos_profile>
+        <!-- Actuator : interface specific QosProfile -->
+        <qos_profile name="Actuator" base_name="_root_">
+        </qos_profile>
+        <!-- HMI : interface specific QosProfile -->
+        <qos_profile name="HMI" base_name="_root_">
+        </qos_profile>
+        <!-- CANGateway : interface specific QosProfile -->
+        <qos_profile name="CANGateway" base_name="_root_">
+        </qos_profile>
+        <!-- CANComponent : interface specific QosProfile -->
+        <qos_profile name="CANComponent" base_name="_root_">
+        </qos_profile>
+        <!-- CANTunnel : interface specific QosProfile -->
+        <qos_profile name="CANTunnel" base_name="_root_">
+        </qos_profile>
+    </qos_library>
+
     <qos_library name="DriveDeploymentQosLib">
 
         <!-- Participant specific QosProfile, common across all the components -->
@@ -32,8 +62,8 @@
 
 
         <!-- Example: uses  the qos profile marked as "default" -->
-        <qos_profile name="example" base_name="DriveQosLib::Camera" 
-                     is_default_qos="true">
+        <qos_profile name="example" base_name="DriveQosLib::Camera"
+            is_default_qos="true">
             <participant_qos base_name="FlowQosLib::Participant">
                 <participant_name>
                     <name>Example</name>

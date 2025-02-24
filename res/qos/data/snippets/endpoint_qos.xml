@@ -325,5 +325,44 @@
             </datawriter_qos>
         </qos_profile>
 
+        <qos_profile name="Durability.TransientLocal">
+            <datareader_qos>
+                <durability>
+                    <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+                </durability>
+            </datareader_qos>
+            <datawriter_qos>
+                <durability>
+                    <kind>TRANSIENT_LOCAL_DURABILITY_QOS</kind>
+                </durability>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="Durability.Transient">
+            <datareader_qos>
+                <durability>
+                    <kind>TRANSIENT_DURABILITY_QOS</kind>
+                </durability>
+            </datareader_qos>
+            <datawriter_qos>
+                <durability>
+                    <kind>TRANSIENT_DURABILITY_QOS</kind>
+                </durability>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="Durability.Persistent">
+            <datareader_qos>
+                <durability>
+                    <kind>PERSISTENT_DURABILITY_QOS</kind>
+                </durability>
+            </datareader_qos>
+            <datawriter_qos>
+                <durability>
+                    <kind>PERSISTENT_DURABILITY_QOS</kind>
+                </durability>
+            </datawriter_qos>
+        </qos_profile>
+
     </qos_library>
 </dds>

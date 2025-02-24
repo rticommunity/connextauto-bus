@@ -3,10 +3,10 @@
 -******************************************************************************
 - (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 -
-- The use of this software is governed by the terms specified in the 
-- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
+- The use of this software is governed by the terms specified in the
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
 -
-- By accessing, downloading, or otherwise using this software, you agree to 
+- By accessing, downloading, or otherwise using this software, you agree to
 - be bound by those terms.
 -*****************************************************************************
 -->
@@ -16,43 +16,74 @@
     <qos_library name="FlowQosLib">
 
         <!-- Streams : Stream/* -->
-        <qos_profile name="Streaming.BestEffort" base_name="BuiltinQosLib::Generic.BestEffort">
+        <qos_profile name="Stream" base_name="BuiltinQosLib::Generic.BestEffort">
             <datareader_qos>
                 <history>
-                    <depth>3</depth>
+                    <depth>10</depth>
                 </history>
             </datareader_qos>
             <datawriter_qos>
                 <history>
-                    <depth>3</depth>
+                    <depth>1</depth>
                 </history>
             </datawriter_qos>
         </qos_profile>
 
-        <qos_profile name="Streaming.Reliable" base_name="BuiltinQosLib::Pattern.ReliableStreaming">
-            <datareader_qos>
-                <history>
-                    <depth>3</depth>
-                </history>
-            </datareader_qos>
-            <datawriter_qos>
-                <history>
-                    <depth>3</depth>
-                </history>
-            </datawriter_qos>
-        </qos_profile>
-
-        <!-- Events : Event/* -->
-        <qos_profile name="Event" base_name="BuiltinQosLib::Pattern.Event">
+        <!-- Events : Event/*
+        -->
+        <qos_profile name="Event" base_name="BuiltinQosLib::Generic.StrictReliable">
             <!-- may BLOCK writer for ReliabilityQosPolicy::max_blocking_time -->
+        </qos_profile>
+
+        <!-- Events : Alarm/*
+        -->
+        <qos_profile name="Alarm" base_name="BuiltinQosLib::Generic.KeepLastReliable.TransientLocal">
+            <datareader_qos>
+                <history>
+                    <depth>3</depth>
+                </history>
+            </datareader_qos>
+            <datawriter_qos>
+                <history>
+                    <depth>1</depth>
+                </history>
+            </datawriter_qos>
+        </qos_profile>
+
+
+        <!-- Command: Command/*
+                - Desired state, Goal state, Objective state
+                - Request for an intended state
+        -->
+        <qos_profile name="Command" base_name="BuiltinQosLib::Generic.KeepLastReliable">
+            <datareader_qos>
+                <history>
+                    <depth>1</depth>
+                </history>
+            </datareader_qos>
+            <datawriter_qos>
+                <history>
+                    <depth>1</depth>
+                </history>
+            </datawriter_qos>
         </qos_profile>
 
 
         <!-- Status: Status/*
-                - Monitored, e.g. Health
-                - TRANSIENT_LOCAL
+                - Monitored, e.g. Health, May have history
         -->
-        <qos_profile name="Status" base_name="BuiltinQosLib::Pattern.Status">
+        <qos_profile name="Status"
+            base_name="BuiltinQosLib::Generic.KeepLastReliable.TransientLocal">
+            <datareader_qos>
+                <history>
+                    <depth>3</depth>
+                </history>
+            </datareader_qos>
+            <datawriter_qos>
+                <history>
+                    <depth>1</depth>
+                </history>
+            </datawriter_qos>
         </qos_profile>
 
 
@@ -60,16 +91,17 @@
                 - State needed for failover and recovery
                 - TRANSIENT (requires Persistence Service)
         -->
-        <qos_profile name="State" base_name="BuiltinQosLib::Pattern.Status">
+        <qos_profile name="State" base_name="BuiltinQosLib::Generic.KeepLastReliable.Transient">
             <datareader_qos>
-                <durability>
-                    <kind>TRANSIENT_DURABILITY_QOS</kind>
-                </durability>
+                <history>
+                    <depth>1</depth>
+                </history>
             </datareader_qos>
             <datawriter_qos>
-                <durability>
-                    <kind>TRANSIENT_DURABILITY_QOS</kind>
-                </durability>
+                <history>
+                    <!-- data + dispose + unregister -->
+                    <depth>3</depth>
+                </history>
             </datawriter_qos>
         </qos_profile>
 
@@ -79,30 +111,34 @@
                 - Persistent Parameters
                 - PERSISTENT (requires Persistence Service)
         -->
-        <qos_profile name="Configuration" base_name="BuiltinQosLib::Pattern.LastValueCache">
+        <qos_profile name="Configuration"
+            base_name="BuiltinQosLib::Generic.KeepLastReliable.Persistent">
             <datareader_qos>
                 <history>
                     <depth>1</depth>
                 </history>
-                <durability>
-                    <kind>TRANSIENT_DURABILITY_QOS</kind>
-                </durability>
             </datareader_qos>
             <datawriter_qos>
                 <history>
                     <!-- data + dispose + unregister -->
                     <depth>3</depth>
                 </history>
-                <durability>
-                    <kind>TRANSIENT_DURABILITY_QOS</kind>
-                </durability>
+            </datawriter_qos>
+        </qos_profile>
+
+
+        <!-- Logging : Log/* -->
+        <qos_profile name="Log" base_name="BuiltinQosLib::Generic.KeepLastReliable">
+            <datawriter_qos>
+                <history>
+                    <!-- don't block the writer -->
+                    <depth>128</depth>
+                </history>
             </datawriter_qos>
         </qos_profile>
 
 
         <!-- Service Request: Service/Request/*
-                - Command-Response 
-                - Objective State 
         -->
         <qos_profile name="Request" base_name="BuiltinQosLib::Generic.StrictReliable">
             <datareader_qos>
@@ -134,18 +170,6 @@
                     <kind>KEEP_LAST_HISTORY_QOS</kind>
                     <!-- N responses (Objectives) outstanding -->
                     <depth>3</depth>
-                </history>
-            </datawriter_qos>
-        </qos_profile>
-
-
-        <!-- Logging : Log/* -->
-        <qos_profile name="Logging" base_name="BuiltinQosLib::Generic.StrictReliable">
-            <datawriter_qos>
-                <history>
-                    <!-- don't block the writer -->
-                    <kind>KEEP_LAST_HISTORY_QOS</kind>
-                    <depth>128</depth>
                 </history>
             </datawriter_qos>
         </qos_profile>

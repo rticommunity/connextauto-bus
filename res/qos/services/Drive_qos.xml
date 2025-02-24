@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--  
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
 -******************************************************************************
 - (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 -
@@ -21,91 +21,65 @@
   is added in the if/*.xml file
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
-    <!-- Service QosProfiles -->
-    <qos_library name="DriveQosLib">
+  <!-- Service QosProfiles -->
+  <qos_library name="DriveQosLib">
 
-        <!-- Topic specific QosProfile, common across all the interfaces -->
-        <qos_profile name="_root_">
+    <!-- Topic specific QosProfile, common across all the interfaces -->
+    <qos_profile name="_root_">
 
-            <datareader_qos topic_filter="Stream/*" 
-                            base_name="FlowQosLib::Streaming.BestEffort" />
-            <datawriter_qos topic_filter="Stream/*" 
-                            base_name="FlowQosLib::Streaming.Reliable" />
+      <!-- Data Readers -->
+      <datareader_qos base_name="FlowQosLib::Stream" topic_filter="Stream/*">
+      </datareader_qos>
+      <datareader_qos base_name="FlowQosLib::Event" topic_filter="Event/*">
+      </datareader_qos>
+      <datareader_qos base_name="FlowQosLib::Alarm" topic_filter="Alarm/*">
+      </datareader_qos>
+      <datareader_qos base_name="FlowQosLib::Command" topic_filter="Command/*">
+      </datareader_qos>
+      <datareader_qos base_name="FlowQosLib::Status" topic_filter="Status/*">
+      </datareader_qos>
+      <datareader_qos base_name="FlowQosLib::State" topic_filter="State/*">
+      </datareader_qos>
+      <datareader_qos base_name="FlowQosLib::Configuration" topic_filter="Config/*">
+      </datareader_qos>
+      <datareader_qos base_name="FlowQosLib::Log" topic_filter="Log/*">
+      </datareader_qos>
+      <datareader_qos base_name="FlowQosLib::Request" topic_filter="Service/Request/*">
+      </datareader_qos>
+      <datareader_qos base_name="FlowQosLib::Response" topic_filter="Service/Response/*">
+      </datareader_qos>
+      <!-- Catch all -->
+      <datareader_qos base_name="FlowQosLib::Stream" topic_filter="*">
+      </datareader_qos>
 
-            <datareader_qos topic_filter="Event/*" 
-                            base_name="FlowQosLib::Event" />
-            <datawriter_qos topic_filter="Event/*" 
-                            base_name="FlowQosLib::Event" />
+      <!-- Data Writers -->
+      <datawriter_qos base_name="FlowQosLib::Stream" topic_filter="Stream/*">
+      </datawriter_qos>
+      <datawriter_qos base_name="FlowQosLib::Event" topic_filter="Event/*">
+      </datawriter_qos>
+      <datawriter_qos base_name="FlowQosLib::Alarm" topic_filter="Alarm/*">
+      </datawriter_qos>
+      <datawriter_qos base_name="FlowQosLib::Command" topic_filter="Command/*">
+      </datawriter_qos>
+      <datawriter_qos base_name="FlowQosLib::Status" topic_filter="Status/*">
+      </datawriter_qos>
+      <datawriter_qos base_name="FlowQosLib::State" topic_filter="State/*">
+      </datawriter_qos>
+      <datawriter_qos base_name="FlowQosLib::Configuration" topic_filter="Config/*">
+      </datawriter_qos>
+      <datawriter_qos base_name="FlowQosLib::Log" topic_filter="Log/*">
+      </datawriter_qos>
+      <datawriter_qos base_name="FlowQosLib::Request" topic_filter="Service/Request/*">
+      </datawriter_qos>
+      <datawriter_qos base_name="FlowQosLib::Response" topic_filter="Service/Response/*">
+      </datawriter_qos>
+      <!-- Catch all -->
+      <datawriter_qos base_name="FlowQosLib::Stream" topic_filter="*">
+      </datawriter_qos>
+    </qos_profile>
+  </qos_library>
 
-            <datareader_qos topic_filter="Status/*" 
-                            base_name="FlowQosLib::Status" />
-            <datawriter_qos topic_filter="Status/*" 
-                            base_name="FlowQosLib::Status" />
-
-            <datareader_qos topic_filter="State/*" 
-                            base_name="FlowQosLib::State" />
-            <datawriter_qos topic_filter="State/*" 
-                            base_name="FlowQosLib::State" />
-
-            <datareader_qos topic_filter="Config/*" 
-                            base_name="FlowQosLib::Configuration" />
-            <datawriter_qos topic_filter="Config/*" 
-                            base_name="FlowQosLib::Configuration" />
-
-            <datareader_qos topic_filter="Service/Request/*" 
-                            base_name="FlowQosLib::Request" />
-            <datawriter_qos topic_filter="Service/Response/*" 
-                            base_name="FlowQosLib::Response" />
-
-            <datareader_qos topic_filter="Log/*" 
-                            base_name="FlowQosLib::Logging" />
-            <datawriter_qos topic_filter="Config/*" 
-                            base_name="FlowQosLib::Logging" />
-
-            <datareader_qos topic_filter="Config/*" 
-                            base_name="FlowQosLib::Configuration" />
-            <datawriter_qos topic_filter="Config/*" 
-                            base_name="FlowQosLib::Configuration" />
-
-                
-            <!-- Catch all -->
-            <datareader_qos topic_filter="*" 
-                            base_name="FlowQosLib::Streaming.BestEffort" />
-            <datawriter_qos topic_filter="*" 
-                            base_name="FlowQosLib::Streaming.Reliable" />
-
-        </qos_profile>
-
-
-
-        <!-- Camera : interface specific QosProfile -->
-        <qos_profile name="Camera" base_name="_root_" />
-
-        <!-- Lidar : interface specific QosProfile -->
-        <qos_profile name="Lidar" base_name="_root_" />
-
-        <!-- Perceptor : interface specific QosProfile -->
-        <qos_profile name="Perceptor" base_name="_root_" />
-
-        <!-- Planner : interface specific QosProfile -->
-        <qos_profile name="Planner" base_name="_root_" />
-
-        <!-- Actuator : interface specific QosProfile -->
-        <qos_profile name="Actuator" base_name="_root_" />
-
-        <!-- HMI : interface specific QosProfile -->
-        <qos_profile name="HMI" base_name="_root_" />
-
-        <!-- CANGateway : interface specific QosProfile -->
-        <qos_profile name="CANGateway" base_name="_root_" />
-
-        <!-- CANComponent : interface specific QosProfile -->
-        <qos_profile name="CANComponent" base_name="_root_" />
-
-        <!-- CANTunnel : interface specific QosProfile -->
-        <qos_profile name="CANTunnel" base_name="_root_" />
-
-    </qos_library>
 </dds>

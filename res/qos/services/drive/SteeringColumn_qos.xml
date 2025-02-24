@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
+
+  <qos_library name="DriveQosLib">
+    <qos_profile name="SteeringColumn" base_name="DriveQosLib::_root_">
+      <domain_participant_qos>
+        <participant_name>
+          <name>SteeringColumn</name>
+        </participant_name>
+      </domain_participant_qos>
+    </qos_profile>
+  </qos_library>
+
+</dds>

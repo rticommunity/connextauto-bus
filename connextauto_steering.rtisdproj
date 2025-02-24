@@ -1,0 +1,84 @@
+{
+  "ui_projectName": "connextauto_steering",
+  "ui_settings": {
+    "confirmDelete": true,
+    "showEZSecure": false,
+    "enableValuetypes": false,
+    "autosave": 1,
+    "enforceSnippetSeparation": true,
+    "useAsSnippetIfName": true,
+    "enableValidation": true
+  },
+  "ui_lastSaveTime": "23/2/2025 @ 20:09:59",
+  "ui_creationDate": "22/2/2025 @ 20:35:07",
+  "ui_creationSysDVersion": "7.3.0.2",
+  "ui_projectNotes": "",
+  "ui_include": [
+    {
+      "path": "BaselineRoot.documentationONLY.xml",
+      "readonly": true,
+      "builtin": true
+    },
+    {
+      "path": "BuiltinProfiles.documentationONLY.xml",
+      "readonly": true,
+      "builtin": true
+    },
+    {
+      "path": "res/qos/data/snippets/endpoint_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/snippets/participant_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/snippets/factory_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/doa_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/autosar_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/actuation/Steering_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Steering.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/Drive_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/SteeringColumn_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/SteeringController_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/SteeringDisplay_qos.xml",
+      "readonly": false,
+      "builtin": false
+    }
+  ],
+  "ui_projectGUID": "dd5da8dd-1eb8-8331-d38c-bafa15ea3a2d"
+}

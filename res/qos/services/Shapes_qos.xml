@@ -21,7 +21,8 @@
 is defined in the if/*.xml file
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/latest/rti_dds_qos_profiles.xsd">
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
     <!-- Service QosProfiles -->
     <qos_library name="ShapesQosLib">
@@ -29,19 +30,18 @@ is defined in the if/*.xml file
         <!-- Topic specific QosProfile, common across all the interfaces -->
         <qos_profile name="_root_">
 
-            <datareader_qos topic_filter="Square" base_name="FlowQosLib::Streaming.BestEffort" />
-            <datawriter_qos topic_filter="Square" base_name="FlowQosLib::Streaming.Reliable" />
+            <datareader_qos topic_filter="Square" base_name="FlowQosLib::Stream" />
+            <datawriter_qos topic_filter="Square" base_name="FlowQosLib::Stream" />
 
-            <datareader_qos topic_filter="Circle" base_name="FlowQosLib::Streaming.Reliable" />
-            <datawriter_qos topic_filter="Circle" base_name="FlowQosLib::Streaming.Reliable" />
+            <datareader_qos topic_filter="Circle" base_name="FlowQosLib::Stream" />
+            <datawriter_qos topic_filter="Circle" base_name="FlowQosLib::Stream" />
 
             <datareader_qos topic_filter="Triangle" base_name="FlowQosLib::Status" />
             <datawriter_qos topic_filter="Triangle" base_name="FlowQosLib::Status" />
 
 
             <!-- Catch all -->
-            <datareader_qos topic_filter="*" base_name="FlowQosLib::Streaming.BestEffort" />
-            <datawriter_qos topic_filter="*" base_name="FlowQosLib::Streaming.Reliable" />
+            <datareader_qos topic_filter="*" base_name="FlowQosLib::Stream" />
 
         </qos_profile>
 
