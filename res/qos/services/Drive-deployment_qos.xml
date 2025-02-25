@@ -56,7 +56,7 @@
 
         <!-- Participant specific QosProfile, common across all the components -->
         <qos_profile name="_root_">
-            <participant_qos base_name="FlowQosLib::Participant" />
+            <participant_qos base_name="BuiltinQosLib::Generic.Participant.LargeData" />
             <participant_factory_qos base_name="SnippetQosLib::Factory.Builtin" />
         </qos_profile>
 
@@ -64,7 +64,7 @@
         <!-- Example: uses  the qos profile marked as "default" -->
         <qos_profile name="example" base_name="DriveQosLib::Camera"
             is_default_qos="true">
-            <participant_qos base_name="FlowQosLib::Participant">
+            <participant_qos base_name="BuiltinQosLib::Generic.Participant.LargeData">
                 <participant_name>
                     <name>Example</name>
                 </participant_name>
