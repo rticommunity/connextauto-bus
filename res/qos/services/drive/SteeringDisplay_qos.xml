@@ -3,7 +3,7 @@
   xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
   <qos_library name="DriveQosLib">
-    <qos_profile name="SteeringDisplay" base_name="DriveQosLib::_root_"
+    <qos_profile name="SteeringDisplay" base_name="DriveQosLib::Steering"
       is_default_participant_factory_profile="true">
       <base_name>
         <element>SnippetQosLib::Factory.NoAutoEnable</element>
