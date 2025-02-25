@@ -57,11 +57,17 @@
         -->
         <qos_profile name="Command" base_name="BuiltinQosLib::Generic.KeepLastReliable">
             <datareader_qos>
+                <ownership>
+                    <kind>EXCLUSIVE_OWNERSHIP_QOS</kind>
+                </ownership>
                 <history>
                     <depth>1</depth>
                 </history>
             </datareader_qos>
             <datawriter_qos>
+                <ownership>
+                    <kind>EXCLUSIVE_OWNERSHIP_QOS</kind>
+                </ownership>
                 <history>
                     <depth>1</depth>
                 </history>

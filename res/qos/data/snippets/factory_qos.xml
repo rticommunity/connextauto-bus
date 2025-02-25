@@ -17,6 +17,14 @@
 
         <qos_profile name="Factory.Builtin" />
 
+        <qos_profile name="Factory.NoAutoEnable">
+            <participant_factory_qos>
+                <entity_factory>
+                    <autoenable_created_entities>false</autoenable_created_entities>
+                </entity_factory>
+            </participant_factory_qos>
+        </qos_profile>
+
         <qos_profile name="Factory.Logfile">
             <participant_factory_qos>
                 <logging>
