@@ -20,7 +20,7 @@
 
       <datawriter_qos base_name="FlowQosLib::Command" topic_filter="Command/Steering">
         <ownership_strength>
-          <value>10</value>
+          <value>$(STEERING_CONTROLLER_STRENGTH)</value>
         </ownership_strength>
       </datawriter_qos>
 
