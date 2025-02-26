@@ -12,7 +12,10 @@
   </configuration_variables>
 
   <qos_library name="DriveQosLib">
-    <qos_profile name="Steering" base_name="DriveQosLib::_root_">
+
+    <qos_profile name="Steering" base_name="_root_">
+
+      <!-- Topic specific QosProfile, common across all the interfaces -->
       <datawriter_qos topic_filter="Command/Steering">
         <ownership_strength>
           <value>$(STEERING_CONTROLLER_STRENGTH)</value>
@@ -20,7 +23,17 @@
       </datawriter_qos>
       <datareader_qos topic_filter="Command/Steering">
       </datareader_qos>
+
     </qos_profile>
+
+
+    <!-- Default Participant Factory -->
+    <qos_profile name="Factory.Default" is_default_participant_factory_profile="true">
+      <base_name>
+        <element>SnippetQosLib::Factory.NoAutoEnable</element>
+      </base_name>
+    </qos_profile>
+
   </qos_library>
 
 </dds>
