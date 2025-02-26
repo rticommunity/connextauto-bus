@@ -60,6 +60,11 @@
       "builtin": false
     },
     {
+      "path": "res/qos/services/drive/Steering_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
       "path": "res/qos/services/drive/SteeringColumn_qos.xml",
       "readonly": false,
       "builtin": false

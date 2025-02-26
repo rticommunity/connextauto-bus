@@ -29,8 +29,8 @@ NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/Steering_qos.xml"
 
 # QoS: Service Deployments
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/SteeringColumn_qos.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/SteeringController_qos.xml"
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/SteeringDisplay_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/env/SteeringController_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---
