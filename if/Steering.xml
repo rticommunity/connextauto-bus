@@ -10,73 +10,76 @@
 - be bound by those terms.
 -*****************************************************************************
 -->
-<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_routing_service.xsd" version="7.3.0">
-    <types>
-      <include file="res/types/data/actuation/Steering_t.xml"/>
-    </types>
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
 
-    <domain_library name="DriveDomainLib">
-      <domain name="Steering">
-        <register_type name="dds::actuation::SteeringDesired" type_ref="dds::actuation::SteeringDesired"/>
-        <register_type name="dds::actuation::SteeringActual" type_ref="dds::actuation::SteeringActual"/>
-        <topic name="Command/Steering" register_type_ref="dds::actuation::SteeringDesired"/>
-        <topic name="Status/Steering" register_type_ref="dds::actuation::SteeringActual"/>
-      </domain>
-    </domain_library>
+  <types>
+    <include file="res/types/data/actuation/Steering_t.xml" />
+  </types>
 
-    <domain_participant_library name="DriveParticipantLib">
-      <domain_participant name="SteeringController" domain_ref="DriveDomainLib::Steering">
-        <publisher name="outputs">
-          <data_writer name="Steering_writer" topic_ref="Command/Steering">
-            <datawriter_qos base_name="DriveQosLib::SteeringController">
-            </datawriter_qos>
-          </data_writer>
-          <publisher_qos base_name="DriveQosLib::SteeringController">
-          </publisher_qos>
-        </publisher>
-        <subscriber name="inputs">
-          <data_reader name="Steering_reader" topic_ref="Status/Steering">
-            <datareader_qos base_name="DriveQosLib::SteeringController">
-            </datareader_qos>
-          </data_reader>
-          <subscriber_qos base_name="DriveQosLib::SteeringController">
-          </subscriber_qos>
-        </subscriber>
-        <domain_participant_qos base_name="DriveQosLib::SteeringController">
-        </domain_participant_qos>
-      </domain_participant>
-      <domain_participant name="SteeringColumn" domain_ref="DriveDomainLib::Steering">
-        <publisher name="outputs">
-          <data_writer name="Steering_writer" topic_ref="Status/Steering">
-            <datawriter_qos base_name="DriveQosLib::SteeringColumn">
-            </datawriter_qos>
-          </data_writer>
-          <publisher_qos base_name="DriveQosLib::SteeringColumn">
-          </publisher_qos>
-        </publisher>
-        <subscriber name="inputs">
-          <data_reader name="Steering_reader" topic_ref="Command/Steering">
-            <datareader_qos base_name="DriveQosLib::SteeringColumn">
-            </datareader_qos>
-          </data_reader>
-          <subscriber_qos base_name="DriveQosLib::SteeringColumn">
-          </subscriber_qos>
-        </subscriber>
-        <domain_participant_qos base_name="DriveQosLib::SteeringColumn">
-        </domain_participant_qos>
-      </domain_participant>
-      <domain_participant name="SteeringDisplay" domain_ref="DriveDomainLib::Steering">
-        <subscriber name="inputs">
-          <data_reader name="Steering_reader" topic_ref="Status/Steering">
-            <datareader_qos base_name="DriveQosLib::SteeringDisplay">
-            </datareader_qos>
-          </data_reader>
-          <subscriber_qos base_name="DriveQosLib::SteeringDisplay">
-          </subscriber_qos>
-        </subscriber>
-        <domain_participant_qos base_name="DriveQosLib::SteeringDisplay">
-        </domain_participant_qos>
-      </domain_participant>
-    </domain_participant_library>
+  <domain_library name="DriveDomainLib">
+    <domain name="Steering">
+      <register_type name="dds::actuation::SteeringDesired"
+        type_ref="dds::actuation::SteeringDesired" />
+      <register_type name="dds::actuation::SteeringActual" type_ref="dds::actuation::SteeringActual" />
+      <topic name="Command/SteeringGoal" register_type_ref="dds::actuation::SteeringDesired" />
+      <topic name="Status/SteeringStatus" register_type_ref="dds::actuation::SteeringActual" />
+    </domain>
+  </domain_library>
+
+  <domain_participant_library name="DriveParticipantLib">
+    <domain_participant name="SteeringController" domain_ref="DriveDomainLib::Steering">
+      <publisher name="outputs">
+        <data_writer name="Steering_writer" topic_ref="Command/SteeringGoal">
+          <datawriter_qos base_name="DriveQosLib::SteeringController">
+          </datawriter_qos>
+        </data_writer>
+        <publisher_qos base_name="DriveQosLib::SteeringController">
+        </publisher_qos>
+      </publisher>
+      <subscriber name="inputs">
+        <data_reader name="Steering_reader" topic_ref="Status/SteeringStatus">
+          <datareader_qos base_name="DriveQosLib::SteeringController">
+          </datareader_qos>
+        </data_reader>
+        <subscriber_qos base_name="DriveQosLib::SteeringController">
+        </subscriber_qos>
+      </subscriber>
+      <domain_participant_qos base_name="DriveQosLib::SteeringController">
+      </domain_participant_qos>
+    </domain_participant>
+    <domain_participant name="SteeringColumn" domain_ref="DriveDomainLib::Steering">
+      <publisher name="outputs">
+        <data_writer name="Steering_writer" topic_ref="Status/SteeringStatus">
+          <datawriter_qos base_name="DriveQosLib::SteeringColumn">
+          </datawriter_qos>
+        </data_writer>
+        <publisher_qos base_name="DriveQosLib::SteeringColumn">
+        </publisher_qos>
+      </publisher>
+      <subscriber name="inputs">
+        <data_reader name="Steering_reader" topic_ref="Command/SteeringGoal">
+          <datareader_qos base_name="DriveQosLib::SteeringColumn">
+          </datareader_qos>
+        </data_reader>
+        <subscriber_qos base_name="DriveQosLib::SteeringColumn">
+        </subscriber_qos>
+      </subscriber>
+      <domain_participant_qos base_name="DriveQosLib::SteeringColumn">
+      </domain_participant_qos>
+    </domain_participant>
+    <domain_participant name="SteeringDisplay" domain_ref="DriveDomainLib::Steering">
+      <subscriber name="inputs">
+        <data_reader name="Steering_reader" topic_ref="Status/SteeringStatus">
+          <datareader_qos base_name="DriveQosLib::SteeringDisplay">
+          </datareader_qos>
+        </data_reader>
+        <subscriber_qos base_name="DriveQosLib::SteeringDisplay">
+        </subscriber_qos>
+      </subscriber>
+      <domain_participant_qos base_name="DriveQosLib::SteeringDisplay">
+      </domain_participant_qos>
+    </domain_participant>
+  </domain_participant_library>
 
 </dds>
