@@ -16,13 +16,37 @@
     <qos_profile name="Steering" base_name="_root_">
 
       <!-- Topic specific QosProfile, common across all the interfaces -->
+      <datareader_qos topic_filter="Command/Steering">
+        <liveliness>
+          <lease_duration>
+            <sec>DURATION_ZERO_SEC</sec>
+            <nanosec>20000000<!--20ms--></nanosec>
+          </lease_duration>
+        </liveliness>
+        <deadline>
+          <period>
+            <sec>DURATION_ZERO_SEC</sec>
+            <nanosec>100000000<!--100ms--></nanosec>
+          </period>
+        </deadline>
+      </datareader_qos>
       <datawriter_qos topic_filter="Command/Steering">
         <ownership_strength>
           <value>$(STEERING_CONTROLLER_STRENGTH)</value>
         </ownership_strength>
+        <liveliness>
+          <lease_duration>
+            <sec>DURATION_ZERO_SEC</sec>
+            <nanosec>10000000<!--10ms--></nanosec>
+          </lease_duration>
+        </liveliness>
+        <deadline>
+          <period>
+            <sec>DURATION_ZERO_SEC</sec>
+            <nanosec>20000000<!--20ms--></nanosec>
+          </period>
+        </deadline>
       </datawriter_qos>
-      <datareader_qos topic_filter="Command/Steering">
-      </datareader_qos>
 
     </qos_profile>
 
