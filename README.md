@@ -18,8 +18,9 @@ The *common data architecture* repo defines a [software databus](https://github.
 These can be opened and edited in the [RTI System Designer](https://community.rti.com/documentation#doc_tools) or using a code editor with XML completion.
 
 In addition, the repo provides:
-  - An emulation of the software system architecture **functional blocks** and **data flows** for software system architects
-- A **[common build system](doc/Build.md)** for building the interfaces and components for the convenience of application developers
+  - A launcher (`run`) utility, that sets up the correct runtime environment for launching components
+  - An emulation of the software system architecture **functional blocks** and **data flows** for software system architects maintainting this repo
+- An OPTIONAL **[common build system](doc/Build.md)** for building the interfaces and components for the convenience of application developers
 
 The repo showcases an approach for rapidly building large distibuted software systems, with components developed by multiple independent teams. The common data architecture serves as the *lingua franca* for **software system integration**.
 
@@ -55,16 +56,22 @@ Currently this repo and the common build system had been verified on the followi
 ## Getting Started
 ### Get this repo
 
-- Clone (or fork and clone) this repo
+- Clone (or fork and clone) this repo under a directory named `connextauto`. Later we shall clone other component repositories ([`connextauto-swc-*`](https://github.com/orgs/rticommunity/repositories?q=connextauto)) into the `connextauto/` directory.
 
-      git clone <a_git_url_to_this_repository>
+      mkdir connextauto
+      cd connextauto/
+
+      git clone <git_url_to_this_repository>
 
 ### Setup the environnment variables
 
 - Setup the [DATABUSHOME](doc/DATABUSHOME.md) environment variable to point to [this repo](./)
 
-      cd </path/to/this/repo/>         # created by git clone above
-      export DATABUSHOME=$(pwd -P)     # /path/to/this/repo
+      # created by git clone above
+      cd </path/to/connextauto/connextauto-bus/>
+
+      # /path/to/this/repo
+      export DATABUSHOME=$(pwd -P)
 
 - Setup environment variables for at least one RTI Connext SDK:
   - If you want to build for *RTI Connext DDS Professional*, setup `NDDSHOME`
