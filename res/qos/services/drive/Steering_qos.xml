@@ -11,15 +11,9 @@
         <liveliness>
           <lease_duration>
             <sec>DURATION_ZERO_SEC</sec>
-            <nanosec>20000000<!--20ms--></nanosec>
+            <nanosec>100000000<!--100ms--></nanosec>
           </lease_duration>
         </liveliness>
-        <deadline>
-          <period>
-            <sec>10<!--10s--></sec>
-            <nanosec>DURATION_ZERO_NSEC</nanosec>
-          </period>
-        </deadline>
       </datareader_qos>
       <datawriter_qos topic_filter="Command/SteeringGoal">
         <ownership_strength>
@@ -28,15 +22,9 @@
         <liveliness>
           <lease_duration>
             <sec>DURATION_ZERO_SEC</sec>
-            <nanosec>10000000<!--10ms--></nanosec>
+            <nanosec>100000000<!--100ms--></nanosec>
           </lease_duration>
         </liveliness>
-        <deadline>
-          <period>
-            <sec>DURATION_ZERO_SEC</sec>
-            <nanosec>500000000<!--500ms--></nanosec>
-          </period>
-        </deadline>
       </datawriter_qos>
 
     </qos_profile>
