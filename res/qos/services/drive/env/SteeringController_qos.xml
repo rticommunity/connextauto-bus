@@ -6,7 +6,7 @@
     <value>
       <element>
         <name>STEERING_CONTROLLER_STRENGTH</name>
-        <value>2</value>
+        <value>1</value>
       </element>
     </value>
   </configuration_variables>

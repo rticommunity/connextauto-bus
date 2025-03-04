@@ -8,23 +8,16 @@
 
       <!-- Topic specific QosProfile, common across all the interfaces -->
       <datareader_qos topic_filter="Command/SteeringGoal">
-        <liveliness>
-          <lease_duration>
-            <sec>DURATION_ZERO_SEC</sec>
-            <nanosec>100000000<!--100ms--></nanosec>
-          </lease_duration>
-        </liveliness>
+        <base_name>
+          <element>SnippetQosLib::Liveliness.Requested.300ms</element>
+        </base_name>
       </datareader_qos>
       <datawriter_qos topic_filter="Command/SteeringGoal">
-        <ownership_strength>
-          <value>1</value>
-        </ownership_strength>
-        <liveliness>
-          <lease_duration>
-            <sec>DURATION_ZERO_SEC</sec>
-            <nanosec>100000000<!--100ms--></nanosec>
-          </lease_duration>
-        </liveliness>
+        <base_name>
+          <element>SnippetQosLib::Liveliness.Offered.150ms</element>
+          <element>SnippetQosLib::Heartbeat.Periodic.100ms</element>
+          <element>SnippetQosLib::Ownership.Strength.1</element>
+        </base_name>
       </datawriter_qos>
 
     </qos_profile>

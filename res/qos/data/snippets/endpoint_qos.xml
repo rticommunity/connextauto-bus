@@ -364,5 +364,89 @@
             </datawriter_qos>
         </qos_profile>
 
+        <qos_profile name="Deadline.Requested.10s">
+            <datareader_qos>
+                <deadline>
+                    <period>
+                        <sec>10<!--10s--></sec>
+                        <nanosec>DURATION_ZERO_NSEC</nanosec>
+                    </period>
+                </deadline>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="Deadline.Offered.500ms">
+            <datawriter_qos>
+                <deadline>
+                    <period>
+                        <sec>DURATION_ZERO_SEC</sec>
+                        <nanosec>500000000<!--500ms--></nanosec>
+                    </period>
+                </deadline>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="Liveliness.Requested.300ms">
+            <datareader_qos>
+                <liveliness>
+                    <lease_duration>
+                        <sec>DURATION_ZERO_SEC</sec>
+                        <nanosec>300000000<!--300ms--></nanosec>
+                    </lease_duration>
+                </liveliness>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="Liveliness.Offered.150ms">
+            <datawriter_qos>
+                <liveliness>
+                    <lease_duration>
+                        <sec>DURATION_ZERO_SEC</sec>
+                        <nanosec>150000000<!--150ms--></nanosec>
+                    </lease_duration>
+                </liveliness>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="Heartbeat.Periodic.100ms">
+            <datawriter_qos>
+                <protocol>
+                    <rtps_reliable_writer>
+                        <!-- Set the periodic heartbeat interval -->
+                        <heartbeat_period>
+                            <sec>0</sec>
+                            <nanosec>100000000</nanosec> <!-- 100ms -->
+                        </heartbeat_period>
+                        <!-- Set the fast heartbeat interval -->
+                        <fast_heartbeat_period>
+                            <sec>0</sec>
+                            <nanosec>50000000</nanosec> <!-- 50ms -->
+                        </fast_heartbeat_period>
+                        <!-- Set the late joiner heartbeat interval -->
+                        <late_joiner_heartbeat_period>
+                            <sec>0</sec>
+                            <nanosec>100000000</nanosec> <!-- 100ms -->
+                        </late_joiner_heartbeat_period>
+                    </rtps_reliable_writer>
+                </protocol>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="Ownership.Strength.1">
+            <datawriter_qos>
+                <ownership_strength>
+                    <value>1</value>
+                </ownership_strength>
+            </datawriter_qos>
+        </qos_profile>
+
+        <qos_profile name="Ownership.Strength.2">
+            <datawriter_qos>
+                <ownership_strength>
+                    <value>2</value>
+                </ownership_strength>
+            </datawriter_qos>
+        </qos_profile>
+
     </qos_library>
 </dds>
