@@ -40,6 +40,11 @@
       "builtin": false
     },
     {
+      "path": "res/qos/data/Participant_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
       "path": "res/qos/data/doa_qos.xml",
       "readonly": false,
       "builtin": false

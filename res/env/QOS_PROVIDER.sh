@@ -25,7 +25,10 @@ NDDS_QOS_PROFILES+="$DATABUSHOME/res/qos/data/snippets/factory_qos.xml"
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/snippets/participant_qos.xml"
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/snippets/endpoint_qos.xml"
 
-# QoS: Flows
+# Participant
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/Participant_qos.xml"
+
+# Domain (Flows)
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/data/doa_qos.xml"
 
 # --- RTI Connext DDS Professional Runtime Environment ---

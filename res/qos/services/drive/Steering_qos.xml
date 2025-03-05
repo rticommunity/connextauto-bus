@@ -22,13 +22,6 @@
 
     </qos_profile>
 
-    <!-- Default Participant Factory -->
-    <qos_profile name="Factory.Default" is_default_participant_factory_profile="true">
-      <base_name>
-        <element>SnippetQosLib::Factory.NoAutoEnable</element>
-      </base_name>
-    </qos_profile>
-
   </qos_library>
 
 </dds>
