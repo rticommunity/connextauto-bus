@@ -11,8 +11,8 @@
     </value>
   </configuration_variables>
 
-  <qos_library name="DriveQosLib">
-    <qos_profile name="SteeringController" base_name="Steering">
+  <qos_library name="ParticipantQosLib">
+    <qos_profile name="SteeringController" base_name="DomainQosLib::Steering">
       <datawriter_qos topic_filter="Command/SteeringGoal">
         <ownership_strength>
           <value>$(STEERING_CONTROLLER_STRENGTH)</value>

@@ -23,6 +23,10 @@
     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
     <qos_library name="DriveQosLib">
+        <!-- Domain wide QosProfile -->
+        <qos_profile name="_root_" base_name="DomainQosLib::_root_">
+        </qos_profile>
+
         <!-- Camera : interface specific QosProfile -->
         <qos_profile name="Camera" base_name="_root_">
         </qos_profile>

@@ -6,7 +6,7 @@ The *Drive* service comprises of the data flows and the interfaces defined for A
   - [data types](../res/types/data/) (structure)
     - [res/types/data/**/*_t.idl](../res/types/data/)
   - [qos of service](../res/qos/data/) (behavior)
-     - [Drive_qos.xml](../res/qos/services/Drive_qos.xml)
+     - [Domain_qos.xml](../res/qos/services/Domain_qos.xml)
      - [Drive-default_qos.xml](../res/qos/services/Drive-default_qos.xml)
 - Micro Service and Component Interfaces
   - [databus](doma/Bus.md)
@@ -38,7 +38,7 @@ The *Drive* service artifacts are organized as shown below, following the [Data-
         ├── env
         │   └── Drive.sh
         ├── qos/services
-        │   ├── Drive_qos.xml
+        │   ├── Domain_qos.xml
         │   └── Drive-default_qos.xml
         └── types/services
             └── Drive_t.idl

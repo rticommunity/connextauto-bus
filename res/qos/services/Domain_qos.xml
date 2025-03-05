@@ -12,20 +12,17 @@
 -->
 <!--
 -*****************************************************************************
-                        Drive Service - QoS Profiles
+                        Domain QoS Profiles
 
-- Defines a topic specific service qos profile, common across all interfaces
-- Defines per interface specific qos profiles that extends the common topic
-  specific service profile, and makes any interface specific adjustments
-- A new per interface specific qos profile should be added when a new interface
-  is added in the if/*.xml file
+- Defines a topic specific service qos profile
+- Domain wide base profile, used across all participants
 -*****************************************************************************
 -->
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
   <!-- Service QosProfiles -->
-  <qos_library name="DriveQosLib">
+  <qos_library name="DomainQosLib">
 
     <!-- Topic specific QosProfile, common across all the interfaces -->
     <qos_profile name="_root_">
