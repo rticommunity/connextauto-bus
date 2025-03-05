@@ -45,12 +45,12 @@
       "builtin": false
     },
     {
-      "path": "res/qos/data/doa_qos.xml",
+      "path": "res/qos/data/Flow_qos.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "res/qos/data/autosar_qos.xml",
+      "path": "res/qos/data/AutosarFlow_qos.xml",
       "readonly": false,
       "builtin": false
     },
