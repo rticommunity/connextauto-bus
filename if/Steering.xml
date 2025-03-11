@@ -17,7 +17,7 @@
     <include file="res/types/data/actuation/Steering_t.xml" />
   </types>
 
-  <domain_library name="DriveDomainLib">
+  <domain_library name="DomainLib">
     <domain name="Steering">
       <register_type name="dds::actuation::SteeringDesired"
         type_ref="dds::actuation::SteeringDesired" />
@@ -27,57 +27,57 @@
     </domain>
   </domain_library>
 
-  <domain_participant_library name="DriveParticipantLib">
-    <domain_participant name="SteeringController" domain_ref="DriveDomainLib::Steering">
+  <domain_participant_library name="SteeringParticipantLib">
+    <domain_participant name="SteeringController" domain_ref="DomainLib::Steering">
       <publisher name="outputs">
         <data_writer name="Steering_writer" topic_ref="Command/SteeringGoal">
-          <datawriter_qos base_name="ParticipantQosLib::SteeringController">
+          <datawriter_qos base_name="SteeringParticipantQosLib::SteeringController">
           </datawriter_qos>
         </data_writer>
-        <publisher_qos base_name="ParticipantQosLib::SteeringController">
+        <publisher_qos base_name="SteeringParticipantQosLib::SteeringController">
         </publisher_qos>
       </publisher>
       <subscriber name="inputs">
         <data_reader name="Steering_reader" topic_ref="Status/SteeringStatus">
-          <datareader_qos base_name="ParticipantQosLib::SteeringController">
+          <datareader_qos base_name="SteeringParticipantQosLib::SteeringController">
           </datareader_qos>
         </data_reader>
-        <subscriber_qos base_name="ParticipantQosLib::SteeringController">
+        <subscriber_qos base_name="SteeringParticipantQosLib::SteeringController">
         </subscriber_qos>
       </subscriber>
-      <domain_participant_qos base_name="ParticipantQosLib::SteeringController">
+      <domain_participant_qos base_name="SteeringParticipantQosLib::SteeringController">
       </domain_participant_qos>
     </domain_participant>
-    <domain_participant name="SteeringColumn" domain_ref="DriveDomainLib::Steering">
+    <domain_participant name="SteeringColumn" domain_ref="DomainLib::Steering">
       <publisher name="outputs">
         <data_writer name="Steering_writer" topic_ref="Status/SteeringStatus">
-          <datawriter_qos base_name="ParticipantQosLib::SteeringColumn">
+          <datawriter_qos base_name="SteeringParticipantQosLib::SteeringColumn">
           </datawriter_qos>
         </data_writer>
-        <publisher_qos base_name="ParticipantQosLib::SteeringColumn">
+        <publisher_qos base_name="SteeringParticipantQosLib::SteeringColumn">
         </publisher_qos>
       </publisher>
       <subscriber name="inputs">
         <data_reader name="Steering_reader" topic_ref="Command/SteeringGoal">
-          <datareader_qos base_name="ParticipantQosLib::SteeringColumn">
+          <datareader_qos base_name="SteeringParticipantQosLib::SteeringColumn">
           </datareader_qos>
         </data_reader>
-        <subscriber_qos base_name="ParticipantQosLib::SteeringColumn">
+        <subscriber_qos base_name="SteeringParticipantQosLib::SteeringColumn">
         </subscriber_qos>
       </subscriber>
-      <domain_participant_qos base_name="ParticipantQosLib::SteeringColumn">
+      <domain_participant_qos base_name="SteeringParticipantQosLib::SteeringColumn">
       </domain_participant_qos>
     </domain_participant>
-    <domain_participant name="SteeringDisplay" domain_ref="DriveDomainLib::Steering">
+    <domain_participant name="SteeringDisplay" domain_ref="DomainLib::Steering">
       <subscriber name="inputs">
         <data_reader name="Steering_reader" topic_ref="Status/SteeringStatus">
-          <datareader_qos base_name="ParticipantQosLib::SteeringDisplay">
+          <datareader_qos base_name="SteeringParticipantQosLib::SteeringDisplay">
           </datareader_qos>
         </data_reader>
-        <subscriber_qos base_name="ParticipantQosLib::SteeringDisplay">
+        <subscriber_qos base_name="SteeringParticipantQosLib::SteeringDisplay">
         </subscriber_qos>
       </subscriber>
-      <domain_participant_qos base_name="ParticipantQosLib::SteeringDisplay">
+      <domain_participant_qos base_name="SteeringParticipantQosLib::SteeringDisplay">
       </domain_participant_qos>
     </domain_participant>
   </domain_participant_library>

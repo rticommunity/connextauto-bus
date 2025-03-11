@@ -2,7 +2,7 @@
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
-  <qos_library name="ParticipantQosLib">
+  <qos_library name="SteeringParticipantQosLib">
     <qos_profile name="SteeringColumn" base_name="DomainQosLib::Steering">
       <domain_participant_qos>
         <participant_name>
