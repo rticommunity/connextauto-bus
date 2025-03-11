@@ -40,11 +40,6 @@
       "builtin": false
     },
     {
-      "path": "res/qos/data/Participant_qos.xml",
-      "readonly": false,
-      "builtin": false
-    },
-    {
       "path": "res/qos/data/Flow_qos.xml",
       "readonly": false,
       "builtin": false
@@ -55,12 +50,37 @@
       "builtin": false
     },
     {
+      "path": "res/qos/services/Domain_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/Participant_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
       "path": "res/qos/services/Shapes_qos.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "res/qos/services/Domain_qos.xml",
+      "path": "res/qos/services/drive/Steering_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/SteeringColumn_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/SteeringController_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/SteeringDisplay_qos.xml",
       "readonly": false,
       "builtin": false
     },
@@ -186,6 +206,11 @@
     },
     {
       "path": "if/Shapes_PubSub.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Steering.xml",
       "readonly": false,
       "builtin": false
     },

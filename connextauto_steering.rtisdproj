@@ -40,27 +40,17 @@
       "builtin": false
     },
     {
-      "path": "res/qos/data/Participant_qos.xml",
-      "readonly": false,
-      "builtin": false
-    },
-    {
       "path": "res/qos/data/Flow_qos.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "res/types/data/actuation/Steering_t.xml",
-      "readonly": false,
-      "builtin": false
-    },
-    {
-      "path": "if/Steering.xml",
-      "readonly": false,
-      "builtin": false
-    },
-    {
       "path": "res/qos/services/Domain_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/data/Participant_qos.xml",
       "readonly": false,
       "builtin": false
     },
@@ -81,6 +71,16 @@
     },
     {
       "path": "res/qos/services/drive/SteeringDisplay_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/types/data/actuation/Steering_t.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/Steering.xml",
       "readonly": false,
       "builtin": false
     }
