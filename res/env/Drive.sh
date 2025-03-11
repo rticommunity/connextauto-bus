@@ -23,24 +23,27 @@ if [ "${DATABUSHOME}" = "" ]; then echo "DATABUSHOME Undefined!" ; return; fi
 
 # --- QoS Profiles ---
 
-# QoS: Services
+# QoS: Domain
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/Domain_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/Drive_qos.xml"
 
-# QoS: Service Deployments
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/Drive-deployment_qos.xml"
+# QoS: Participants
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/Camera_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/Lidar_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/Perceptor_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/Planner_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/HMI_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---
 
-# Interfaces: Services
+# Data Interfaces
 NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive.xml"
 NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Camera.xml"
 NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Lidar.xml"
 NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Perceptor.xml"
 NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Planner.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_Actuator.xml"
 NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_HMI.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Drive_CAN.xml"
 
 # --- Show Environment --- 
 echo NDDS_QOS_PROFILES=$NDDS_QOS_PROFILES

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  
+<!--
 -******************************************************************************
-- (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+- (C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
 -
 - The use of this software is governed by the terms specified in the 
 - RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs. 
@@ -20,14 +20,12 @@
         <include file="res/types/data/perception/Track_t.xml" />
         <include file="res/types/data/perception/Lane_t.xml" />
         <include file="res/types/data/planning/Alert_t.xml" />
-        <include file="res/types/data/actuation/Steering_t.xml" />
-        <include file="res/types/data/gateway/CAN_t.xml" />
     </types>
 
     <!-- Databus Library -->
     <domain_library name="DomainLib">
 
-        <!-- main databus -->
+        <!-- Drive Databus -->
         <domain name="Drive">
 
             <!-- Camera -->
@@ -75,47 +73,7 @@
             <topic name="Status/Alert"
                 register_type_ref="dds::planning::Alert" />
 
-
-            <!-- SteeringDesired -->
-            <register_type name="dds::actuation::SteeringDesired"
-                type_ref="dds::actuation::SteeringDesired" />
-            <topic name="Status/SteeringDesired"
-                register_type_ref="dds::actuation::SteeringDesired" />
-
-            <!-- SteeringActual -->
-            <register_type name="dds::actuation::SteeringActual"
-                type_ref="dds::actuation::SteeringActual" />
-            <topic name="Status/SteeringActual"
-                register_type_ref="dds::actuation::SteeringActual" />
-
         </domain>
 
-
-        <!-- DDS-CAN databus -->
-        <domain name="CAN">
-
-            <!-- CANSignalInfo -->
-            <register_type name="dds::can::CANSignalInfo"
-                type_ref="dds::can::CANSignalInfo" />
-            <topic name="Config/SignalInfo"
-                register_type_ref="dds::can::CANSignalInfo" />
-
-            <!-- CANSignalIn and CANSignalOut -->
-            <register_type name="dds::can::CANSignal"
-                type_ref="dds::can::CANSignal" />
-            <topic name="Status/SignalIn"
-                register_type_ref="dds::can::CANSignal" />
-            <topic name="Status/SignalOut"
-                register_type_ref="dds::can::CANSignal" />
-
-            <!-- CANFrameIn and CANFrameOut -->
-            <register_type name="dds::can::CANFrame"
-                type_ref="dds::can::CANFrame" />
-            <topic name="Stream/FrameIn"
-                register_type_ref="dds::can::CANFrame" />
-            <topic name="Stream/FrameOut"
-                register_type_ref="dds::can::CANFrame" />
-
-        </domain>
     </domain_library>
 </dds>

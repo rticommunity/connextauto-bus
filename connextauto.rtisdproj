@@ -85,7 +85,52 @@
       "builtin": false
     },
     {
-      "path": "res/qos/services/drive/Drive-deployment_qos.xml",
+      "path": "res/qos/services/drive/Drive_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/Camera_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/HMI_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/Lidar_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/Perceptor_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/drive/Planner_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/CAN/CAN_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/CAN/CANTunnel_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/CAN/CANGateway_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/CAN/CANComponent_qos.xml",
       "readonly": false,
       "builtin": false
     },
@@ -220,16 +265,6 @@
       "builtin": false
     },
     {
-      "path": "if/Drive_Actuator.xml",
-      "readonly": false,
-      "builtin": false
-    },
-    {
-      "path": "if/Drive_CAN.xml",
-      "readonly": false,
-      "builtin": false
-    },
-    {
       "path": "if/Drive_Camera.xml",
       "readonly": false,
       "builtin": false
@@ -251,6 +286,26 @@
     },
     {
       "path": "if/Drive_Planner.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/CAN.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/CANTunnel.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/CANGateway.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/CANComponent.xml",
       "readonly": false,
       "builtin": false
     }

@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+-******************************************************************************
+- (C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+-
+- The use of this software is governed by the terms specified in the
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+-
+- By accessing, downloading, or otherwise using this software, you agree to
+- be bound by those terms.
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        Steering Domain QoS Profiles
+
+Defines topic specific service qos profile, common across all the interfaces
+-*****************************************************************************
+-->
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
+  <!-- DomainQosLib -->
   <qos_library name="DomainQosLib">
 
+    <!-- Topic specific QosProfile, common across all the interfaces -->
     <qos_profile name="Steering" base_name="_root_">
 
-      <!-- Topic specific QosProfile, common across all the interfaces -->
       <datareader_qos topic_filter="Command/SteeringGoal">
         <base_name>
           <element>SnippetQosLib::Liveliness.Requested.300ms</element>

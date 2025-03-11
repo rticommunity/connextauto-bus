@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+-******************************************************************************
+- (C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+-
+- The use of this software is governed by the terms specified in the
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+-
+- By accessing, downloading, or otherwise using this software, you agree to
+- be bound by those terms.
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
+
+    <domain_participant_library name="CANParticipantLib">
+
+        <!-- CAN Gateway interface -->
+        <domain_participant name="CANGateway" domain_ref="DomainLib::CAN">
+            <!-- Inputs -->
+            <subscriber name="inputs">
+                <data_reader name="SignalInfo_reader" topic_ref="Config/SignalInfo">
+                    <datareader_qos base_name="CANParticipantQosLib::CANGateway" />
+                </data_reader>
+                <data_reader name="Signal_reader" topic_ref="Status/SignalOut">
+                    <datareader_qos base_name="CANParticipantQosLib::CANGateway" />
+                </data_reader>
+                <subscriber_qos base_name="CANParticipantQosLib::CANGateway" />
+            </subscriber>
+            <!-- Outputs -->
+            <publisher name="outputs">
+                <data_writer name="Signal_writer" topic_ref="Status/SignalIn">
+                    <datawriter_qos base_name="CANParticipantQosLib::CANGateway" />
+                </data_writer>
+                <publisher_qos base_name="CANParticipantQosLib::CANGateway" />
+            </publisher>
+            <participant_qos base_name="CANParticipantQosLib::CANGateway" />
+        </domain_participant>
+
+    </domain_participant_library>
+</dds>

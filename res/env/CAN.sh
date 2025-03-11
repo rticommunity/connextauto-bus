@@ -1,6 +1,6 @@
 #!/bin/sh
 #******************************************************************************
-# (C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+# (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved
 #
 # The use of this software is governed by the terms specified in the
 # RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
@@ -25,18 +25,21 @@ if [ "${DATABUSHOME}" = "" ]; then echo "DATABUSHOME Undefined!" ; return; fi
 
 # QoS: Domain
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/Domain_qos.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/steering/Steering_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/CAN/CAN_qos.xml"
 
 # QoS: Participants
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/steering/SteeringColumn_qos.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/steering/SteeringDisplay_qos.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/steering/env/SteeringController_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/CAN/CANTunnel_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/CAN/CANGateway_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/CAN/CANComponent_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---
 
 # Data Interfaces
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Steering.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CAN.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CANTunnel.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CANGateway.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CANComponent.xml"
 
 # --- Show Environment ---
 echo NDDS_QOS_PROFILES=$NDDS_QOS_PROFILES

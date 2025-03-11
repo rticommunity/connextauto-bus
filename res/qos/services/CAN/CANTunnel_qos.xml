@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+-******************************************************************************
+- (C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+-
+- The use of this software is governed by the terms specified in the
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+-
+- By accessing, downloading, or otherwise using this software, you agree to
+- be bound by those terms.
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        CAN Participant QoS Profiles
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
+
+    <qos_library name="CANParticipantQosLib">
+
+        <!-- CANTunnel : component specific QosProfile -->
+        <qos_profile name="CANTunnel" base_name="DomainQosLib::CAN">
+            <participant_qos>
+                <participant_name>
+                    <name>CAN Tunnel</name>
+                    <role_name>CAN Tunnel</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+    </qos_library>
+</dds>

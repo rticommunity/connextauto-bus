@@ -26,16 +26,10 @@
                 <data_reader name="Lane_reader" topic_ref="Status/Lane">
                     <datareader_qos base_name="DriveParticipantQosLib::Planner" />
                 </data_reader>
-                <data_reader name="Steering_reader" topic_ref="Status/SteeringActual">
-                    <datareader_qos base_name="DriveParticipantQosLib::Planner" />
-                </data_reader>
                 <subscriber_qos base_name="DriveParticipantQosLib::Planner" />
             </subscriber>
             <!-- Outputs -->
             <publisher name="outputs">
-                <data_writer name="Steering_writer" topic_ref="Status/SteeringDesired">
-                    <datawriter_qos base_name="DriveParticipantQosLib::Planner" />
-                </data_writer>
                 <data_writer name="Alert_writer" topic_ref="Status/Alert">
                     <datawriter_qos base_name="DriveParticipantQosLib::Planner" />
                 </data_writer>

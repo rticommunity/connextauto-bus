@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+-******************************************************************************
+- (C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
+-
+- The use of this software is governed by the terms specified in the
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+-
+- By accessing, downloading, or otherwise using this software, you agree to
+- be bound by those terms.
+-*****************************************************************************
+-->
+<!--
+-*****************************************************************************
+                        Drive Participant QoS Profiles
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
+
+    <qos_library name="DriveParticipantQosLib">
+
+        <!-- HMI : component specific QosProfile -->
+        <qos_profile name="HMI" base_name="DomainQosLib::Drive">
+            <participant_qos>
+                <participant_name>
+                    <name>HMI</name>
+                    <role_name>HMI</role_name>
+                </participant_name>
+            </participant_qos>
+        </qos_profile>
+
+    </qos_library>
+</dds>
