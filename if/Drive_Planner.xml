@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  
+<!--
 -******************************************************************************
 - (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 -
@@ -14,34 +14,34 @@
     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
 
     <!-- Planning Service -->
-    <domain_participant_library name="Drive">
+    <domain_participant_library name="DriveParticipantLib">
 
         <!-- Planner interface -->
-        <domain_participant name="Planner" domain_ref="DriveBus::main">
+        <domain_participant name="Planner" domain_ref="DomainLib::Drive">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="Track_reader" topic_ref="Status/Track">
-                    <datareader_qos base_name="DriveQosLib::Planner" />
+                    <datareader_qos base_name="DriveParticipantQosLib::Planner" />
                 </data_reader>
                 <data_reader name="Lane_reader" topic_ref="Status/Lane">
-                    <datareader_qos base_name="DriveQosLib::Planner" />
+                    <datareader_qos base_name="DriveParticipantQosLib::Planner" />
                 </data_reader>
                 <data_reader name="Steering_reader" topic_ref="Status/SteeringActual">
-                    <datareader_qos base_name="DriveQosLib::Planner" />
+                    <datareader_qos base_name="DriveParticipantQosLib::Planner" />
                 </data_reader>
-                <subscriber_qos base_name="DriveQosLib::Planner" />
+                <subscriber_qos base_name="DriveParticipantQosLib::Planner" />
             </subscriber>
             <!-- Outputs -->
             <publisher name="outputs">
                 <data_writer name="Steering_writer" topic_ref="Status/SteeringDesired">
-                    <datawriter_qos base_name="DriveQosLib::Planner" />
+                    <datawriter_qos base_name="DriveParticipantQosLib::Planner" />
                 </data_writer>
                 <data_writer name="Alert_writer" topic_ref="Status/Alert">
-                    <datawriter_qos base_name="DriveQosLib::Planner" />
+                    <datawriter_qos base_name="DriveParticipantQosLib::Planner" />
                 </data_writer>
-                <publisher_qos base_name="DriveQosLib::Planner" />
+                <publisher_qos base_name="DriveParticipantQosLib::Planner" />
             </publisher>
-            <participant_qos base_name="DriveDeploymentQosLib::Planner" />
+            <participant_qos base_name="DriveParticipantQosLib::Planner" />
         </domain_participant>
 
     </domain_participant_library>

@@ -9,7 +9,7 @@
 # be bound by those terms.
 #*****************************************************************************
 # 
-# Emulate all the interfaces of the Drive service using
+# Emulate all the interfaces of the DriveParticipantLib service using
 # rtiddsprototyper with Lua to write dummy data.
 #
 # USAGE:
@@ -23,15 +23,15 @@ DOMAIN_ID=${1:-0}
 
 # Service Components to launch
 COMPONENTS=""
-COMPONENTS+=" Drive::Camera " 
-COMPONENTS+=" Drive::Lidar "
-COMPONENTS+=" Drive::Perceptor " 
-COMPONENTS+=" Drive::Planner "
-COMPONENTS+=" Drive::Actuator "
-COMPONENTS+=" Drive::HMI "
-COMPONENTS+=" Drive::CANGateway "
-COMPONENTS+=" Drive::CANComponent "
-COMPONENTS+=" Drive::Tunnel "
+COMPONENTS+=" DriveParticipantLib::Camera "
+COMPONENTS+=" DriveParticipantLib::Lidar "
+COMPONENTS+=" DriveParticipantLib::Perceptor "
+COMPONENTS+=" DriveParticipantLib::Planner "
+COMPONENTS+=" DriveParticipantLib::Actuator "
+COMPONENTS+=" DriveParticipantLib::HMI "
+COMPONENTS+=" DriveParticipantLib::CANGateway "
+COMPONENTS+=" DriveParticipantLib::CANComponent "
+COMPONENTS+=" DriveParticipantLib::Tunnel "
 
 echo "COMPONENTS = $COMPONENTS"
 

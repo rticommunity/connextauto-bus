@@ -43,16 +43,16 @@ is defined in the if/*.xml file
     </qos_library>
 
 
-    <!-- ParticipantQosLib -->
-    <qos_library name="ParticipantQosLib">
+    <!-- ShapesParticipantQosLib -->
+    <qos_library name="ShapesParticipantQosLib">
 
         <!-- Interface specific QosProfile: Pub -->
-        <qos_profile name="Shapes_Pub" base_name="DomainQosLib::Shapes" />
+        <qos_profile name="Pub" base_name="DomainQosLib::Shapes" />
 
         <!-- Interface specific QosProfile: Sub -->
-        <qos_profile name="Shapes_Sub" base_name="DomainQosLib::Shapes" />
+        <qos_profile name="Sub" base_name="DomainQosLib::Shapes" />
 
         <!-- Interface specific QosProfile: PubSub -->
-        <qos_profile name="Shapes_PubSub" base_name="DomainQosLib::Shapes" />
+        <qos_profile name="PubSub" base_name="DomainQosLib::Shapes" />
     </qos_library>
 </dds>

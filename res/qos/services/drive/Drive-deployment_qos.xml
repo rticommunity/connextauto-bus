@@ -22,63 +22,18 @@
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
-    <qos_library name="DriveQosLib">
+    <qos_library name="DomainQosLib">
         <!-- Domain wide QosProfile -->
-        <qos_profile name="_root_" base_name="DomainQosLib::_root_">
-        </qos_profile>
-
-        <!-- Camera : interface specific QosProfile -->
-        <qos_profile name="Camera" base_name="_root_">
-        </qos_profile>
-        <!-- Lidar : interface specific QosProfile -->
-        <qos_profile name="Lidar" base_name="_root_">
-        </qos_profile>
-        <!-- Perceptor : interface specific QosProfile -->
-        <qos_profile name="Perceptor" base_name="_root_">
-        </qos_profile>
-        <!-- Planner : interface specific QosProfile -->
-        <qos_profile name="Planner" base_name="_root_">
-        </qos_profile>
-        <!-- Actuator : interface specific QosProfile -->
-        <qos_profile name="Actuator" base_name="_root_">
-        </qos_profile>
-        <!-- HMI : interface specific QosProfile -->
-        <qos_profile name="HMI" base_name="_root_">
-        </qos_profile>
-        <!-- CANGateway : interface specific QosProfile -->
-        <qos_profile name="CANGateway" base_name="_root_">
-        </qos_profile>
-        <!-- CANComponent : interface specific QosProfile -->
-        <qos_profile name="CANComponent" base_name="_root_">
-        </qos_profile>
-        <!-- CANTunnel : interface specific QosProfile -->
-        <qos_profile name="CANTunnel" base_name="_root_">
+        <qos_profile name="Drive" base_name="_root_">
         </qos_profile>
     </qos_library>
 
-    <qos_library name="DriveDeploymentQosLib">
 
-        <!-- Participant specific QosProfile, common across all the components -->
-        <qos_profile name="_root_">
-            <participant_qos base_name="BuiltinQosLib::Generic.Participant.LargeData" />
-            <participant_factory_qos base_name="SnippetQosLib::Factory.Builtin" />
-        </qos_profile>
-
-
-        <!-- Example: uses  the qos profile marked as "default" -->
-        <qos_profile name="example" base_name="DriveQosLib::Camera"
-            is_default_qos="true">
-            <participant_qos base_name="BuiltinQosLib::Generic.Participant.LargeData">
-                <participant_name>
-                    <name>Example</name>
-                </participant_name>
-            </participant_qos>
-        </qos_profile>
-
+    <qos_library name="DriveParticipantQosLib">
 
         <!-- Camera : component specific QosProfile -->
-        <qos_profile name="Camera" base_name="_root_">
-            <participant_qos>
+        <qos_profile name="Camera" base_name="DomainQosLib::Drive">
+            <participant_qos base_name="BuiltinQosLib::Generic.Participant.LargeData">
                 <participant_name>
                     <name>Camera</name>
                     <role_name>Camera</role_name>
@@ -87,8 +42,8 @@
         </qos_profile>
 
         <!-- Lidar : component specific QosProfile -->
-        <qos_profile name="Lidar" base_name="_root_">
-            <participant_qos>
+        <qos_profile name="Lidar" base_name="DomainQosLib::Drive">
+            <participant_qos base_name="BuiltinQosLib::Generic.Participant.LargeData">
                 <participant_name>
                     <name>Lidar</name>
                     <role_name>Lidar</role_name>
@@ -97,8 +52,8 @@
         </qos_profile>
 
         <!-- Perceptor : component specific QosProfile -->
-        <qos_profile name="Perceptor" base_name="_root_">
-            <participant_qos>
+        <qos_profile name="Perceptor" base_name="DomainQosLib::Drive">
+            <participant_qos base_name="BuiltinQosLib::Generic.Participant.LargeData">
                 <participant_name>
                     <name>Perceptor</name>
                     <role_name>Perceptor</role_name>
@@ -107,7 +62,7 @@
         </qos_profile>
 
         <!-- Planner : component specific QosProfile -->
-        <qos_profile name="Planner" base_name="_root_">
+        <qos_profile name="Planner" base_name="DomainQosLib::Drive">
             <participant_qos>
                 <participant_name>
                     <name>Planner</name>
@@ -117,7 +72,7 @@
         </qos_profile>
 
         <!-- Actuator : component specific QosProfile -->
-        <qos_profile name="Actuator" base_name="_root_">
+        <qos_profile name="Actuator" base_name="DomainQosLib::Drive">
             <participant_qos>
                 <participant_name>
                     <name>Actuator</name>
@@ -127,7 +82,7 @@
         </qos_profile>
 
         <!-- HMI : component specific QosProfile -->
-        <qos_profile name="HMI" base_name="_root_">
+        <qos_profile name="HMI" base_name="DomainQosLib::Drive">
             <participant_qos>
                 <participant_name>
                     <name>HMI</name>
@@ -137,7 +92,7 @@
         </qos_profile>
 
         <!-- CANGateway : component specific QosProfile -->
-        <qos_profile name="CANGateway" base_name="_root_">
+        <qos_profile name="CANGateway" base_name="DomainQosLib::Drive">
             <participant_qos>
                 <participant_name>
                     <name>CAN Gateway</name>
@@ -147,7 +102,7 @@
         </qos_profile>
 
         <!-- CANComponent : component specific QosProfile -->
-        <qos_profile name="CANComponent" base_name="_root_">
+        <qos_profile name="CANComponent" base_name="DomainQosLib::Drive">
             <participant_qos>
                 <participant_name>
                     <name>CAN Component</name>
@@ -157,7 +112,7 @@
         </qos_profile>
 
         <!-- CANTunnel : component specific QosProfile -->
-        <qos_profile name="CANTunnel" base_name="_root_">
+        <qos_profile name="CANTunnel" base_name="DomainQosLib::Drive">
             <participant_qos>
                 <participant_name>
                     <name>CAN Tunnel</name>

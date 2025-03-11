@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  
+<!--
 -******************************************************************************
 - (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 -
@@ -14,31 +14,31 @@
     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
 
     <!-- Perception Service -->
-    <domain_participant_library name="Drive">
+    <domain_participant_library name="DriveParticipantLib">
 
         <!-- Perceptor interface -->
-        <domain_participant name="Perceptor" domain_ref="DriveBus::main">
+        <domain_participant name="Perceptor" domain_ref="DomainLib::Drive">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="Camera_reader" topic_ref="Stream/Camera">
-                    <datareader_qos base_name="DriveQosLib::Perceptor" />
+                    <datareader_qos base_name="DriveParticipantQosLib::Perceptor" />
                 </data_reader>
                 <data_reader name="Lidar_reader" topic_ref="Stream/Lidar">
-                    <datareader_qos base_name="DriveQosLib::Perceptor" />
+                    <datareader_qos base_name="DriveParticipantQosLib::Perceptor" />
                 </data_reader>
-                <subscriber_qos base_name="DriveQosLib::Perceptor" />
+                <subscriber_qos base_name="DriveParticipantQosLib::Perceptor" />
             </subscriber>
             <!-- Outputs -->
             <publisher name="outputs">
                 <data_writer name="Track_writer" topic_ref="Status/Track">
-                    <datawriter_qos base_name="DriveQosLib::Perceptor" />
+                    <datawriter_qos base_name="DriveParticipantQosLib::Perceptor" />
                 </data_writer>
                 <data_writer name="Lane_writer" topic_ref="Status/Lane">
-                    <datawriter_qos base_name="DriveQosLib::Perceptor" />
+                    <datawriter_qos base_name="DriveParticipantQosLib::Perceptor" />
                 </data_writer>
-                <publisher_qos base_name="DriveQosLib::Perceptor" />
+                <publisher_qos base_name="DriveParticipantQosLib::Perceptor" />
             </publisher>
-            <participant_qos base_name="DriveDeploymentQosLib::Perceptor" />
+            <participant_qos base_name="DriveParticipantQosLib::Perceptor" />
         </domain_participant>
 
     </domain_participant_library>

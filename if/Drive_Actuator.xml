@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  
+<!--
 -******************************************************************************
 - (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
 -
@@ -14,24 +14,24 @@
     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
 
     <!-- Actuation Service -->
-    <domain_participant_library name="Drive">
+    <domain_participant_library name="DriveParticipantLib">
 
         <!-- Actuator interface -->
-        <domain_participant name="Actuator" domain_ref="DriveBus::main">
+        <domain_participant name="Actuator" domain_ref="DomainLib::Drive">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="Steering_reader" topic_ref="Status/SteeringDesired">
-                    <datareader_qos base_name="DriveQosLib::Actuator" />
+                    <datareader_qos base_name="DriveParticipantQosLib::Actuator" />
                 </data_reader>
-                <subscriber_qos base_name="DriveQosLib::Actuator" />
+                <subscriber_qos base_name="DriveParticipantQosLib::Actuator" />
             </subscriber>
             <!-- Outputs -->
             <publisher name="outputs">
                 <data_writer name="Steering_writer" topic_ref="Status/SteeringActual">
-                    <datawriter_qos base_name="DriveQosLib::Actuator" />
+                    <datawriter_qos base_name="DriveParticipantQosLib::Actuator" />
                 </data_writer>
             </publisher>
-            <participant_qos base_name="DriveDeploymentQosLib::Actuator" />
+            <participant_qos base_name="DriveParticipantQosLib::Actuator" />
         </domain_participant>
 
     </domain_participant_library>

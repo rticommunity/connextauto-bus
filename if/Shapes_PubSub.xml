@@ -19,26 +19,26 @@
     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
 
     <!-- Participants : each participant defines a data-oriented interface -->
-    <domain_participant_library name="ParticipantLib">
+    <domain_participant_library name="ShapesParticipantLib">
 
         <!-- Define a data-oriented interface: "PubSub" -->
-        <domain_participant name="Shapes_PubSub" domain_ref="DomainLib::Shapes">
+        <domain_participant name="PubSub" domain_ref="DomainLib::Shapes">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="Shape_reader" topic_ref="Circle">
-                    <datareader_qos base_name="ParticipantQosLib::Shapes_PubSub" />
+                    <datareader_qos base_name="ShapesParticipantQosLib::PubSub" />
                 </data_reader>
-                <subscriber_qos base_name="ParticipantQosLib::Shapes_PubSub" />
+                <subscriber_qos base_name="ShapesParticipantQosLib::PubSub" />
             </subscriber>
 
             <!-- Outputs -->
             <publisher name="outputs">
                 <data_writer name="Shape_writer" topic_ref="Circle">
-                    <datawriter_qos base_name="ParticipantQosLib::Shapes_PubSub" />
+                    <datawriter_qos base_name="ShapesParticipantQosLib::PubSub" />
                 </data_writer>
-                <publisher_qos base_name="ParticipantQosLib::Shapes_PubSub" />
+                <publisher_qos base_name="ShapesParticipantQosLib::PubSub" />
             </publisher>
-            <participant_qos base_name="ParticipantQosLib::Shapes_PubSub" />
+            <participant_qos base_name="ShapesParticipantQosLib::PubSub" />
         </domain_participant>
 
     </domain_participant_library>
