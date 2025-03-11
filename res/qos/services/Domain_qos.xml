@@ -48,9 +48,6 @@
       </datareader_qos>
       <datareader_qos base_name="FlowQosLib::Response" topic_filter="Service/Response/*">
       </datareader_qos>
-      <!-- Catch all -->
-      <datareader_qos base_name="FlowQosLib::Stream" topic_filter="*">
-      </datareader_qos>
 
       <!-- Data Writers -->
       <datawriter_qos base_name="FlowQosLib::Stream" topic_filter="Stream/*">
@@ -72,9 +69,6 @@
       <datawriter_qos base_name="FlowQosLib::Request" topic_filter="Service/Request/*">
       </datawriter_qos>
       <datawriter_qos base_name="FlowQosLib::Response" topic_filter="Service/Response/*">
-      </datawriter_qos>
-      <!-- Catch all -->
-      <datawriter_qos base_name="FlowQosLib::Stream" topic_filter="*">
       </datawriter_qos>
     </qos_profile>
   </qos_library>
