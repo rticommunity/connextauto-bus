@@ -27,7 +27,7 @@ if [ "${DATABUSHOME}" = "" ]; then echo "DATABUSHOME Undefined!" ; return; fi
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/Domain_qos.xml"
 
 # QoS: Service Deployments
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/Drive-deployment_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/Drive-deployment_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---

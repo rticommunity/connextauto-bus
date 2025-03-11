@@ -40,17 +40,17 @@
       "builtin": false
     },
     {
+      "path": "res/qos/data/Participant_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
       "path": "res/qos/data/Flow_qos.xml",
       "readonly": false,
       "builtin": false
     },
     {
       "path": "res/qos/services/Domain_qos.xml",
-      "readonly": false,
-      "builtin": false
-    },
-    {
-      "path": "res/qos/data/Participant_qos.xml",
       "readonly": false,
       "builtin": false
     },

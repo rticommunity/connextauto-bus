@@ -40,6 +40,11 @@
       "builtin": false
     },
     {
+      "path": "res/qos/data/Participant_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
       "path": "res/qos/data/Flow_qos.xml",
       "readonly": false,
       "builtin": false
@@ -55,12 +60,7 @@
       "builtin": false
     },
     {
-      "path": "res/qos/data/Participant_qos.xml",
-      "readonly": false,
-      "builtin": false
-    },
-    {
-      "path": "res/qos/services/Shapes_qos.xml",
+      "path": "res/qos/services/shapes/Shapes_qos.xml",
       "readonly": false,
       "builtin": false
     },
@@ -85,7 +85,7 @@
       "builtin": false
     },
     {
-      "path": "res/qos/services/Drive-deployment_qos.xml",
+      "path": "res/qos/services/drive/Drive-deployment_qos.xml",
       "readonly": false,
       "builtin": false
     },
