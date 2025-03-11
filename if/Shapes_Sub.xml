@@ -20,18 +20,18 @@
     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
 
     <!-- Participants : each participant defines a data-oriented interface -->
-    <domain_participant_library name="Shapes">
+    <domain_participant_library name="ParticipantLib">
 
         <!-- Define a data-oriented interface: "Sub" -->
-        <domain_participant name="Sub" domain_ref="ShapesBus::main">
+        <domain_participant name="Shapes_Sub" domain_ref="DomainLib::Shapes">
             <!-- Inputs -->
             <subscriber name="inputs">
                 <data_reader name="Shape_reader" topic_ref="Triangle">
-                    <datareader_qos base_name="ShapesQosLib::Sub" />
+                    <datareader_qos base_name="ParticipantQosLib::Shapes_Sub" />
                 </data_reader>
-                <subscriber_qos base_name="ShapesQosLib::Sub" />
+                <subscriber_qos base_name="ParticipantQosLib::Shapes_Sub" />
             </subscriber>
-            <participant_qos base_name="ShapesQosLib::Sub" />
+            <participant_qos base_name="ParticipantQosLib::Shapes_Sub" />
         </domain_participant>
 
     </domain_participant_library>

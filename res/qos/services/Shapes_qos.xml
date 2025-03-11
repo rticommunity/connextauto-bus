@@ -24,11 +24,11 @@ is defined in the if/*.xml file
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
-    <!-- Service QosProfiles -->
-    <qos_library name="ShapesQosLib">
+    <!-- DomainQosLib -->
+    <qos_library name="DomainQosLib">
 
         <!-- Topic specific QosProfile, common across all the interfaces -->
-        <qos_profile name="_root_">
+        <qos_profile name="Shapes">
 
             <datareader_qos topic_filter="Square" base_name="FlowQosLib::Stream" />
             <datawriter_qos topic_filter="Square" base_name="FlowQosLib::Stream" />
@@ -39,19 +39,20 @@ is defined in the if/*.xml file
             <datareader_qos topic_filter="Triangle" base_name="FlowQosLib::Status" />
             <datawriter_qos topic_filter="Triangle" base_name="FlowQosLib::Status" />
 
-
-            <!-- Catch all -->
-            <datareader_qos topic_filter="*" base_name="FlowQosLib::Stream" />
-
         </qos_profile>
+    </qos_library>
+
+
+    <!-- ParticipantQosLib -->
+    <qos_library name="ParticipantQosLib">
 
         <!-- Interface specific QosProfile: Pub -->
-        <qos_profile name="Pub" base_name="_root_" />
+        <qos_profile name="Shapes_Pub" base_name="DomainQosLib::Shapes" />
 
         <!-- Interface specific QosProfile: Sub -->
-        <qos_profile name="Sub" base_name="_root_" />
+        <qos_profile name="Shapes_Sub" base_name="DomainQosLib::Shapes" />
 
         <!-- Interface specific QosProfile: PubSub -->
-        <qos_profile name="PubSub" base_name="_root_" />
+        <qos_profile name="Shapes_PubSub" base_name="DomainQosLib::Shapes" />
     </qos_library>
 </dds>

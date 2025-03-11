@@ -24,10 +24,10 @@
     </types>
 
     <!-- Databus Library -->
-    <domain_library name="ShapesBus">
+    <domain_library name="DomainLib">
 
         <!-- main databus -->
-        <domain name="main">
+        <domain name="Shapes">
             <!-- register types used by the service -->
             <register_type name="ShapeType" type_ref="dds::demo::ShapeType" />
 
