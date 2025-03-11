@@ -25,12 +25,12 @@ if [ "${DATABUSHOME}" = "" ]; then echo "DATABUSHOME Undefined!" ; return; fi
 
 # QoS: Services
 NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/Domain_qos.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/Steering_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/steering/Steering_qos.xml"
 
 # QoS: Service Deployments
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/SteeringColumn_qos.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/SteeringDisplay_qos.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/drive/env/SteeringController_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/steering/SteeringColumn_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/steering/SteeringDisplay_qos.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/steering/env/SteeringController_qos.xml"
 
 
 # --- Data-Oriented Interfaces ---

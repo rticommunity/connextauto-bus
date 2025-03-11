@@ -65,22 +65,22 @@
       "builtin": false
     },
     {
-      "path": "res/qos/services/drive/Steering_qos.xml",
+      "path": "res/qos/services/steering/Steering_qos.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "res/qos/services/drive/SteeringColumn_qos.xml",
+      "path": "res/qos/services/steering/SteeringColumn_qos.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "res/qos/services/drive/SteeringController_qos.xml",
+      "path": "res/qos/services/steering/SteeringController_qos.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "res/qos/services/drive/SteeringDisplay_qos.xml",
+      "path": "res/qos/services/steering/SteeringDisplay_qos.xml",
       "readonly": false,
       "builtin": false
     },
