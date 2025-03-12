@@ -12,30 +12,17 @@
 -->
 <!--
 -*****************************************************************************
-                        Shapes Domain QoS Profiles
-
-Defines topic specific service qos profile, common across all the interfaces
+                        Shapes Participant QoS Profiles
 -*****************************************************************************
 -->
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_qos_profiles.xsd">
 
-    <!-- DomainQosLib -->
-    <qos_library name="DomainQosLib">
+    <!-- ShapesParticipantQosLib -->
+    <qos_library name="ShapesParticipantQosLib">
 
-        <!-- Topic specific QosProfile, common across all the interfaces -->
-        <qos_profile name="Shapes">
+        <!-- Interface specific QosProfile: PubSub -->
+        <qos_profile name="PubSub" base_name="DomainQosLib::Shapes" />
 
-            <datareader_qos topic_filter="Square" base_name="FlowQosLib::Stream" />
-            <datawriter_qos topic_filter="Square" base_name="FlowQosLib::Stream" />
-
-            <datareader_qos topic_filter="Circle" base_name="FlowQosLib::Stream" />
-            <datawriter_qos topic_filter="Circle" base_name="FlowQosLib::Stream" />
-
-            <datareader_qos topic_filter="Triangle" base_name="FlowQosLib::Status" />
-            <datawriter_qos topic_filter="Triangle" base_name="FlowQosLib::Status" />
-
-        </qos_profile>
     </qos_library>
-
 </dds>

@@ -65,6 +65,21 @@
       "builtin": false
     },
     {
+      "path": "res/qos/services/shapes/Pub_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/shapes/Sub_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "res/qos/services/shapes/PubSub_qos.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
       "path": "res/qos/services/steering/Steering_qos.xml",
       "readonly": false,
       "builtin": false

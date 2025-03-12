@@ -31,7 +31,7 @@ echo "COMPONENTS = $COMPONENTS"
 
 # Launch the components emulated using Lua
 i=0
-for component in ${COMPONENTS} 
+for component in ${COMPONENTS}
 do
     echo "$component"
     $NDDSHOME/bin/rtiddsprototyper \
@@ -53,7 +53,7 @@ done
 # Kill the components
 trap "{
 i=0
-for component in ${COMPONENTS} 
+for component in ${COMPONENTS}
 do
     echo "Killing: $component, PID = ${COMPONENT_PID[$i]}"
     kill -9 ${COMPONENT_PID[$i]}
