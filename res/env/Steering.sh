@@ -37,6 +37,9 @@ NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/steering/env/SteeringControll
 
 # Data Interfaces
 NDDS_QOS_PROFILES+=";$DATABUSHOME/if/Steering.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/SteeringColumn.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/SteeringController.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/SteeringDisplay.xml"
 
 # --- Show Environment ---
 echo NDDS_QOS_PROFILES=$NDDS_QOS_PROFILES

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 -******************************************************************************
-- (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+- (C) Copyright 2020-2025 Real-Time Innovations, Inc.  All rights reserved.
 -
 - The use of this software is governed by the terms specified in the
 - RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
@@ -19,67 +19,16 @@
 
   <domain_library name="DomainLib">
     <domain name="Steering">
+
       <register_type name="dds::actuation::SteeringDesired"
         type_ref="dds::actuation::SteeringDesired" />
+
       <register_type name="dds::actuation::SteeringActual" type_ref="dds::actuation::SteeringActual" />
+
       <topic name="Command/SteeringGoal" register_type_ref="dds::actuation::SteeringDesired" />
+
       <topic name="Status/SteeringStatus" register_type_ref="dds::actuation::SteeringActual" />
     </domain>
   </domain_library>
-
-  <domain_participant_library name="SteeringParticipantLib">
-    <domain_participant name="SteeringController" domain_ref="DomainLib::Steering">
-      <publisher name="outputs">
-        <data_writer name="Steering_writer" topic_ref="Command/SteeringGoal">
-          <datawriter_qos base_name="SteeringParticipantQosLib::SteeringController">
-          </datawriter_qos>
-        </data_writer>
-        <publisher_qos base_name="SteeringParticipantQosLib::SteeringController">
-        </publisher_qos>
-      </publisher>
-      <subscriber name="inputs">
-        <data_reader name="Steering_reader" topic_ref="Status/SteeringStatus">
-          <datareader_qos base_name="SteeringParticipantQosLib::SteeringController">
-          </datareader_qos>
-        </data_reader>
-        <subscriber_qos base_name="SteeringParticipantQosLib::SteeringController">
-        </subscriber_qos>
-      </subscriber>
-      <domain_participant_qos base_name="SteeringParticipantQosLib::SteeringController">
-      </domain_participant_qos>
-    </domain_participant>
-    <domain_participant name="SteeringColumn" domain_ref="DomainLib::Steering">
-      <publisher name="outputs">
-        <data_writer name="Steering_writer" topic_ref="Status/SteeringStatus">
-          <datawriter_qos base_name="SteeringParticipantQosLib::SteeringColumn">
-          </datawriter_qos>
-        </data_writer>
-        <publisher_qos base_name="SteeringParticipantQosLib::SteeringColumn">
-        </publisher_qos>
-      </publisher>
-      <subscriber name="inputs">
-        <data_reader name="Steering_reader" topic_ref="Command/SteeringGoal">
-          <datareader_qos base_name="SteeringParticipantQosLib::SteeringColumn">
-          </datareader_qos>
-        </data_reader>
-        <subscriber_qos base_name="SteeringParticipantQosLib::SteeringColumn">
-        </subscriber_qos>
-      </subscriber>
-      <domain_participant_qos base_name="SteeringParticipantQosLib::SteeringColumn">
-      </domain_participant_qos>
-    </domain_participant>
-    <domain_participant name="SteeringDisplay" domain_ref="DomainLib::Steering">
-      <subscriber name="inputs">
-        <data_reader name="Steering_reader" topic_ref="Status/SteeringStatus">
-          <datareader_qos base_name="SteeringParticipantQosLib::SteeringDisplay">
-          </datareader_qos>
-        </data_reader>
-        <subscriber_qos base_name="SteeringParticipantQosLib::SteeringDisplay">
-        </subscriber_qos>
-      </subscriber>
-      <domain_participant_qos base_name="SteeringParticipantQosLib::SteeringDisplay">
-      </domain_participant_qos>
-    </domain_participant>
-  </domain_participant_library>
 
 </dds>

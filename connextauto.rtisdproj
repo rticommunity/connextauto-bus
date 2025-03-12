@@ -275,6 +275,21 @@
       "builtin": false
     },
     {
+      "path": "if/SteeringColumn.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/SteeringController.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/SteeringDisplay.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
       "path": "if/Drive.xml",
       "readonly": false,
       "builtin": false

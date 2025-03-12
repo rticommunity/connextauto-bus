@@ -83,6 +83,21 @@
       "path": "if/Steering.xml",
       "readonly": false,
       "builtin": false
+    },
+    {
+      "path": "if/SteeringColumn.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/SteeringController.xml",
+      "readonly": false,
+      "builtin": false
+    },
+    {
+      "path": "if/SteeringDisplay.xml",
+      "readonly": false,
+      "builtin": false
     }
   ],
   "ui_projectGUID": "dd5da8dd-1eb8-8331-d38c-bafa15ea3a2d"

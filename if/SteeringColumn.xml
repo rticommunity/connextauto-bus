@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+-******************************************************************************
+- (C) Copyright 2020-2022 Real-Time Innovations, Inc.  All rights reserved.
+-
+- The use of this software is governed by the terms specified in the
+- RTI Labs License Agreement, available at https://www.rti.com/terms/RTILabs.
+-
+- By accessing, downloading, or otherwise using this software, you agree to
+- be bound by those terms.
+-*****************************************************************************
+-->
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.3.0/rti_dds_profiles.xsd">
+
+  <domain_participant_library name="SteeringParticipantLib">
+    <domain_participant name="SteeringColumn" domain_ref="DomainLib::Steering">
+      <publisher name="outputs">
+        <data_writer name="Steering_writer" topic_ref="Status/SteeringStatus">
+          <datawriter_qos base_name="SteeringParticipantQosLib::SteeringColumn">
+          </datawriter_qos>
+        </data_writer>
+        <publisher_qos base_name="SteeringParticipantQosLib::SteeringColumn">
+        </publisher_qos>
+      </publisher>
+      <subscriber name="inputs">
+        <data_reader name="Steering_reader" topic_ref="Command/SteeringGoal">
+          <datareader_qos base_name="SteeringParticipantQosLib::SteeringColumn">
+          </datareader_qos>
+        </data_reader>
+        <subscriber_qos base_name="SteeringParticipantQosLib::SteeringColumn">
+        </subscriber_qos>
+      </subscriber>
+      <domain_participant_qos base_name="SteeringParticipantQosLib::SteeringColumn">
+      </domain_participant_qos>
+    </domain_participant>
+  </domain_participant_library>
+
+</dds>
