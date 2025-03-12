@@ -250,92 +250,92 @@
       "builtin": false
     },
     {
-      "path": "if/Shapes.xml",
+      "path": "if/shapes/Shapes.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Shapes_Pub.xml",
+      "path": "if/shapes/Shapes_Pub.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Shapes_Sub.xml",
+      "path": "if/shapes/Shapes_Sub.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Shapes_PubSub.xml",
+      "path": "if/shapes/Shapes_PubSub.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Steering.xml",
+      "path": "if/steering/Steering.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/SteeringColumn.xml",
+      "path": "if/steering/SteeringColumn.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/SteeringController.xml",
+      "path": "if/steering/SteeringController.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/SteeringDisplay.xml",
+      "path": "if/steering/SteeringDisplay.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Drive.xml",
+      "path": "if/drive/Drive.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Drive_Camera.xml",
+      "path": "if/drive/Drive_Camera.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Drive_HMI.xml",
+      "path": "if/drive/Drive_HMI.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Drive_Lidar.xml",
+      "path": "if/drive/Drive_Lidar.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Drive_Perceptor.xml",
+      "path": "if/drive/Drive_Perceptor.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/Drive_Planner.xml",
+      "path": "if/drive/Drive_Planner.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/CAN.xml",
+      "path": "if/CAN/CAN.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/CANTunnel.xml",
+      "path": "if/CAN/CANTunnel.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/CANGateway.xml",
+      "path": "if/CAN/CANGateway.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/CANComponent.xml",
+      "path": "if/CAN/CANComponent.xml",
       "readonly": false,
       "builtin": false
     }

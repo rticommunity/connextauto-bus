@@ -36,10 +36,10 @@ NDDS_QOS_PROFILES+=";$DATABUSHOME/res/qos/services/CAN/CANComponent_qos.xml"
 # --- Data-Oriented Interfaces ---
 
 # Data Interfaces
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CAN.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CANTunnel.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CANGateway.xml"
-NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CANComponent.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CAN/CAN.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CAN/CANTunnel.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CAN/CANGateway.xml"
+NDDS_QOS_PROFILES+=";$DATABUSHOME/if/CAN/CANComponent.xml"
 
 # --- Show Environment ---
 echo NDDS_QOS_PROFILES=$NDDS_QOS_PROFILES

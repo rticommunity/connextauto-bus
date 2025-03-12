@@ -80,22 +80,22 @@
       "builtin": false
     },
     {
-      "path": "if/Steering.xml",
+      "path": "if/steering/Steering.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/SteeringColumn.xml",
+      "path": "if/steering/SteeringColumn.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/SteeringController.xml",
+      "path": "if/steering/SteeringController.xml",
       "readonly": false,
       "builtin": false
     },
     {
-      "path": "if/SteeringDisplay.xml",
+      "path": "if/steering/SteeringDisplay.xml",
       "readonly": false,
       "builtin": false
     }
