@@ -386,7 +386,73 @@
             </datawriter_qos>
         </qos_profile>
 
-        <qos_profile name="Liveliness.Requested.300ms">
+        <qos_profile name="Liveliness.Automatic">
+            <datawriter_qos>
+                <liveliness><!-- default -->
+                    <kind>AUTOMATIC_LIVELINESS_QOS</kind>
+                </liveliness>
+            </datawriter_qos>
+            <datareader_qos>
+                <liveliness><!-- default -->
+                    <kind>AUTOMATIC_LIVELINESS_QOS</kind>
+                </liveliness>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="Liveliness.Manual.Participant">
+            <datawriter_qos>
+                <liveliness>
+                    <kind>MANUAL_BY_PARTICIPANT_LIVELINESS_QOS</kind>
+                </liveliness>
+            </datawriter_qos>
+            <datareader_qos>
+                <liveliness>
+                    <kind>MANUAL_BY_PARTICIPANT_LIVELINESS_QOS</kind>
+                </liveliness>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="Liveliness.Manual.Topic">
+            <datawriter_qos>
+                <liveliness>
+                    <kind>MANUAL_BY_TOPIC_LIVELINESS_QOS</kind>
+                </liveliness>
+            </datawriter_qos>
+            <datareader_qos>
+                <liveliness>
+                    <kind>MANUAL_BY_TOPIC_LIVELINESS_QOS</kind>
+                </liveliness>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="Liveliness.Lease.100ms">
+            <datawriter_qos>
+                <liveliness>
+                    <lease_duration>
+                        <sec>DURATION_ZERO_SEC</sec>
+                        <nanosec>100000000<!--100ms--></nanosec>
+                    </lease_duration>
+                </liveliness>
+            </datawriter_qos>
+            <datareader_qos>
+                <liveliness>
+                    <lease_duration>
+                        <sec>DURATION_ZERO_SEC</sec>
+                        <nanosec>100000000<!--100ms--></nanosec>
+                    </lease_duration>
+                </liveliness>
+            </datareader_qos>
+        </qos_profile>
+
+        <qos_profile name="Liveliness.Lease.300ms">
+            <datawriter_qos>
+                <liveliness>
+                    <lease_duration>
+                        <sec>DURATION_ZERO_SEC</sec>
+                        <nanosec>300000000<!--300ms--></nanosec>
+                    </lease_duration>
+                </liveliness>
+            </datawriter_qos>
             <datareader_qos>
                 <liveliness>
                     <lease_duration>
@@ -395,17 +461,6 @@
                     </lease_duration>
                 </liveliness>
             </datareader_qos>
-        </qos_profile>
-
-        <qos_profile name="Liveliness.Offered.150ms">
-            <datawriter_qos>
-                <liveliness>
-                    <lease_duration>
-                        <sec>DURATION_ZERO_SEC</sec>
-                        <nanosec>150000000<!--150ms--></nanosec>
-                    </lease_duration>
-                </liveliness>
-            </datawriter_qos>
         </qos_profile>
 
         <qos_profile name="Heartbeat.Periodic.100ms">

@@ -25,15 +25,14 @@ Defines topic specific service qos profile, common across all the interfaces
 
     <!-- Topic specific QosProfile, common across all the interfaces -->
     <qos_profile name="Steering" base_name="_root_">
-
       <datareader_qos topic_filter="Command/SteeringGoal">
         <base_name>
-          <element>SnippetQosLib::Liveliness.Requested.300ms</element>
+          <element>SnippetQosLib::Liveliness.Lease.100ms</element>
         </base_name>
       </datareader_qos>
       <datawriter_qos topic_filter="Command/SteeringGoal">
         <base_name>
-          <element>SnippetQosLib::Liveliness.Offered.150ms</element>
+          <element>SnippetQosLib::Liveliness.Lease.100ms</element>
           <element>SnippetQosLib::Heartbeat.Periodic.100ms</element>
           <element>SnippetQosLib::Ownership.Strength.1</element>
         </base_name>
