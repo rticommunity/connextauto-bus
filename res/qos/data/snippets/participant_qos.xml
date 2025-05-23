@@ -46,13 +46,20 @@
             <participant_qos>
                 <transport_builtin>
                     <mask>SHMEM</mask>
+                </transport_builtin>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Transport.SHMEM.Buffer.60MB">
+            <participant_qos>
+                <transport_builtin>
                     <shmem>
-                        <message_size_max> 65536 <!-- Alternate: 4MB+1KB, default: 65536 -->
-                        </message_size_max>
-                        <received_message_count_max> 1024 <!-- default: 64 -->
-                        </received_message_count_max>
-                        <receive_buffer_size> 60000000 <!-- 60MB, default: 1048576 ~ 1MB -->
-                        </receive_buffer_size>
+                        <!-- Alternate: 4MB+1KB, default: 65536 -->
+                        <!-- <message_size_max> 65536 </message_size_max> -->
+                        <!-- default: 64 -->
+                        <received_message_count_max> 1024 </received_message_count_max>
+                        <!-- 60MB, default: 1048576 ~ 1MB -->
+                        <receive_buffer_size> 60000000 </receive_buffer_size>
                     </shmem>
                 </transport_builtin>
             </participant_qos>
@@ -62,27 +69,7 @@
             <participant_qos>
                 <transport_builtin>
                     <mask>UDPv4</mask>
-                    <udpv4>
-                        <send_socket_buffer_size> 1000000 <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
-                        </send_socket_buffer_size>
-                        <recv_socket_buffer_size> 2000000 <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
-                        </recv_socket_buffer_size>
-                    </udpv4>
                 </transport_builtin>
-            </participant_qos>
-        </qos_profile>
-
-        <qos_profile name="Transport.UDPv4.Loopback">
-            <participant_qos>
-                <property>
-                    <value>
-                        <!-- restrict udp to localhost (loopback only) -->
-                        <element>
-                            <name>dds.transport.UDPv4.builtin.parent.allow_interfaces</name>
-                            <value>lo*</value>
-                        </element>
-                    </value>
-                </property>
             </participant_qos>
         </qos_profile>
 
@@ -90,11 +77,42 @@
             <participant_qos>
                 <transport_builtin>
                     <mask>UDPv6</mask>
+                </transport_builtin>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Transport.UDP.SocketBuffer.1MB.2MB">
+            <participant_qos>
+                <transport_builtin>
+                    <udpv4>
+                        <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
+                        <send_socket_buffer_size> 1000000 </send_socket_buffer_size>
+                        <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
+                        <recv_socket_buffer_size> 2000000 </recv_socket_buffer_size>
+                    </udpv4>
                     <udpv6>
-                        <send_socket_buffer_size> 1000000 <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
-                        </send_socket_buffer_size>
-                        <recv_socket_buffer_size> 2000000 <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
-                        </recv_socket_buffer_size>
+                        <!-- 1000000 = 1MB, default: 131072 ~ 131KB -->
+                        <send_socket_buffer_size> 1000000 </send_socket_buffer_size>
+                        <!-- 2000000 = 2MB, default: 131072 ~ 131KB -->
+                        <recv_socket_buffer_size> 2000000 </recv_socket_buffer_size>
+                    </udpv6>
+                </transport_builtin>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Transport.UDP.Loopback">
+            <participant_qos>
+                <!-- restrict udp to localhost (loopback only) -->
+                <transport_builtin>
+                    <udpv4>
+                        <allow_interfaces_list>
+                            <element>lo*</element>
+                        </allow_interfaces_list>
+                    </udpv4>
+                    <udpv6>
+                        <allow_interfaces_list>
+                            <element>lo*</element>
+                        </allow_interfaces_list>
                     </udpv6>
                 </transport_builtin>
             </participant_qos>
@@ -116,6 +134,14 @@
             <participant_qos>
                 <discovery>
                     <accept_unknown_peers>false</accept_unknown_peers>
+                </discovery>
+            </participant_qos>
+        </qos_profile>
+
+        <qos_profile name="Discovery.Multicast.None">
+            <participant_qos>
+                <discovery>
+                    <multicast_receive_addresses />
                 </discovery>
             </participant_qos>
         </qos_profile>
@@ -194,10 +220,12 @@
             <!-- N -->
             <participant_qos>
                 <wire_protocol>
-                    <rtps_app_id> 1 <!-- N -->
-                    </rtps_app_id>
-                    <participant_id> 1 <!-- N -->
-                    </participant_id>
+
+                    <!-- N -->
+                    <rtps_app_id> 1 </rtps_app_id>
+
+                    <!-- N -->
+                    <participant_id> 1 </participant_id>
                 </wire_protocol>
             </participant_qos>
         </qos_profile>
