@@ -20,14 +20,14 @@
   <domain_library name="DomainLib">
     <domain name="Steering">
 
-      <register_type name="dds::actuation::SteeringDesired"
-        type_ref="dds::actuation::SteeringDesired" />
+      <register_type name="rti::actuation::SteeringDesired"
+        type_ref="rti::actuation::SteeringDesired" />
 
-      <register_type name="dds::actuation::SteeringActual" type_ref="dds::actuation::SteeringActual" />
+      <register_type name="rti::actuation::SteeringActual" type_ref="rti::actuation::SteeringActual" />
 
-      <topic name="Command/SteeringGoal" register_type_ref="dds::actuation::SteeringDesired" />
+      <topic name="Command/SteeringGoal" register_type_ref="rti::actuation::SteeringDesired" />
 
-      <topic name="Status/SteeringStatus" register_type_ref="dds::actuation::SteeringActual" />
+      <topic name="Status/SteeringStatus" register_type_ref="rti::actuation::SteeringActual" />
     </domain>
   </domain_library>
 

@@ -11,7 +11,7 @@ be bound by those terms.
 #ifndef INDICATOR_IDL
 #define INDICATOR_IDL
 
-module dds {
+module rti {
     module actuation {
 
         /**
